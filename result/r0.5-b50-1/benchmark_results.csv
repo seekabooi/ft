@@ -1,0 +1,6 @@
+dataset,predictions,RMSE,MAE,sMAPE,MASE
+melbourne_temp,1775,2.8963,2.2675,48.1372,0.8931
+airline_passengers,22,34.639,30.5,26.3071,2.3207
+champagne_sales,2,1159.2351,1155.0,48.9656,0.8585
+gold_price,1283,15.309,11.1398,1.7548,1.1691
+sunspots,1360,18.5654,13.0148,,0.8611

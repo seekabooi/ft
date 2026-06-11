@@ -1,0 +1,4 @@
+{"event": "llm_raw_response", "content": "```json\n{\n  \"skill_weights\": {\n    \"chunk_ensemble\": 0.8500000000,\n    \"residual_correction_advanced\": 0.1500000000\n  }\n}\n```"}
+{"event": "llm_raw_response", "content": "```json\n{\n    \"skill_weights\": {\n        \"prophet\": 0.7000000000,\n        \"chunk_ensemble\": 0.3000000000\n    }\n}\n```"}
+{"event": "llm_raw_response", "content": "```json\n{\n  \"skill_weights\": {\n    \"chunk_ensemble\": 0.8000000000,\n    \"multi_resolution\": 0.1500000000,\n    \"residual_correction_advanced\": 0.0500000000\n  }\n}\n```"}
+{"event": "llm_raw_response", "content": "```json\n{\n  \"skill_weights\": {\n    \"chunk_ensemble\": 0.7000000000,\n    \"calendar\": 0.3000000000\n  }\n}\n```"}

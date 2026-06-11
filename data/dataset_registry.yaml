@@ -1,0 +1,111 @@
+datasets:
+  # ========== 本地静态数据集（5个） ==========
+  - id: melbourne_temp
+    name: "墨尔本每日最低气温"
+    domain: "weather"
+    frequency: "daily"
+    mode: "static"
+    source:
+      type: "file"
+      class: "FileDataSource"
+      params:
+        path: "data/weather/daily-min-temperatures.parquet"
+    target_column: "Temp"
+    resolution_delay_days: 1
+    volatility_window: 30
+    templates:
+      - id: temp_tomorrow
+        type: "numerical"
+        question_template: "预测墨尔本明天({date})的最低气温(℃)"
+        variables: ["date"]
+        horizon: 1
+        answer_extraction: "从文件读取{date}的Temp"
+        difficulty: 2
+
+  - id: airline_passengers
+    name: "每月航空乘客数"
+    domain: "transport"
+    frequency: "monthly"
+    mode: "static"
+    source:
+      type: "file"
+      class: "FileDataSource"
+      params:
+        path: "data/transport/airline-passengers.parquet"
+    target_column: "Passengers"
+    resolution_delay_days: 1
+    volatility_window: 12
+    templates:
+      - id: passengers_next_month
+        type: "numerical"
+        question_template: "预测下个月({date})的航空乘客数"
+        variables: ["date"]
+        horizon: 1
+        answer_extraction: "从文件读取{date}的Passengers"
+        difficulty: 2
+
+  - id: champagne_sales
+    name: "每月香槟销量"
+    domain: "sales"
+    frequency: "monthly"
+    mode: "static"
+    source:
+      type: "file"
+      class: "FileDataSource"
+      params:
+        path: "data/sales/monthly-champagne-sales.parquet"
+    target_column: "Sales"
+    resolution_delay_days: 1
+    volatility_window: 12
+    templates:
+      - id: sales_next_month
+        type: "numerical"
+        question_template: "预测下个月({date})的香槟销量"
+        variables: ["date"]
+        horizon: 1
+        answer_extraction: "从文件读取{date}的Sales"
+        difficulty: 2
+
+  - id: gold_price
+    name: "每日黄金价格"
+    domain: "finance"
+    frequency: "daily"
+    mode: "static"
+    source:
+      type: "file"
+      class: "FileDataSource"
+      params:
+        path: "data/finance/daily-gold-price.parquet"
+    target_column: "Price"
+    resolution_delay_days: 1
+    volatility_window: 30
+    templates:
+      - id: price_next_day
+        type: "numerical"
+        question_template: "预测明天({date})的黄金价格(USD)"
+        variables: ["date"]
+        horizon: 1
+        answer_extraction: "从文件读取{date}的Price"
+        difficulty: 2
+
+  - id: sunspots
+    name: "每月太阳黑子数"
+    domain: "nature"
+    frequency: "monthly"
+    mode: "static"
+    source:
+      type: "file"
+      class: "FileDataSource"
+      params:
+        path: "data/nature/monthly-sunspots.parquet"
+    target_column: "Sunspots"
+    resolution_delay_days: 1
+    volatility_window: 12
+    templates:
+      - id: sunspots_next_month
+        type: "numerical"
+        question_template: "预测下个月({date})的太阳黑子数"
+        variables: ["date"]
+        horizon: 1
+        answer_extraction: "从文件读取{date}的Sunspots"
+        difficulty: 3

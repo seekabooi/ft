@@ -1,0 +1,6 @@
+{"event": "llm_raw_response", "content": "```json\n{\n  \"skill_weights\": {\n    \"chunk_ensemble\": 0.6000000000,\n    \"residual_correction_advanced\": 0.3000000000,\n    \"calendar\": 0.1000000000\n  },\n  \"replan_interval\": 3\n}\n```"}
+{"event": "weighted_error", "skill": "calendar", "error": "Cannot calculate a linear regression if all x values are identical"}
+{"event": "weighted_error", "skill": "calendar", "error": "boolean index did not match indexed array along axis 0; size of axis is 601 but size of corresponding boolean axis is 600"}
+{"event": "weighted_error", "skill": "calendar", "error": "boolean index did not match indexed array along axis 0; size of axis is 602 but size of corresponding boolean axis is 600"}
+{"event": "llm_raw_response", "content": "```json\n{\n  \"skill_weights\": {\n    \"chunk_ensemble\": 0.6000000000,\n    \"residual_correction_advanced\": 0.2500000000,\n    \"detrender\": 0.1500000000\n  },\n  \"replan_interval\": 3\n}\n```"}
+{"event": "llm_raw_response", "content": "```json\n{\n    \"skill_weights\": {\n        \"chunk_ensemble\": 0.6000000000,\n        \"residual_correction_advanced\": 0.3000000000,\n        \"detrender\": 0.1000000000\n    },\n    \"replan_interval\": 3\n}\n```"}
