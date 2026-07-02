@@ -1,0 +1,62 @@
+{
+  "window_id": 256,
+  "origin": 2550,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_256.pkl",
+  "best_strategy": {
+    "name": "Progressive Refinement Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.6,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.5,
+          "multi_resolution": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.55,
+          "auto_arima": 0.3,
+          "incremental_gbm": 0.15
+        }
+      }
+    ],
+    "description": "Strategy starting with simple drift methods, progressively incorporating seasonal and advanced forecasting techniques."
+  },
+  "best_mase": 0.629441,
+  "features": {
+    "trend_strength": 0.191167,
+    "seasonal_strength": 0.132288,
+    "adf_pvalue": 0.297187,
+    "data_length": 600.0,
+    "skewness": -0.007054,
+    "cv": 0.352869,
+    "local_slope_30": 0.044093,
+    "local_std_ratio_30": 0.486419,
+    "local_change_rate_30": -0.083333,
+    "local_mean_ratio_30": 0.561966,
+    "local_slope_120": -0.0536,
+    "local_std_ratio_120": 0.77481,
+    "local_change_rate_120": -0.3125,
+    "local_mean_ratio_120": 0.682286
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 20:49:15"
+}

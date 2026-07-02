@@ -1,0 +1,61 @@
+{
+  "window_id": 187,
+  "origin": 1860,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_187.pkl",
+  "best_strategy": {
+    "name": "Local Structure Adaptive Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "local_drift": 0.7,
+          "naive_drift": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "chunk_ensemble": 0.45,
+          "stl_decompose": 0.35,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "adaptive_weighted_ensemble": 0.4
+        }
+      }
+    ],
+    "description": "Strategy leveraging local drift for short-term, chunk ensemble for mid-term, and bias-corrected methods for long-term prediction."
+  },
+  "best_mase": 0.790987,
+  "features": {
+    "trend_strength": 0.140554,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.046961,
+    "data_length": 600.0,
+    "skewness": 0.212667,
+    "cv": 0.348214,
+    "local_slope_30": 0.261513,
+    "local_std_ratio_30": 0.93676,
+    "local_change_rate_30": 0.979381,
+    "local_mean_ratio_30": 0.875038,
+    "local_slope_120": 0.019523,
+    "local_std_ratio_120": 0.772929,
+    "local_change_rate_120": 1.461538,
+    "local_mean_ratio_120": 0.753398
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-28 12:20:44"
+}

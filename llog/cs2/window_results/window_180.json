@@ -1,0 +1,61 @@
+{
+  "window_id": 180,
+  "origin": 1790,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_180.pkl",
+  "best_strategy": {
+    "name": "Hybrid Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "detrender": 0.6,
+          "seasonal_extractor": 0.4
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.35,
+          "ets": 0.3,
+          "residual_correction": 0.35
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.5,
+          "calendar": 0.3,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Strategy focusing on decomposition, trend correction, and calendar-aware forecasting with adaptive ensembling."
+  },
+  "best_mase": 0.825269,
+  "features": {
+    "trend_strength": 0.174283,
+    "seasonal_strength": 0.022669,
+    "adf_pvalue": 0.105284,
+    "data_length": 600.0,
+    "skewness": -0.055137,
+    "cv": 0.323312,
+    "local_slope_30": -0.117197,
+    "local_std_ratio_30": 0.689561,
+    "local_change_rate_30": -0.210084,
+    "local_mean_ratio_30": 0.639918,
+    "local_slope_120": -0.063501,
+    "local_std_ratio_120": 0.956663,
+    "local_change_rate_120": -0.276923,
+    "local_mean_ratio_120": 0.867194
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 22:24:50"
+}

@@ -1,0 +1,1502 @@
+{
+  "1": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.3,
+          "local_drift": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "2": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "3": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "4": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "5": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: short-term naive/seasonal focus, mid-term exponential smoothing, and long-term Prophet integration"
+  },
+  "6": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "prophet": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on observed periodicity and trend strength."
+  },
+  "7": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "8": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical methods for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "9": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "10": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "11": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns, trend adjustments, and residual corrections across three phases"
+  },
+  "12": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting"
+  },
+  "13": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting"
+  },
+  "14": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "16": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "15": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on observed periodicity and local trends"
+  },
+  "17": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "18": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "19": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "20": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "21": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "prophet": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "22": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "23": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on local patterns"
+  },
+  "24": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns, trend adjustments, and residual corrections across three phases"
+  },
+  "25": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "27": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on observed patterns"
+  },
+  "28": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on local patterns"
+  },
+  "29": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns, trend adjustments, and residual corrections across three adaptive stages."
+  },
+  "30": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns with adaptive drift correction"
+  },
+  "31": {
+    "name": "自适应周期-趋势分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "adaptive_weighted_ensemble": 0.4,
+          "residual_correction_advanced": 0.2
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态调整的混合预测策略"
+  },
+  "32": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "fourier": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "26": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "prophet": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on local patterns"
+  },
+  "33": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "34": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns, trend adjustments, and residual corrections across three phases"
+  },
+  "35": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on local patterns"
+  },
+  "36": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "37": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns, trend adjustments, and residual corrections across three phases"
+  },
+  "38": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "39": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "adaptive_weighted_ensemble": 0.4,
+          "calendar": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns with adaptive ensembles, tailored for moderate trend strength and periodicity."
+  },
+  "40": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "prophet": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weights based on local patterns"
+  },
+  "41": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weights based on local patterns"
+  },
+  "42": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "prophet": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on local patterns and periodicity."
+  },
+  "43": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal patterns, trend adjustments, and residual corrections across three adaptive stages."
+  },
+  "44": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "calendar": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "45": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical methods for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "46": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting based on local patterns."
+  },
+  "47": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "48": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages: initial short-term focus on naive methods, mid-term seasonal adjustment, and long-term ensemble forecasting."
+  },
+  "49": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods with adaptive weighting"
+  },
+  "50": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "theta": 0.35,
+          "stl_decompose": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal, trend, and residual methods based on local patterns"
+  }
+}

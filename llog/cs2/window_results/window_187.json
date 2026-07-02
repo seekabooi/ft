@@ -1,0 +1,59 @@
+{
+  "window_id": 187,
+  "origin": 1860,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_187.pkl",
+  "best_strategy": {
+    "name": "Progressive Structural Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.6,
+          "seasonal_extractor": 0.4
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "trend_forecaster": 0.45,
+          "seasonal_forecaster": 0.35,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "residual_correction_advanced": 1.0
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.6,
+          "multi_resolution": 0.4
+        }
+      }
+    ],
+    "description": "Stage-wise decomposition strategy focusing on progressive structural refinement"
+  },
+  "best_mase": 1.112098,
+  "features": {
+    "trend_strength": 0.140554,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.046961,
+    "data_length": 600.0,
+    "skewness": 0.212667,
+    "cv": 0.348214,
+    "local_slope_30": 0.261513,
+    "local_std_ratio_30": 0.93676,
+    "local_change_rate_30": 0.979381,
+    "local_mean_ratio_30": 0.875038,
+    "local_slope_120": 0.019523,
+    "local_std_ratio_120": 0.772929,
+    "local_change_rate_120": 1.461538,
+    "local_mean_ratio_120": 0.753398
+  },
+  "is_trouble": true,
+  "saved_at": "2026-07-01 02:05:19"
+}

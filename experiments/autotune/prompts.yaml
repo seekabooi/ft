@@ -1,0 +1,255 @@
+# experiments/autotune/prompts.yaml
+# 所有提示词模板固化在此，内容与旧版完全一致，仅优化了格式
+# ★ ★ 2026-06-27 强化 build_strategy_generation_prompt 中的技能名称约束（其他内容不变）
+
+build_prompt: |
+  你是时间序列预测专家。请根据以下特征决定最佳预测方案，使用 1~5 个技能加权组合。
+
+  序列特征：
+  - 长度:{{data_len}}，季节强度:{{seas}}，趋势强度:{{trend}}，周期:{{period}}
+  - 平稳性(ADF p-value):{{adf_pvalue}} (越小越平稳)
+  - 差分后平稳性(1阶差分 ADF):{{diff_adf_pvalue}}
+  - 缺失率:{{missing_rate}}
+  - 近期波动比(最近5点/整体):{{recent_volatility}}
+  - 局部斜率:{{local_slope}}，突变:{{change_detected}}
+  - 自相关峰值 lag:{{acf_peak_lag}}，年自相关(365):{{acf_365}}
+  - 样本熵(复杂度):{{sample_entropy}}，频谱熵:{{spectral_entropy}}
+  - 主频(FFT峰值):{{fft_peak_freq}} (0~0.5，高频表示短期波动)
+  - 近期5点均值:{{win_mean}}，波动:{{win_std}}，走势:{{win_trend}}
+  - 最近10点: {{recent_str}}
+  {{date_info}}
+  {{rule_hint}}
+  候选技能对比：
+  {{skill_info}}
+  {{error_hint}}{{season_hint}}{{calendar_hint}}{{precision_hint}}{{performance_hint}}
+  {{long_hint}}
+
+  要求：
+  1. 输出 JSON 格式，包含以下字段：
+     - "skill_weights": 技能名称到权重的字典，权重【小数且十位有效数字】，总和为1
+     - "replan_interval": 整数 (1~5)
+     - "reasoning": 简短的中文推理（20字以内）
+     - "relation_to_reference": ★ 必须为 "completely_different"
+  2. 权重示例：0.723676675, 0.1566867, 0.06568898（不要输出 0.6000000000）
+  3. 输出示例：
+     {
+       "skill_weights": {"multi_resolution": 0.7235, "calendar": 0.1867, "naive": 0.0898},
+       "replan_interval": 3,
+       "reasoning": "长序列强季节，主用多分辨率",
+       "relation_to_reference": "completely_different"
+     }
+  4. 不要输出任何解释。
+
+build_preprocess_prompt: |
+  你是时序数据预处理专家。请根据以下数据特征，选择最合适的预处理方法。
+
+  数据特征：
+  - 偏度 (Skewness): {{skewness}} (|>1| 表示严重偏斜，建议 Box-Cox)
+  - 变异系数 (CV = std/mean): {{cv}} (>0.5 表示量级差异大，建议 Z-score)
+  - 趋势强度: {{trend_strength}} (>0.6 建议线性去趋势)
+  - 最小值: {{min_value}} (<=0 则不能使用 Box-Cox)
+  - ADF p-value: {{adf_pvalue}} (>0.05 非平稳)
+
+  可选预处理方法（只选一个）：
+  1. identity_pre: 原始数据直接输入
+  2. zscore_normalize: 标准化 (x-μ)/σ
+  3. linear_detrend: 线性去趋势
+  4. boxcox_transform: Box-Cox幂变换 (需数据全为正)
+
+  输出 JSON 格式: {"preprocess": "方法名"}
+  不要输出任何解释。
+
+build_post_enhance_prompt: |
+  你是时序预测后处理专家。当前主干模型已生成预测，请决定是否需要增强修正。
+
+  残差诊断指标（基于验证集）：
+  - 残差 lag-1 自相关: {{acf1}} (若 >0.3，说明残差有规律，建议启用残差修正)
+  - 近期残差方差比 (最近10点/全部): {{var_ratio}} (若 >2.0，近期误差增大，建议启用)
+  - 预测长度: {{horizon}} (若 >50，不建议长期残差外推)
+
+  可选后处理增强（只选一个）：
+  1. enhance_identity: 不做任何修正 (推荐用于残差为白噪声)
+  2. residual_ar: AR(1)残差修正 (推荐用于残差有短期自相关)
+  3. quantile_calibration: 分位数校准 (推荐用于存在系统偏差)
+
+  输出 JSON 格式: {"enhance_skill": "增强方法名"}
+  不要输出任何解释。
+
+# ============================================================================
+# ★★★ 以下为形式优化后的核心提示词（内容完全不变，仅优化格式） ★★★
+# ============================================================================
+
+# ★★★ 2026-06-27 修改：强化技能名称约束，其他内容不变 ★★★
+build_strategy_generation_prompt: |
+  你是时序预测策略专家。生成2个候选预测策略。
+
+  ─── 窗口特征 ───
+  {{feat_desc}}
+
+  ─── 预测轨迹（参考） ───
+  {{traj_summary}}
+
+  ─── 核心要求 ───
+  • 每个策略必须完整覆盖 {{horizon}} 步预测区间。
+  • 设策略包含阶段集合 stages = [stage₁, stage₂, ..., stageₙ]，
+    其中 n 为动态阶段数，满足 3 ≤ n ≤ {{horizon}}。
+  • 每个阶段 steps 为正整数，所有阶段步长之和必须严格等于：
+    Σ(stage.steps) = {{horizon}}
+  • stage 划分及各阶段 steps 应根据窗口特征、趋势稳定性、局部结构、
+    周期特征和预测难度动态决定，不允许固定模式划分。
+
+  ─── 阶段结构 ───
+  每个 stage 必须符合以下结构：
+  {"steps": <正整数>, "weights": {"<method_name>": <6位小数>, ...}}
+
+  ─── 权重规则 ───
+  • weights 是动态字典：
+    - 可包含 2~N 个方法
+    - 方法名称不固定
+    - 不同阶段可使用不同方法集合
+    - 不限制方法数量
+    - 不限制方法名称
+  • 每个 stage 的权重之和必须为 1.000000
+  • 所有权重必须保留 6 位小数（如 0.723585、0.186715）
+  • 禁止输出 0.6000000000 这种过长小数
+
+  ─── ★★★★★ 可用技能列表（必须严格遵循） ★★★★★ ───
+  ⚠️ 你只能使用以下列表中的技能名称，不得使用列表外的任何名称！
+  ⚠️ 技能名称区分大小写，必须完全匹配！
+  ⚠️ 如果你使用了列表之外的技能名称，该阶段将被判定为无效并丢弃！
+  ⚠️ 每个阶段的 weights 中只能包含上述列表中的技能！
+
+  【可用技能列表】（共 {{skill_count}} 个）：
+  {{skill_list_formatted}}
+
+  ─── JSON 输出格式（严格遵守） ───
+  {
+    "candidate_strategies": [
+      {
+        "name": "策略名称",
+        "stages": [
+          {"steps": <正整数>, "weights": {"<method_name_1>": <6位小数>, "<method_name_2>": <6位小数>}},
+          ...
+        ],
+        "description": "策略描述"
+      }
+    ]
+  }
+
+  ─── ★★★★★ 输出规则（必须遵守） ★★★★★ ───
+  [1] 只输出 JSON，不要包含任何解释、前缀、后缀、注释或 Markdown 标记。
+  [2] 不要使用 ```json 或 ``` 等代码块标记。
+  [3] 第一个字符必须是 `{`，最后一个字符必须是 `}`。
+  [4] 所有键名必须用双引号包裹。
+  [5] 所有字符串值必须用双引号包裹。
+  [6] 不要包含尾随逗号。
+  [7] 权重值保留 6 位小数，如 0.123456。
+  [8] 如果不想包含 description 字段，可以省略。
+  [9] ⚠️ 所有技能名称必须来自上面的【可用技能列表】！
+
+  只输出 JSON，不要其他文字。
+
+# 以下为分支加载新增模板（追加在文件末尾）
+
+build_applicability_prompt: |
+  你是一个策略评估专家。现有策略 {{policy_name}}，其语义描述为：{{semantic_desc}}。
+  状态条件：{{state_condition}}，特征组：{{feature_groups}}，平均MASE：{{avg_mase}}。
+
+  当前状态特征：{{features}}。
+
+  请判断该策略是否适用于当前状态，并给出：
+  1. 适用性判断（true/false）
+  2. 置信度（0~1）
+  3. 权重调整建议（相对值，范围 -0.2~0.2）
+  4. 简要理由
+  5. 若不适用，应避免什么操作
+  6. 验证该策略是否有效的关键特征提示（不涉及具体数字）
+
+  输出JSON格式：
+  {
+      "applicable": true/false,
+      "confidence": 0.5,
+      "suggested_weight_adjustment": 0.0,
+      "reason": "简短理由",
+      "do_not_use": "若不适用，说明原因",
+      "verification_cue": "关键验证提示"
+  }
+  只输出JSON，不要解释。
+
+build_merge_prompt: |
+  你是一个策略合并决策专家。评估以下两条策略是否应该合并。
+
+  策略A: {{policy_a_name}}（{{policy_a_desc}}）
+    - 条件: {{policy_a_condition}}
+    - 特征组: {{policy_a_groups}}
+    - 平均MASE: {{policy_a_mase}}
+    - 效用: {{policy_a_utility}}
+
+  策略B: {{policy_b_name}}（{{policy_b_desc}}）
+    - 条件: {{policy_b_condition}}
+    - 特征组: {{policy_b_groups}}
+    - 平均MASE: {{policy_b_mase}}
+    - 效用: {{policy_b_utility}}
+
+  当前状态摘要：{{state_summary}}
+
+  请判断合并是否合理，给出：
+  - should_merge: true/false
+  - merge_score: 0~1 的合并得分
+  - reason: 理由
+  - new_condition: 合并后的新条件（若合并）
+  - merged_strategy: 合并后的策略组合（若合并，可采用效果更好的策略结构）
+
+  输出JSON格式，只输出JSON。
+
+build_retire_prompt: |
+  你是一个策略退休决策专家。评估以下策略是否应该被淘汰。
+
+  策略: {{policy_name}}（{{policy_desc}}）
+  - 状态: {{status}}
+  - 平均MASE: {{avg_mase}}
+  - 效用: {{utility}}
+  - 激活次数: {{activation_count}}
+  - 边际价值: {{marginal_value}}
+
+  性能摘要：{{perf_summary}}
+
+  请判断是否应该退休，并给出目标状态（DEPRECATED 或 ARCHIVE）及理由。
+  输出JSON:
+  {
+      "should_retire": true/false,
+      "confidence": 0.0~1.0,
+      "target_status": "DEPRECATED" 或 "ARCHIVE",
+      "reason": "理由"
+  }
+
+build_patch_prompt: |
+  你是一个补丁决策专家。分析困难窗口是否适合打补丁。
+
+  策略: {{policy_name}}
+  困难窗口数: {{window_count}}
+  窗口特征示例: {{window_sample}}
+  当前状态: {{state_summary}}
+
+  判断是否需要补丁，输出JSON:
+  {
+      "need_patch": true/false,
+      "issue_type": "overestimation|underestimation|volatility_misread|trend_misread|seasonal_misread",
+      "suggested_fix": {"field": "suggested_value"},
+      "confidence": 0.0~1.0
+  }
+
+build_refresh_prompt: |
+  你是一个策略刷新决策专家。评估策略是否应该刷新（更新embedding和条件）。
+
+  策略: {{policy_name}}（{{policy_desc}}）
+  漂移信息: {{drift_info}}
+
+  输出JSON:
+  {
+      "should_refresh": true/false,
+      "new_embedding_direction": [0.1, -0.05, ...],
+      "new_condition_adjustments": {"feature": "new_operator value"},
+      "confidence": 0.0~1.0,
+      "reason": "理由"
+  }

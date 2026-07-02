@@ -1,0 +1,63 @@
+{
+  "window_id": 149,
+  "origin": 1480,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_149.pkl",
+  "best_strategy": {
+    "name": "Seasonality-Focused Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5,
+          "seasonal_naive": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.4,
+          "multi_seasonal_naive": 0.25,
+          "fourier": 0.2,
+          "seasonal_extractor": 0.15
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.45,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "4-stage strategy emphasizing seasonal patterns in early stages and ensemble methods later."
+  },
+  "best_mase": 0.663995,
+  "features": {
+    "trend_strength": 0.141535,
+    "seasonal_strength": 0.098945,
+    "adf_pvalue": 0.093105,
+    "data_length": 600.0,
+    "skewness": 0.075765,
+    "cv": 0.370704,
+    "local_slope_30": 0.009811,
+    "local_std_ratio_30": 0.491245,
+    "local_change_rate_30": 0.132075,
+    "local_mean_ratio_30": 0.779731,
+    "local_slope_120": -0.014203,
+    "local_std_ratio_120": 0.652531,
+    "local_change_rate_120": -0.478261,
+    "local_mean_ratio_120": 0.722764
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 16:23:00"
+}

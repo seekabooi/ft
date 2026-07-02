@@ -1,0 +1,1808 @@
+{
+  "26": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction, tailored for moderate seasonality and trend stability."
+  },
+  "27": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based initialization, decomposition-based mid-term forecasting, and ensemble-based refinement for 12-step prediction"
+  },
+  "28": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction, tailored for weak trend and moderate seasonality."
+  },
+  "29": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term forecasts with decomposition and ensemble methods for medium-term, and advanced techniques for long-term predictions."
+  },
+  "30": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term predictions, tailored for moderate seasonality and trend stability."
+  },
+  "32": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based initialization, STL decomposition for mid-term, multi-resolution for complex patterns, and chunk ensemble for final stabilization"
+  },
+  "33": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, seasonal methods for mid-term, and ensemble methods for long-term predictions, tailored for moderate trend and seasonality."
+  },
+  "31": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based initial predictions, STL decomposition for mid-term seasonality, multi-resolution analysis for complex patterns, and chunk ensemble for final stabilization."
+  },
+  "34": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term predictions, tailored for moderate trend and seasonality."
+  },
+  "35": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成方法"
+  },
+  "36": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "residual_correction_advanced": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性，采用多阶段自适应权重分配策略"
+  },
+  "37": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.4,
+          "local_drift": 0.35,
+          "multi_seasonal_naive": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成方法"
+  },
+  "38": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "39": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "local_drift": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "fourier": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，短期依赖季节性方法，中期结合趋势分解，长期采用集成预测"
+  },
+  "40": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term forecasts with decomposition and ensemble methods for medium-term, and chunk-based approach for long-term stability"
+  },
+  "41": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term, decomposition-based mid-term, and ensemble-based long-term forecasting"
+  },
+  "42": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term predictions, tailored to moderate seasonality and trend stability."
+  },
+  "44": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble for long-term predictions"
+  },
+  "43": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term, decomposition-based mid-term, and ensemble-based long-term forecasting"
+  },
+  "45": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy with 4 stages, combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction."
+  },
+  "46": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term, decomposition-based mid-term, and ensemble-based long-term forecasting, tailored for moderate trend and seasonality."
+  },
+  "47": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "naive": 0.25,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.55,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性提取与自适应集成方法"
+  },
+  "48": {
+    "name": "自适应动态策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.35,
+          "holt_winters": 0.45,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于趋势强度和季节性特征，采用多阶段动态权重分配策略"
+  },
+  "49": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性，采用多阶段自适应权重分配策略"
+  },
+  "50": {
+    "name": "自适应动态阶段策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于趋势强度和季节性特征，采用多阶段动态权重分配策略"
+  },
+  "1": {
+    "name": "自适应多阶段预测策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于ADF检验显著性和局部变化率，采用多阶段动态权重分配策略，初期依赖季节性方法，中期结合趋势与自适应集成，后期强化趋势预测与残差修正"
+  },
+  "2": {
+    "name": "自适应动态策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于ADF检验和局部变化率调整阶段划分，权重自适应分配"
+  },
+  "3": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction, tailored for moderate trend and seasonality."
+  },
+  "4": {
+    "name": "自适应动态阶段策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于ADF检验显著性和局部变化率，动态划分4个阶段，权重自适应分配，兼顾趋势和季节性"
+  },
+  "5": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性分解，中期结合趋势与自适应集成，后期强化多模型融合"
+  },
+  "6": {
+    "name": "自适应动态策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于ADF检验和局部变化率调整阶段划分，权重自适应分配"
+  },
+  "7": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term predictions, tailored for moderate trend and weak seasonality."
+  },
+  "8": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble for long-term predictions"
+  },
+  "9": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble for long-term predictions"
+  },
+  "10": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction, adapting to the moderate trend and seasonal strength."
+  },
+  "11": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, seasonal methods for mid-term, and ensemble methods for long-term predictions, tailored to moderate seasonality and trend strength."
+  },
+  "13": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term, decomposition-based mid-term, and ensemble-based long-term forecasting"
+  },
+  "14": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "theta": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "prophet": 0.4,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "15": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，短期依赖季节性方法，中期结合趋势与残差修正，长期采用集成预测"
+  },
+  "16": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "theta": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "local_drift": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，短期依赖季节性基线，中期融合平滑与自适应集成，长期结合趋势修正与多季节性模型"
+  },
+  "17": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy with 4 stages, combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction."
+  },
+  "12": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based short-term forecasts with decomposition-based mid-term predictions and ensemble methods for longer horizons, tailored for moderate trend and seasonal patterns."
+  },
+  "18": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性模式捕捉，中期结合趋势与自适应集成，后期强化多周期预测"
+  },
+  "19": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "local_drift": 0.25,
+          "residual_correction_advanced": 0.25
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期强化季节性方法，中期结合平滑与自适应集成，后期侧重多周期分解与残差修正"
+  },
+  "20": {
+    "name": "自适应多阶段混合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于窗口特征动态划分阶段，结合季节性、趋势和残差校正方法，适应中等趋势强度和季节性"
+  },
+  "21": {
+    "name": "自适应动态分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和中等季节性特征，采用多阶段动态分解策略，前期侧重季节性基线，中期结合趋势与自适应集成，后期强化趋势预测与残差修正"
+  },
+  "22": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term prediction"
+  },
+  "23": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, seasonal models for mid-term, and ensemble techniques for long-term prediction"
+  },
+  "24": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based short-term, decomposition-based mid-term, and ensemble-based long-term forecasting"
+  },
+  "25": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble for long-term predictions"
+  }
+}

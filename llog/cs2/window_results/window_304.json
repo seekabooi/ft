@@ -1,0 +1,60 @@
+{
+  "window_id": 304,
+  "origin": 3030,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_304.pkl",
+  "best_strategy": {
+    "name": "Seasonal-Trend Focused Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 0.5,
+          "multi_seasonal_naive": 0.5
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.4,
+          "tbats": 0.3,
+          "seasonal_extractor": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.45,
+          "calendar": 0.25,
+          "fourier": 0.3
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Strategy emphasizing seasonal patterns early, transitioning to trend-focused methods, and ending with adaptive ensembles."
+  },
+  "best_mase": 0.397271,
+  "features": {
+    "trend_strength": 0.111524,
+    "seasonal_strength": 0.12525,
+    "adf_pvalue": 0.129514,
+    "data_length": 600.0,
+    "skewness": 0.216023,
+    "cv": 0.366325,
+    "local_slope_30": 0.153904,
+    "local_std_ratio_30": 0.786524,
+    "local_change_rate_30": -0.119048,
+    "local_mean_ratio_30": 1.251305,
+    "local_slope_120": 0.063595,
+    "local_std_ratio_120": 0.912622,
+    "local_change_rate_120": 0.193548,
+    "local_mean_ratio_120": 1.027513
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 01:16:04"
+}

@@ -1,0 +1,26 @@
+{
+  "semantic_top30_theta_max": {
+    "avg_mase": 0.9057563599999999,
+    "avg_mae": 2.81018846,
+    "avg_rmse": 3.4327974000000006,
+    "avg_smape": 29.21811862,
+    "avg_owa": 3.1214929999999996,
+    "window_count": 50
+  },
+  "semantic_top50_theta_max": {
+    "avg_mase": 0.8903927200000001,
+    "avg_mae": 2.762521559999999,
+    "avg_rmse": 3.32372632,
+    "avg_smape": 27.514396019999996,
+    "avg_owa": 3.0431238,
+    "window_count": 50
+  },
+  "no_rule": {
+    "avg_mase": 0.8252535799999999,
+    "avg_mae": 2.5604212,
+    "avg_rmse": 3.1397149999999994,
+    "avg_smape": 26.40146062000001,
+    "avg_owa": 2.8500681399999994,
+    "window_count": 50
+  }
+}

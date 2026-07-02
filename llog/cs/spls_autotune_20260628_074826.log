@@ -1,0 +1,32 @@
+[2026-06-28 07:48:26] [INFO] 
+[2026-06-28 07:48:26] [INFO] [PID:29784] 🔹 窗口 222/22 (origin=2210, size=600)
+[2026-06-28 07:48:26] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 07:48:26] [INFO]    📋 可用技能数: 28
+[2026-06-28 07:48:26] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 07:48:26] [INFO]    📋 可用技能: 28 个
+[2026-06-28 07:48:26] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 222)
+[2026-06-28 07:48:26] [INFO]   📌 模型: glm-4
+[2026-06-28 07:48:26] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 07:48:26] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 07:48:26] [INFO]   📏 Prompt长度: 2159 字符
+[2026-06-28 07:48:26] [INFO]   📤 尝试 1/2...
+[2026-06-28 07:48:26] [INFO]   📌 模型: glm-4
+[2026-06-28 07:48:26] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 07:48:28] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 07:48:28] [INFO]   📏 Prompt长度: 2159 字符
+[2026-06-28 07:48:28] [INFO]   📤 尝试 1/2...
+[2026-06-28 07:48:33] [INFO]   📥 响应完成 (耗时 4.6s)
+[2026-06-28 07:48:33] [INFO]   📊 Token: prompt=1006, completion=525, total=1531
+[2026-06-28 07:48:33] [INFO]   📥 响应完成 (耗时 4.6s)
+[2026-06-28 07:48:33] [INFO]   📊 Token: prompt=1006, completion=525, total=1531
+[2026-06-28 07:48:33] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 07:48:33] [INFO]       策略 1: 自适应趋势-周期分解策略 → 3步{residual_correction_advanced:0.45, local_drift:0.35, seasonal_extractor:0.2} → 4步{residual_correction_advanced:0.5, holt_winters:0.3, local_drift:0.2} → 5步{residual_correction_advanced:0.6, adaptive_weighted_ensemble:0.25, seasonal_forecaster:0.15}
+[2026-06-28 07:48:33] [INFO]       策略 2: 多尺度残差修正策略 → 2步{residual_correction_advanced:0.7, local_drift:0.3} → 3步{residual_correction_advanced:0.55, holt_winters:0.3, adaptive_weighted_ensemble:0.15} → 4步{residual_correction_advanced:0.5, adaptive_weighted_ensemble:0.35, seasonal_forecaster:0.15} → 3步{residual_correction_advanced:0.65, adaptive_weighted_ensemble:0.25, local_drift:0.1}
+[2026-06-28 07:48:33] [INFO]        开始评估策略 1...
+[2026-06-28 07:48:44] [INFO]        策略 1 预测耗时: 10.78s
+[2026-06-28 07:48:44] [INFO]        策略 1: MASE=1.344448
+[2026-06-28 07:48:44] [INFO]        开始评估策略 2...
+[2026-06-28 07:48:55] [INFO]        策略 2 预测耗时: 10.93s
+[2026-06-28 07:48:55] [INFO]        策略 2: MASE=1.395267
+[2026-06-28 07:48:55] [INFO]    🏆 窗口 222 最优策略: 自适应趋势-周期分解策略, MASE=1.344448
+[2026-06-28 07:48:55] [INFO]    📌 困难窗口 222 (MASE=1.3444 > 1.0)

@@ -1,0 +1,55 @@
+{
+  "window_id": 125,
+  "origin": 1240,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_125.pkl",
+  "best_strategy": {
+    "name": "动态趋势-周期融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.452314,
+          "holt_winters": 0.348621,
+          "local_drift": 0.199065
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_resolution": 0.523847,
+          "seasonal_forecaster": 0.276153,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.387642,
+          "adaptive_weighted_ensemble": 0.352358,
+          "fft_filter": 0.26
+        }
+      }
+    ],
+    "description": "基于中等趋势强度和弱周期性，采用三阶段动态融合：初期使用传统时序方法捕捉局部趋势，中期结合多分辨率分析和周期提取，后期引入自适应权重集成和频域滤波提升长期预测稳定性"
+  },
+  "best_mase": 0.442946,
+  "features": {
+    "trend_strength": 0.143921,
+    "seasonal_strength": 0.065167,
+    "adf_pvalue": 0.03533,
+    "data_length": 600.0,
+    "skewness": 0.164133,
+    "cv": 0.375021,
+    "local_slope_30": 0.030033,
+    "local_std_ratio_30": 0.353089,
+    "local_change_rate_30": 0.330579,
+    "local_mean_ratio_30": 1.256188,
+    "local_slope_120": 0.046096,
+    "local_std_ratio_120": 0.759491,
+    "local_change_rate_120": 1.236111,
+    "local_mean_ratio_120": 1.156156
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:55:03"
+}

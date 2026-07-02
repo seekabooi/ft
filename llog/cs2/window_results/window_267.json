@@ -1,0 +1,55 @@
+{
+  "window_id": 267,
+  "origin": 2660,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_267.pkl",
+  "best_strategy": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "residual_correction": 0.25,
+          "local_drift": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy with increasing complexity, starting with simple methods and transitioning to advanced ensemble techniques."
+  },
+  "best_mase": 0.871477,
+  "features": {
+    "trend_strength": 0.03739,
+    "seasonal_strength": 0.116415,
+    "adf_pvalue": 0.328199,
+    "data_length": 600.0,
+    "skewness": 0.285679,
+    "cv": 0.365624,
+    "local_slope_30": 0.172147,
+    "local_std_ratio_30": 0.713917,
+    "local_change_rate_30": 0.281818,
+    "local_mean_ratio_30": 1.235517,
+    "local_slope_120": 0.070873,
+    "local_std_ratio_120": 0.82589,
+    "local_change_rate_120": 1.014286,
+    "local_mean_ratio_120": 0.905141
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 01:01:56"
+}

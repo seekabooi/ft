@@ -1,0 +1,31 @@
+[2026-06-28 12:21:35] [INFO] 
+[2026-06-28 12:21:35] [INFO] [PID:33708] 🔹 窗口 219/22 (origin=2180, size=600)
+[2026-06-28 12:21:35] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 12:21:35] [INFO]    📋 可用技能数: 28
+[2026-06-28 12:21:35] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 12:21:35] [INFO]    📋 可用技能: 28 个
+[2026-06-28 12:21:35] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 219)
+[2026-06-28 12:21:35] [INFO]   📌 模型: glm-4
+[2026-06-28 12:21:35] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 12:21:35] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 12:21:35] [INFO]   📏 Prompt长度: 2162 字符
+[2026-06-28 12:21:35] [INFO]   📤 尝试 1/2...
+[2026-06-28 12:21:35] [INFO]   📌 模型: glm-4
+[2026-06-28 12:21:35] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 12:21:37] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 12:21:37] [INFO]   📏 Prompt长度: 2162 字符
+[2026-06-28 12:21:37] [INFO]   📤 尝试 1/2...
+[2026-06-28 12:21:42] [INFO]   📥 响应完成 (耗时 5.0s)
+[2026-06-28 12:21:42] [INFO]   📊 Token: prompt=1006, completion=511, total=1517
+[2026-06-28 12:21:42] [INFO]   📥 响应完成 (耗时 5.0s)
+[2026-06-28 12:21:42] [INFO]   📊 Token: prompt=1006, completion=511, total=1517
+[2026-06-28 12:21:42] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 12:21:42] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{local_drift:0.45, residual_correction_advanced:0.35, holt_winters:0.2} → 4步{holt_winters:0.5, seasonal_naive:0.3, local_drift:0.2} → 5步{holt_winters:0.6, seasonal_forecaster:0.25, residual_correction_advanced:0.15}
+[2026-06-28 12:21:42] [INFO]       策略 2: Multi-Resolution Ensemble Strategy → 2步{local_drift:0.4, residual_correction_advanced:0.4, naive_drift:0.2} → 3步{holt_winters:0.45, multi_seasonal_naive:0.35, adaptive_weighted_ensemble:0.2} → 4步{holt_winters:0.5, seasonal_forecaster:0.3, residual_correction_advanced:0.2} → 3步{holt_winters:0.6, multi_seasonal_naive:0.25, adaptive_weighted_ensemble:0.15}
+[2026-06-28 12:21:42] [INFO]        开始评估策略 1...
+[2026-06-28 12:21:42] [INFO]        策略 1 预测耗时: 0.02s
+[2026-06-28 12:21:42] [INFO]        策略 1: MASE=0.647534
+[2026-06-28 12:21:42] [INFO]        开始评估策略 2...
+[2026-06-28 12:21:53] [INFO]        策略 2 预测耗时: 10.81s
+[2026-06-28 12:21:53] [INFO]        策略 2: MASE=0.825500
+[2026-06-28 12:21:53] [INFO]    🏆 窗口 219 最优策略: Adaptive Trend-Seasonal Strategy, MASE=0.647534

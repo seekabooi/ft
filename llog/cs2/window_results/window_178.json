@@ -1,0 +1,61 @@
+{
+  "window_id": 178,
+  "origin": 1770,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_178.pkl",
+  "best_strategy": {
+    "name": "Multi-Resolution Ensemble Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5,
+          "seasonal_naive": 0.5
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.4,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "chunk_ensemble": 0.636364,
+          "bias_corrector": 0.363636
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "auto_arima": 0.4,
+          "stl_decompose": 0.4,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Strategy combining multiple resolution methods with adaptive ensembling"
+  },
+  "best_mase": 1.045138,
+  "features": {
+    "trend_strength": 0.144946,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.132756,
+    "data_length": 600.0,
+    "skewness": -0.053871,
+    "cv": 0.308652,
+    "local_slope_30": -0.025139,
+    "local_std_ratio_30": 0.707617,
+    "local_change_rate_30": -0.038462,
+    "local_mean_ratio_30": 0.729262,
+    "local_slope_120": -0.05111,
+    "local_std_ratio_120": 0.92788,
+    "local_change_rate_120": -0.395161,
+    "local_mean_ratio_120": 0.947452
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-29 15:53:42"
+}

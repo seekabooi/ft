@@ -1,0 +1,62 @@
+{
+  "window_id": 275,
+  "origin": 2740,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_275.pkl",
+  "best_strategy": {
+    "name": "Hybrid Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.55,
+          "seasonal_extractor": 0.3,
+          "detrender": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.4,
+          "ets": 0.35,
+          "residual_correction_advanced": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.45,
+          "calendar": 0.35,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.7,
+          "chunk_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Strategy leveraging decomposition and ensemble methods for complex patterns"
+  },
+  "best_mase": 0.821795,
+  "features": {
+    "trend_strength": 0.087769,
+    "seasonal_strength": 0.146466,
+    "adf_pvalue": 0.375114,
+    "data_length": 600.0,
+    "skewness": 0.091627,
+    "cv": 0.357851,
+    "local_slope_30": 0.032102,
+    "local_std_ratio_30": 0.462318,
+    "local_change_rate_30": -0.111111,
+    "local_mean_ratio_30": 1.325618,
+    "local_slope_120": 0.035218,
+    "local_std_ratio_120": 0.66477,
+    "local_change_rate_120": 0.688889,
+    "local_mean_ratio_120": 1.229364
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 00:59:06"
+}

@@ -1,0 +1,53 @@
+{
+  "window_id": 148,
+  "origin": 1470,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_148.pkl",
+  "best_strategy": {
+    "name": "Adaptive Multi-Stage Ensemble",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.45,
+          "holt_winters": 0.35,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "auto_arima": 0.4,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "策略根据趋势和季节性强度动态划分阶段，初期使用传统时间序列方法，中期结合残差校正，后期采用自适应组合器优化预测精度。"
+  },
+  "best_mase": 0.515697,
+  "features": {
+    "trend_strength": 0.146986,
+    "seasonal_strength": 0.103792,
+    "adf_pvalue": 0.029786,
+    "data_length": 600.0,
+    "skewness": 0.040645,
+    "cv": 0.369282,
+    "local_slope_30": 0.113014,
+    "local_std_ratio_30": 0.706851,
+    "local_change_rate_30": 0.06,
+    "local_mean_ratio_30": 0.671445,
+    "local_slope_120": -0.02752,
+    "local_std_ratio_120": 0.672487,
+    "local_change_rate_120": 0.325,
+    "local_mean_ratio_120": 0.730265
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 16:22:56"
+}

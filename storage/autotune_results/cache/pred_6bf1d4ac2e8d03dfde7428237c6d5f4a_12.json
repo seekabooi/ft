@@ -1,0 +1,28 @@
+{
+  "pred": [
+    7.9,
+    9.3,
+    9.200000000000001,
+    4.6,
+    5.2,
+    7.300000000000001,
+    5.300000000000001,
+    7.9,
+    9.3,
+    9.200000000000001,
+    4.6,
+    5.2
+  ],
+  "train_size": 600,
+  "test_size": 12,
+  "trajectory": [
+    {
+      "step": 0,
+      "weights": {
+        "progressive_adaptive_combiner": 0.6928746929,
+        "residual_correction_advanced": 0.3071253071
+      },
+      "interval": 2
+    }
+  ]
+}

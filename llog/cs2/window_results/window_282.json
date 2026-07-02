@@ -1,0 +1,61 @@
+{
+  "window_id": 282,
+  "origin": 2810,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_282.pkl",
+  "best_strategy": {
+    "name": "Progressive Refinement Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.4,
+          "seasonal_naive": 0.6
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.35,
+          "holt_winters": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "chunk_ensemble": 0.4
+        }
+      }
+    ],
+    "description": "4-stage strategy progressively refining predictions with increasing complexity and ensemble methods."
+  },
+  "best_mase": 0.897413,
+  "features": {
+    "trend_strength": 0.061674,
+    "seasonal_strength": 0.134943,
+    "adf_pvalue": 0.192112,
+    "data_length": 600.0,
+    "skewness": -0.119519,
+    "cv": 0.339025,
+    "local_slope_30": -0.13624,
+    "local_std_ratio_30": 0.603717,
+    "local_change_rate_30": -0.058824,
+    "local_mean_ratio_30": 1.10991,
+    "local_slope_120": -0.02613,
+    "local_std_ratio_120": 0.64461,
+    "local_change_rate_120": 0.045752,
+    "local_mean_ratio_120": 1.214768
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 17:11:38"
+}

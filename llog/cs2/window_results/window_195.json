@@ -1,0 +1,62 @@
+{
+  "window_id": 195,
+  "origin": 1940,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_195.pkl",
+  "best_strategy": {
+    "name": "多尺度分解集成策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.6,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_resolution": 0.45,
+          "adaptive_weighted_ensemble": 0.35,
+          "holt_winters": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.5,
+          "multi_resolution": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "利用多尺度分解和自适应集成的方法，通过STL分解处理局部结构，结合多分辨率方法提升长期预测稳定性"
+  },
+  "best_mase": 0.650279,
+  "features": {
+    "trend_strength": 0.097459,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.066839,
+    "data_length": 600.0,
+    "skewness": 0.362722,
+    "cv": 0.345117,
+    "local_slope_30": 0.045295,
+    "local_std_ratio_30": 0.983515,
+    "local_change_rate_30": 0.348684,
+    "local_mean_ratio_30": 1.306387,
+    "local_slope_120": 0.054715,
+    "local_std_ratio_120": 1.017722,
+    "local_change_rate_120": 3.767442,
+    "local_mean_ratio_120": 1.083945
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 02:12:03"
+}

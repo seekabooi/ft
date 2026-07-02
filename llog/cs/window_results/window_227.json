@@ -1,0 +1,63 @@
+{
+  "window_id": 227,
+  "origin": 2260,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_227.pkl",
+  "best_strategy": {
+    "name": "Hierarchical Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5,
+          "seasonal_naive": 0.3,
+          "detrender": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.4,
+          "theta": 0.3,
+          "residual_correction_advanced": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.35,
+          "holt_winters": 0.25,
+          "adaptive_weighted_ensemble": 0.25,
+          "calendar": 0.15
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.533333,
+          "incremental_gbm": 0.466667
+        }
+      }
+    ],
+    "description": "4-stage strategy emphasizing decomposition, seasonal handling, and advanced ensemble methods."
+  },
+  "best_mase": 0.736651,
+  "features": {
+    "trend_strength": 0.026,
+    "seasonal_strength": 0.001958,
+    "adf_pvalue": 0.029174,
+    "data_length": 600.0,
+    "skewness": 0.326394,
+    "cv": 0.340867,
+    "local_slope_30": 0.018554,
+    "local_std_ratio_30": 0.710107,
+    "local_change_rate_30": -0.140741,
+    "local_mean_ratio_30": 1.00096,
+    "local_slope_120": 0.027196,
+    "local_std_ratio_120": 0.718964,
+    "local_change_rate_120": 1.32,
+    "local_mean_ratio_120": 0.870509
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-28 12:31:27"
+}

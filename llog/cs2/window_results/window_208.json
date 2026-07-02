@@ -1,0 +1,58 @@
+{
+  "window_id": 208,
+  "origin": 2070,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_208.pkl",
+  "best_strategy": {
+    "name": "Multi-Resolution Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.75,
+          "naive_drift": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.6,
+          "seasonal_extractor": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "chunk_ensemble": 0.5,
+          "residual_correction_advanced": 0.5
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Strategy leveraging decomposition techniques with progressive complexity and ensemble refinement"
+  },
+  "best_mase": 0.713675,
+  "features": {
+    "trend_strength": 0.163946,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.012626,
+    "data_length": 600.0,
+    "skewness": 0.178934,
+    "cv": 0.317899,
+    "local_slope_30": -0.202403,
+    "local_std_ratio_30": 0.841756,
+    "local_change_rate_30": -0.203593,
+    "local_mean_ratio_30": 1.145405,
+    "local_slope_120": -0.031499,
+    "local_std_ratio_120": 0.739692,
+    "local_change_rate_120": -0.179012,
+    "local_mean_ratio_120": 1.267223
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 02:11:51"
+}

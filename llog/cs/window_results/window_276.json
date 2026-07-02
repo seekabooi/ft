@@ -1,0 +1,62 @@
+{
+  "window_id": 276,
+  "origin": 2750,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_276.pkl",
+  "best_strategy": {
+    "name": "Resolution-Based Progressive Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "theta": 0.5,
+          "naive": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.4,
+          "fourier": 0.35,
+          "calendar": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "incremental_gbm": 0.55,
+          "adaptive_weighted_ensemble": 0.3,
+          "chunk_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "tbats": 0.4
+        }
+      }
+    ],
+    "description": "Strategy leveraging decomposition and machine learning methods, with increasing complexity for later prediction stages."
+  },
+  "best_mase": 1.179746,
+  "features": {
+    "trend_strength": 0.103835,
+    "seasonal_strength": 0.163558,
+    "adf_pvalue": 0.489162,
+    "data_length": 600.0,
+    "skewness": 0.065815,
+    "cv": 0.358471,
+    "local_slope_30": 0.159377,
+    "local_std_ratio_30": 0.512675,
+    "local_change_rate_30": 0.194444,
+    "local_mean_ratio_30": 1.395561,
+    "local_slope_120": 0.034392,
+    "local_std_ratio_120": 0.633832,
+    "local_change_rate_120": 0.563636,
+    "local_mean_ratio_120": 1.266419
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-28 14:22:28"
+}

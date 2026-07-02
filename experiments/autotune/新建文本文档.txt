@@ -1,0 +1,175 @@
+#!/usr/bin/env python
+"""
+从测试结果中提取各模式的平均 MASE
+
+用法：
+    python -m experiments.autotune.extract_mase --resume llog/cs2
+
+输出：
+    终端打印各模式的平均 MASE
+    同时保存到 llog/cs2/semantic_vs_rl_results/mase_summary.txt
+"""
+
+import os
+import sys
+import json
+import argparse
+from datetime import datetime
+
+# 添加项目根目录到路径
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
+def extract_mase(run_dir: str):
+    """从 results.json 提取各模式的平均 MASE"""
+    
+    # 结果文件路径
+    results_file = os.path.join(run_dir, "semantic_vs_rl_results", "results.json")
+    
+    if not os.path.exists(results_file):
+        print(f"❌ 结果文件不存在: {results_file}")
+        print("   请确保测试已运行至少一个模式")
+        return
+    
+    # 加载数据
+    with open(results_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    # 定义模式显示顺序和名称映射
+    mode_order = [
+        'no_rule',
+        'semantic_top1',
+        'semantic_top30_theta_max',
+        'semantic_top50_theta_max',
+        'semantic_topAll_theta_max'
+    ]
+    
+    display_names = {
+        'no_rule': 'no_rule (无参考)',
+        'semantic_top1': 'semantic_top1 (纯语义)',
+        'semantic_top30_theta_max': 'semantic_top30 + θ_max',
+        'semantic_top50_theta_max': 'semantic_top50 + θ_max',
+        'semantic_topAll_theta_max': 'semantic_topAll + θ_max (纯RL)'
+    }
+    
+    # 收集结果
+    results = []
+    for mode in mode_order:
+        if mode in data:
+            entry = data[mode]
+            results.append({
+                'mode': mode,
+                'display': display_names.get(mode, mode),
+                'avg_mase': entry.get('avg_mase', float('inf')),
+                'window_count': entry.get('window_count', 0),
+                'avg_mae': entry.get('avg_mae', float('inf')),
+                'avg_rmse': entry.get('avg_rmse', float('inf')),
+                'avg_smape': entry.get('avg_smape', float('inf')),
+                'avg_owa': entry.get('avg_owa', float('inf')),
+                'completed': True
+            })
+        else:
+            results.append({
+                'mode': mode,
+                'display': display_names.get(mode, mode),
+                'avg_mase': None,
+                'window_count': 0,
+                'completed': False,
+                'status': '⏳ 未完成/未开始'
+            })
+    
+    # 打印到终端
+    print("\n" + "=" * 80)
+    print("📊 各模式平均 MASE 汇总")
+    print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"📁 运行目录: {run_dir}")
+    print("=" * 80)
+    print("")
+    
+    # 表头
+    print(f"{'模式':<30} | {'窗口数':<8} | {'平均 MASE':<12} | {'状态'}")
+    print("-" * 80)
+    
+    for r in results:
+        if r['completed']:
+            mase_str = f"{r['avg_mase']:.6f}" if r['avg_mase'] != float('inf') else "N/A"
+            print(f"{r['display']:<30} | {r['window_count']:<8} | {mase_str:<12} | ✅ 已完成")
+        else:
+            print(f"{r['display']:<30} | {'-':<8} | {'-':<12} | ⏳ 未完成")
+    
+    print("-" * 80)
+    
+    # 计算改善（仅对已完成的模式）
+    completed_results = [r for r in results if r['completed'] and r['avg_mase'] != float('inf')]
+    if completed_results:
+        baseline = completed_results[0]['avg_mase']  # no_rule 是第一个
+        print("\n📈 改善百分比（相对 no_rule）：")
+        print("-" * 60)
+        for r in completed_results[1:]:
+            if r['avg_mase'] != float('inf') and baseline > 0:
+                improvement = (baseline - r['avg_mase']) / baseline * 100
+                status = "✅ 改善" if improvement > 0 else "⚠️ 变差"
+                print(f"   {r['display']:<30}: {improvement:>+8.2f}%  {status}")
+        print("-" * 60)
+    
+    # 保存到文件
+    output_dir = os.path.join(run_dir, "semantic_vs_rl_results")
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, "mase_summary.txt")
+    
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write("=" * 80 + "\n")
+        f.write("📊 各模式平均 MASE 汇总\n")
+        f.write(f"生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"运行目录: {run_dir}\n")
+        f.write("=" * 80 + "\n\n")
+        
+        f.write(f"{'模式':<30} | {'窗口数':<8} | {'平均 MASE':<12} | {'状态'}\n")
+        f.write("-" * 80 + "\n")
+        
+        for r in results:
+            if r['completed']:
+                mase_str = f"{r['avg_mase']:.6f}" if r['avg_mase'] != float('inf') else "N/A"
+                f.write(f"{r['display']:<30} | {r['window_count']:<8} | {mase_str:<12} | ✅ 已完成\n")
+            else:
+                f.write(f"{r['display']:<30} | {'-':<8} | {'-':<12} | ⏳ 未完成\n")
+        
+        f.write("-" * 80 + "\n")
+        
+        if completed_results:
+            baseline = completed_results[0]['avg_mase']
+            f.write("\n📈 改善百分比（相对 no_rule）：\n")
+            f.write("-" * 60 + "\n")
+            for r in completed_results[1:]:
+                if r['avg_mase'] != float('inf') and baseline > 0:
+                    improvement = (baseline - r['avg_mase']) / baseline * 100
+                    status = "改善" if improvement > 0 else "变差"
+                    f.write(f"   {r['display']:<30}: {improvement:>+8.2f}%  {status}\n")
+            f.write("-" * 60 + "\n")
+    
+    print(f"\n📁 汇总报告已保存: {output_file}")
+    print("=" * 80)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="提取各模式平均 MASE")
+    parser.add_argument('--resume', type=str, required=True,
+                        help='运行目录（如 llog/cs2）')
+    args = parser.parse_args()
+    
+    run_dir = args.resume
+    if not os.path.exists(run_dir):
+        test_path = os.path.join("llog", args.resume)
+        if os.path.exists(test_path):
+            run_dir = test_path
+        else:
+            print(f"❌ 目录不存在: {run_dir}")
+            return
+    
+    extract_mase(run_dir)
+
+
+if __name__ == '__main__':
+    main()

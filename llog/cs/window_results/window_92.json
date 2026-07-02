@@ -1,0 +1,61 @@
+{
+  "window_id": 92,
+  "origin": 910,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_92.pkl",
+  "best_strategy": {
+    "name": "多分辨率分解策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.6,
+          "trend_forecaster": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "fourier": 0.25,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.45,
+          "incremental_gbm": 0.35,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.7,
+          "calendar": 0.3
+        }
+      }
+    ],
+    "description": "利用STL分解和多分辨率分析，逐步融合季节性和趋势预测，后期引入机器学习增强"
+  },
+  "best_mase": 0.669297,
+  "features": {
+    "trend_strength": 0.111095,
+    "seasonal_strength": 0.011193,
+    "adf_pvalue": 0.138536,
+    "data_length": 600.0,
+    "skewness": 0.001049,
+    "cv": 0.34745,
+    "local_slope_30": -0.049544,
+    "local_std_ratio_30": 0.532656,
+    "local_change_rate_30": -0.120968,
+    "local_mean_ratio_30": 1.341454,
+    "local_slope_120": 0.026666,
+    "local_std_ratio_120": 0.697471,
+    "local_change_rate_120": 0.112245,
+    "local_mean_ratio_120": 1.223741
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:11:02"
+}

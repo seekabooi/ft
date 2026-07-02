@@ -1,0 +1,61 @@
+{
+  "window_id": 4,
+  "origin": 30,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_4.pkl",
+  "best_strategy": {
+    "name": "Seasonality-Aware Progressive Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 0.6,
+          "naive_drift": 0.4
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.45,
+          "stl_decompose": 0.35,
+          "seasonal_extractor": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.55,
+          "fourier": 0.25,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "incremental_gbm": 0.3
+        }
+      }
+    ],
+    "description": "Strategy emphasizing seasonal patterns early, transitioning to decomposition and Fourier-based methods, ending with resolution-based prediction"
+  },
+  "best_mase": 0.708221,
+  "features": {
+    "trend_strength": 0.169086,
+    "seasonal_strength": 0.133475,
+    "adf_pvalue": 0.034913,
+    "data_length": 600.0,
+    "skewness": 0.311427,
+    "cv": 0.426971,
+    "local_slope_30": -0.111212,
+    "local_std_ratio_30": 0.687488,
+    "local_change_rate_30": -0.561983,
+    "local_mean_ratio_30": 0.722043,
+    "local_slope_120": 0.013292,
+    "local_std_ratio_120": 0.701621,
+    "local_change_rate_120": -0.561983,
+    "local_mean_ratio_120": 0.606538
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 13:38:59"
+}

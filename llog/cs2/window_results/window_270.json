@@ -1,0 +1,62 @@
+{
+  "window_id": 270,
+  "origin": 2690,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_270.pkl",
+  "best_strategy": {
+    "name": "自适应权重策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 0.6,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.55,
+          "local_drift": 0.25,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.45,
+          "residual_correction_advanced": 0.35,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "local_drift": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "基于局部变化率和周期特征调整阶段划分，逐步优化预测权重"
+  },
+  "best_mase": 1.51595,
+  "features": {
+    "trend_strength": 0.043783,
+    "seasonal_strength": 0.127121,
+    "adf_pvalue": 0.357441,
+    "data_length": 600.0,
+    "skewness": 0.262241,
+    "cv": 0.366042,
+    "local_slope_30": -0.048832,
+    "local_std_ratio_30": 0.513118,
+    "local_change_rate_30": -0.10625,
+    "local_mean_ratio_30": 1.2695,
+    "local_slope_120": 0.062004,
+    "local_std_ratio_120": 0.793289,
+    "local_change_rate_120": 1.042857,
+    "local_mean_ratio_120": 1.059533
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-30 06:37:17"
+}

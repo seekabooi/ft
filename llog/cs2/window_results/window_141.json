@@ -1,0 +1,61 @@
+{
+  "window_id": 141,
+  "origin": 1400,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_141.pkl",
+  "best_strategy": {
+    "name": "Hybrid Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5,
+          "local_drift": 0.5
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.4,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.5,
+          "auto_arima": 0.5
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Strategy leveraging decomposition techniques with progressive method integration"
+  },
+  "best_mase": 0.809875,
+  "features": {
+    "trend_strength": 0.055934,
+    "seasonal_strength": 0.066966,
+    "adf_pvalue": 0.022948,
+    "data_length": 600.0,
+    "skewness": -0.02875,
+    "cv": 0.327884,
+    "local_slope_30": -0.113237,
+    "local_std_ratio_30": 0.542559,
+    "local_change_rate_30": 0.047619,
+    "local_mean_ratio_30": 0.71325,
+    "local_slope_120": -0.066193,
+    "local_std_ratio_120": 0.864011,
+    "local_change_rate_120": -0.472,
+    "local_mean_ratio_120": 0.982226
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 16:11:22"
+}

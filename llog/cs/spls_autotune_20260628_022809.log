@@ -1,0 +1,447 @@
+[2026-06-28 02:28:09] [INFO] 📂 从指定目录恢复训练: llog\cs
+[2026-06-28 02:28:09] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 02:28:10] [INFO]    📌 窗口级并行线程数: 4 (配置值: 4)
+[2026-06-28 02:28:10] [INFO]    🧠 RL 模式已启用
+[2026-06-28 02:28:10] [INFO]       learning_rate: 0.002
+[2026-06-28 02:28:10] [INFO]       temperature: 1.5
+[2026-06-28 02:28:10] [INFO]       baseline_decay: 0.9
+[2026-06-28 02:28:10] [INFO]       replay_memory_size: 1000
+[2026-06-28 02:28:10] [INFO] 
+   📋 RL 稳定化参数 (三个手术刀级 Patch):
+[2026-06-28 02:28:10] [INFO]       evolution_effect_strength = 0.3 (Patch 1)
+[2026-06-28 02:28:10] [INFO]       theta_decay = 0.005 (Patch 2)
+[2026-06-28 02:28:10] [INFO]       theta_bias_alpha = 0.15 (Patch 3)
+[2026-06-28 02:28:10] [INFO] ======================================================================
+[2026-06-28 02:28:10] [INFO] 🚀 SPLS v6 强化学习版（Policy Gradient + Online Learning）
+[2026-06-28 02:28:10] [INFO] 📅 2026-06-28 02:28:10
+[2026-06-28 02:28:10] [INFO] 📁 运行目录: llog\cs
+[2026-06-28 02:28:10] [INFO] 🔄 训练轮数: 24
+[2026-06-28 02:28:10] [INFO] 📌 主进程 PID: 30480
+[2026-06-28 02:28:10] [INFO] 🧠 RL 模式: 启用
+[2026-06-28 02:28:10] [INFO]    Patch 1 (Evolution Soft Gate): strength=0.3
+[2026-06-28 02:28:10] [INFO]    Patch 2 (Adaptive Decay): base_decay=0.005
+[2026-06-28 02:28:10] [INFO]    Patch 3 (θ Bias Injection): alpha=0.15
+[2026-06-28 02:28:10] [INFO] ======================================================================
+[2026-06-28 02:28:10] [INFO] 
+📋 策略池配置:
+[2026-06-28 02:28:10] [INFO]    min: 3
+[2026-06-28 02:28:10] [INFO]    target: 28
+[2026-06-28 02:28:10] [INFO]    soft_max: 30
+[2026-06-28 02:28:10] [INFO]    hard_max: 30
+[2026-06-28 02:28:10] [INFO] 
+📋 训练配置:
+[2026-06-28 02:28:10] [INFO]    轮数: 24
+[2026-06-28 02:28:10] [INFO]    自动优化: True
+[2026-06-28 02:28:10] [INFO] 
+📋 数据划分配置:
+[2026-06-28 02:28:10] [INFO]    第一轮归纳比例: 0.5
+[2026-06-28 02:28:10] [INFO]    B部分比例: 0.5
+[2026-06-28 02:28:10] [INFO]    B子集数: 2
+[2026-06-28 02:28:10] [INFO]    B子集顺序: [0, 1]
+[2026-06-28 02:28:10] [INFO]    测试模式: custom
+[2026-06-28 02:28:10] [INFO] 
+📋 事后补丁配置:
+[2026-06-28 02:28:10] [INFO]    启用: True
+[2026-06-28 02:28:10] [INFO]    MASE阈值: 1.0
+[2026-06-28 02:28:10] [INFO]    提升阈值: 1%
+[2026-06-28 02:28:10] [INFO] 
+📋 并行配置:
+[2026-06-28 02:28:10] [INFO]    测试并行: True
+[2026-06-28 02:28:10] [INFO]    测试线程数: 10
+[2026-06-28 02:28:10] [INFO] 
+======================================================================
+[2026-06-28 02:28:10] [INFO] 📊 处理数据集: melbourne_temp
+[2026-06-28 02:28:10] [INFO] ======================================================================
+[2026-06-28 02:28:10] [INFO] 📁 加载已有数据: storage/autotune_results\collected_windows.csv (304 个窗口)
+[2026-06-28 02:28:11] [INFO] ✅ 窗口完整 (304 个)
+[2026-06-28 02:28:12] [INFO] 📁 采集结果已保存: storage/autotune_results\collected_windows.csv
+[2026-06-28 02:28:12] [INFO] 📋 数据划分配置:
+[2026-06-28 02:28:12] [INFO]    第一轮归纳比例 (A): 0.50
+[2026-06-28 02:28:12] [INFO]    B部分比例: 0.50
+[2026-06-28 02:28:12] [INFO]    B子集数: 2
+[2026-06-28 02:28:12] [INFO]    演化使用B子集索引: [0, 1] (0-based)
+[2026-06-28 02:28:12] [INFO] 📊 A部分 (归纳): 152 个窗口 (索引 0~151)
+[2026-06-28 02:28:12] [INFO] 📊 B部分 (演化): 152 个窗口 (索引 152~303)
+[2026-06-28 02:28:12] [INFO]    B1: 76 个窗口 (索引 152~227)
+[2026-06-28 02:28:12] [INFO]    B2: 76 个窗口 (索引 228~303)
+[2026-06-28 02:28:12] [INFO]    从B1抽取 25 个窗口作为测试，剩余 51 个
+[2026-06-28 02:28:12] [INFO]    从B2抽取 25 个窗口作为测试，剩余 51 个
+[2026-06-28 02:28:12] [INFO] 📊 测试集: 50 个窗口 (由各B子集前1/3组成)
+[2026-06-28 02:28:12] [INFO]    演化使用 B1 (剩余 51 个窗口)
+[2026-06-28 02:28:12] [INFO]    演化使用 B2 (剩余 51 个窗口)
+[2026-06-28 02:28:12] [INFO] 📂 加载检查点: 已完成 1 轮
+[2026-06-28 02:28:12] [INFO]    ✅ A部分评估已完成 (跳过重复评估)
+[2026-06-28 02:28:12] [INFO] 📋 从第 1 轮加载策略: 4 条
+[2026-06-28 02:28:12] [INFO] 
+══════════════════════════════════════════════════════════════════════
+[2026-06-28 02:28:12] [INFO]   🔄 从第 2 轮继续训练（共 24 轮）
+[2026-06-28 02:28:12] [INFO]   📋 策略池当前规模: 4 条策略
+[2026-06-28 02:28:12] [INFO] ══════════════════════════════════════════════════════════════════════
+[2026-06-28 02:28:12] [INFO]    📉 第 2 轮学习率: 0.001980 (衰减因子 0.9900)
+[2026-06-28 02:28:12] [INFO] 
+██████████████████████████████████████████████████████████████████████
+[2026-06-28 02:28:12] [INFO] █  📍 阶段 2/3: RL 演化训练（第 2 轮）
+[2026-06-28 02:28:12] [INFO] █  ──────────────────────────────────────────────────────────────
+[2026-06-28 02:28:12] [INFO] █  📊 B1子集: 51 个窗口
+[2026-06-28 02:28:12] [INFO] █  📋 当前策略数: 4 条
+[2026-06-28 02:28:12] [INFO] █  📈 训练进度: 2/24 (8%)
+[2026-06-28 02:28:12] [INFO] ███████████████████████████████████████████████████████████████████████
+[2026-06-28 02:28:12] [INFO] 
+[2026-06-28 02:28:12] [INFO]    ┌─────────────────────────────────────────────────────────────┐
+[2026-06-28 02:28:12] [INFO]    │  📌 第 2 轮演化优化 (B1子集, 51 个窗口)                  │
+[2026-06-28 02:28:12] [INFO]    └─────────────────────────────────────────────────────────────┘
+[2026-06-28 02:28:12] [INFO] 
+[2026-06-28 02:28:12] [INFO]    ┌─────────────────────────────────────────────────────────────┐
+[2026-06-28 02:28:12] [INFO]    │  ⏭️ 第 2 轮：跳过 Re-Induction（使用已有的 6 条策略）     │
+[2026-06-28 02:28:12] [INFO]    │  📋 策略池已包含 4 条 ACTIVE + 2 条 TRIAL                │
+[2026-06-28 02:28:12] [INFO]    └─────────────────────────────────────────────────────────────┘
+[2026-06-28 02:28:12] [INFO] 
+[2026-06-28 02:28:12] [INFO]    ┌─────────────────────────────────────────────────────────────┐
+[2026-06-28 02:28:12] [INFO]    │  📍 子阶段 B: RL 在线训练（B1子集，51 个窗口） │
+[2026-06-28 02:28:12] [INFO]    │  ⚡ 铁定执行，无论是否触发 Re-Induction                   │
+[2026-06-28 02:28:12] [INFO]    └─────────────────────────────────────────────────────────────┘
+[2026-06-28 02:28:12] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:28:12] [INFO]    🔍 [step] 开始 step #1, horizon=12, policies=4
+[2026-06-28 02:28:12] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:28:12] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] 按概率采样: 1eb9521a
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] 策略对象: policy_1_1eb9
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:28:12] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] entropy=1.3636
+[2026-06-28 02:28:20] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:28:20] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.776342
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] MASE=0.463794
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] reward=-0.4638
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] 开始 RL 更新 #1
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] baseline=0.0000, advantage=-0.4638
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] baseline 更新: 0.0000 -> -0.4638
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] sampled_policy=1eb9521a, is_exploration=False
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] old_theta=0.0000
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] new_theta=-0.0007
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] 已同步策略 policy_1_1eb9 logit_weight=-0.0007
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=1
+[2026-06-28 02:28:20] [INFO] 
+[2026-06-28 02:28:20] [INFO]    ┌─── 📊 RL Step #1 (窗口 1) ───
+[2026-06-28 02:28:20] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3636
+[2026-06-28 02:28:20] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.000,p=0.304, e2d03a:θ=0.000,p=0.301, 1eb952:θ=-0.001,p=0.208
+[2026-06-28 02:28:20] [INFO]    │  🎲 采样: 1eb9521a (利用) | θ_old=0.0000 → θ_new=-0.0007 (decay=0.00500)
+[2026-06-28 02:28:20] [INFO]    │  📈 预测 MASE: 0.463794
+[2026-06-28 02:28:20] [INFO]    │  💰 Reward: -0.4638 (error=-0.4638, stability=-0.0000)
+[2026-06-28 02:28:20] [INFO]    │  📉 Advantage: -0.4638 (reward - baseline=0.0000)
+[2026-06-28 02:28:20] [INFO]    │  📊 Baseline: 0.0000 → -0.4638 | lr=0.00160
+[2026-06-28 02:28:20] [INFO]    └───
+[2026-06-28 02:28:20] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=0.463794
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:28:20] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=0.463794
+[2026-06-28 02:28:20] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:28:20] [INFO]    🔍 [step] 开始 step #2, horizon=12, policies=4
+[2026-06-28 02:28:20] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:28:20] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 按概率采样: 1eb9521a
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 策略对象: policy_1_1eb9
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:28:20] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:28:26] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] entropy=1.3633
+[2026-06-28 02:28:41] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:28:41] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.752349
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] MASE=30.620689
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] reward=-30.6207
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] 开始 RL 更新 #2
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] baseline=-0.4638, advantage=-30.1569
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] baseline 更新: -0.4638 -> -3.4795
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] sampled_policy=1eb9521a, is_exploration=False
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] old_theta=-0.0007
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] new_theta=-0.0023
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] 已同步策略 policy_1_1eb9 logit_weight=-0.0023
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=2
+[2026-06-28 02:28:41] [INFO] 
+[2026-06-28 02:28:41] [INFO]    ┌─── 📊 RL Step #2 (窗口 2) ───
+[2026-06-28 02:28:41] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3633
+[2026-06-28 02:28:41] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.000,p=0.303, e2d03a:θ=0.000,p=0.303, 1eb952:θ=-0.002,p=0.207
+[2026-06-28 02:28:41] [INFO]    │  🎲 采样: 1eb9521a (利用) | θ_old=-0.0007 → θ_new=-0.0023 (decay=0.00250)
+[2026-06-28 02:28:41] [INFO]    │  📈 预测 MASE: 30.620689
+[2026-06-28 02:28:41] [INFO]    │  💰 Reward: -30.6207 (error=-30.6207, stability=-0.0000)
+[2026-06-28 02:28:41] [INFO]    │  📉 Advantage: -30.1569 (reward - baseline=-0.4638)
+[2026-06-28 02:28:41] [INFO]    │  📊 Baseline: -0.4638 → -3.4795 | lr=0.00160
+[2026-06-28 02:28:41] [INFO]    └───
+[2026-06-28 02:28:41] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=15.542241
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:28:41] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=30.620689
+[2026-06-28 02:28:41] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:28:41] [INFO]    🔍 [step] 开始 step #3, horizon=12, policies=4
+[2026-06-28 02:28:41] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:28:41] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] 按概率采样: 9b6a2466
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] 策略对象: policy_0_9b6a
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:28:41] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] entropy=1.3638
+[2026-06-28 02:31:48] [INFO]    🎯 分布 Top-3: [9b6a24:0.304, e2d03a:0.300, 1eb952:0.208] | 采样: 9b6a2466 (利用)
+[2026-06-28 02:31:48] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:31:48] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.744463
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] MASE=0.756204
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] reward=-0.7562
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] 开始 RL 更新 #3
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] baseline=-3.4795, advantage=2.7233
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] baseline 更新: -3.4795 -> -3.2072
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] sampled_policy=9b6a2466, is_exploration=False
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] old_theta=0.0000
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] new_theta=0.0016
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] 已同步策略 policy_0_9b6a logit_weight=0.0016
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=3
+[2026-06-28 02:31:48] [INFO] 
+[2026-06-28 02:31:48] [INFO]    ┌─── 📊 RL Step #3 (窗口 3) ───
+[2026-06-28 02:31:48] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3638
+[2026-06-28 02:31:48] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.002,p=0.304, e2d03a:θ=0.000,p=0.300, 1eb952:θ=-0.002,p=0.208
+[2026-06-28 02:31:48] [INFO]    │  🎲 采样: 9b6a2466 (利用) | θ_old=0.0000 → θ_new=0.0016 (decay=0.00500)
+[2026-06-28 02:31:48] [INFO]    │  📈 预测 MASE: 0.756204
+[2026-06-28 02:31:48] [INFO]    │  💰 Reward: -0.7562 (error=-0.7562, stability=-0.0000)
+[2026-06-28 02:31:48] [INFO]    │  📉 Advantage: 2.7233 (reward - baseline=-3.4795)
+[2026-06-28 02:31:48] [INFO]    │  📊 Baseline: -3.4795 → -3.2072 | lr=0.00160
+[2026-06-28 02:31:48] [INFO]    └───
+[2026-06-28 02:31:48] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=10.613562
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:31:48] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=0.756204
+[2026-06-28 02:31:48] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:31:48] [INFO]    🔍 [step] 开始 step #4, horizon=12, policies=4
+[2026-06-28 02:31:48] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:31:48] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 按概率采样: 9b6a2466
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 策略对象: policy_0_9b6a
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:31:48] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] entropy=1.3646
+[2026-06-28 02:35:18] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:35:18] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.757886
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] MASE=0.890909
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] reward=-0.8909
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] 开始 RL 更新 #4
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] baseline=-3.2072, advantage=2.3162
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] baseline 更新: -3.2072 -> -2.9755
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] sampled_policy=9b6a2466, is_exploration=False
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] old_theta=0.0016
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] new_theta=0.0032
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] 已同步策略 policy_0_9b6a logit_weight=0.0032
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=4
+[2026-06-28 02:35:18] [INFO] 
+[2026-06-28 02:35:18] [INFO]    ┌─── 📊 RL Step #4 (窗口 4) ───
+[2026-06-28 02:35:18] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3646
+[2026-06-28 02:35:18] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.003,p=0.306, e2d03a:θ=0.000,p=0.296, 1eb952:θ=-0.002,p=0.209
+[2026-06-28 02:35:18] [INFO]    │  🎲 采样: 9b6a2466 (利用) | θ_old=0.0016 → θ_new=0.0032 (decay=0.00250)
+[2026-06-28 02:35:18] [INFO]    │  📈 预测 MASE: 0.890909
+[2026-06-28 02:35:18] [INFO]    │  💰 Reward: -0.8909 (error=-0.8909, stability=-0.0000)
+[2026-06-28 02:35:18] [INFO]    │  📉 Advantage: 2.3162 (reward - baseline=-3.2072)
+[2026-06-28 02:35:18] [INFO]    │  📊 Baseline: -3.2072 → -2.9755 | lr=0.00160
+[2026-06-28 02:35:18] [INFO]    └───
+[2026-06-28 02:35:18] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=8.182899
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:35:18] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=0.890909
+[2026-06-28 02:35:18] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:35:18] [INFO]    🔍 [step] 开始 step #5, horizon=12, policies=4
+[2026-06-28 02:35:18] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:35:18] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 按概率采样: e2d03a16
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 策略对象: policy_2_e2d0
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:35:18] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_predict] entropy=1.3644
+[2026-06-28 02:38:32] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:38:32] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.763423
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] MASE=0.677710
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] reward=-0.6777
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] 开始 RL 更新 #5
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] baseline=-2.9755, advantage=2.2978
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] baseline 更新: -2.9755 -> -2.7457
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] sampled_policy=e2d03a16, is_exploration=False
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] old_theta=0.0000
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] new_theta=0.0016
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] 已同步策略 policy_2_e2d0 logit_weight=0.0016
+[2026-06-28 02:38:32] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=5
+[2026-06-28 02:38:32] [INFO] 
+[2026-06-28 02:38:32] [INFO]    ┌─── 📊 RL Step #5 (窗口 5) ───
+[2026-06-28 02:38:32] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3644
+[2026-06-28 02:38:32] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.003,p=0.306, e2d03a:θ=0.002,p=0.297, 1eb952:θ=-0.002,p=0.208
+[2026-06-28 02:38:32] [INFO]    │  🎲 采样: e2d03a16 (利用) | θ_old=0.0000 → θ_new=0.0016 (decay=0.00500)
+[2026-06-28 02:38:32] [INFO]    │  📈 预测 MASE: 0.677710
+[2026-06-28 02:38:32] [INFO]    │  💰 Reward: -0.6777 (error=-0.6777, stability=-0.0000)
+[2026-06-28 02:38:32] [INFO]    │  📉 Advantage: 2.2978 (reward - baseline=-2.9755)
+[2026-06-28 02:38:32] [INFO]    │  📊 Baseline: -2.9755 → -2.7457 | lr=0.00160
+[2026-06-28 02:38:32] [INFO]    └───
+[2026-06-28 02:38:32] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=6.681861
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:38:32] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:38:32] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=0.677710
+[2026-06-28 02:38:33] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:38:33] [INFO]    🔍 [step] 开始 step #6, horizon=12, policies=4
+[2026-06-28 02:38:33] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:38:33] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] 按概率采样: 9b6a2466
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] 策略对象: policy_0_9b6a
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:38:33] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_predict] entropy=1.3644
+[2026-06-28 02:41:33] [INFO]    🎯 分布 Top-3: [9b6a24:0.306, e2d03a:0.297, 1eb952:0.208] | 采样: 9b6a2466 (利用)
+[2026-06-28 02:41:33] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:41:33] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:41:33] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:41:33] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:41:33] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.783054
+[2026-06-28 02:41:33] [INFO]    🔍 [step_with_gt] MASE=0.786618
+[2026-06-28 02:41:33] [INFO]    🔍 [step_with_gt] reward=-0.7866
+[2026-06-28 02:41:33] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] 开始 RL 更新 #6
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] baseline=-2.7457, advantage=1.9591
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] baseline 更新: -2.7457 -> -2.5498
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] sampled_policy=9b6a2466, is_exploration=False
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] old_theta=0.0032
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] new_theta=0.0048
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] 已同步策略 policy_0_9b6a logit_weight=0.0048
+[2026-06-28 02:41:33] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=6
+[2026-06-28 02:41:33] [INFO] 
+[2026-06-28 02:41:33] [INFO]    ┌─── 📊 RL Step #6 (窗口 6) ───
+[2026-06-28 02:41:33] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3644
+[2026-06-28 02:41:33] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.005,p=0.306, e2d03a:θ=0.002,p=0.297, 1eb952:θ=-0.002,p=0.208
+[2026-06-28 02:41:33] [INFO]    │  🎲 采样: 9b6a2466 (利用) | θ_old=0.0032 → θ_new=0.0048 (decay=0.00167)
+[2026-06-28 02:41:33] [INFO]    │  📈 预测 MASE: 0.786618
+[2026-06-28 02:41:33] [INFO]    │  💰 Reward: -0.7866 (error=-0.7866, stability=-0.0000)
+[2026-06-28 02:41:34] [INFO]    │  📉 Advantage: 1.9591 (reward - baseline=-2.7457)
+[2026-06-28 02:41:34] [INFO]    │  📊 Baseline: -2.7457 → -2.5498 | lr=0.00160
+[2026-06-28 02:41:34] [INFO]    └───
+[2026-06-28 02:41:34] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=5.699321
+[2026-06-28 02:41:34] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:41:34] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:41:34] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=0.786618
+[2026-06-28 02:41:34] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:41:34] [INFO]    🔍 [step] 开始 step #7, horizon=12, policies=4
+[2026-06-28 02:41:34] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:41:34] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] 按概率采样: 3304ec49
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] 策略对象: fallback_policy
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:41:34] [INFO]       🔍 [_rl_predict] period=4
+[2026-06-28 02:44:35] [INFO]       🔍 [_rl_predict] 预测完成, pred 长度=12
+[2026-06-28 02:44:35] [INFO]       🔍 [_rl_predict] entropy=1.3647
+[2026-06-28 02:44:35] [INFO]       ✅ [_rl_predict] 完成
+[2026-06-28 02:44:35] [INFO]    🔍 [step] RL 分支完成, prediction 长度=12
+[2026-06-28 02:44:35] [INFO]    🔍 [step_with_gt] step() 完成, prediction 长度=12
+[2026-06-28 02:44:35] [INFO]    🔍 [step_with_gt] 预测长度匹配，计算 MASE...
+[2026-06-28 02:44:35] [INFO]    🔍 [step_with_gt] period=4, mase_scale=2.794463
+[2026-06-28 02:44:35] [INFO]    🔍 [step_with_gt] MASE=0.998338
+[2026-06-28 02:44:35] [INFO]    🔍 [step_with_gt] reward=-0.9983
+[2026-06-28 02:44:35] [INFO]    🔍 [step_with_gt] 执行 RL 更新...
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] 开始 RL 更新 #7
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] baseline=-2.5498, advantage=1.5515
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] baseline 更新: -2.5498 -> -2.3947
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] regime={'volatility': 0, 'seasonality': 0, 'trend': 0, 'stationary': 0, 'long_sequence': 1}, lr=0.00160
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] sampled_policy=3304ec49, is_exploration=False
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] old_theta=0.0000
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] new_theta=0.0016
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] 已同步策略 fallback_policy logit_weight=0.0016
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_update] 经验已存储, replay_memory 大小=7
+[2026-06-28 02:44:36] [INFO] 
+[2026-06-28 02:44:36] [INFO]    ┌─── 📊 RL Step #7 (窗口 7) ───
+[2026-06-28 02:44:36] [INFO]    │  📌 Regime: long_sequence=1 | 熵: 1.3647
+[2026-06-28 02:44:36] [INFO]    │  🎯 分布 Top-3: 9b6a24:θ=0.005,p=0.307, e2d03a:θ=0.002,p=0.295, 1eb952:θ=-0.002,p=0.209
+[2026-06-28 02:44:36] [INFO]    │  🎲 采样: 3304ec49 (利用) | θ_old=0.0000 → θ_new=0.0016 (decay=0.00500)
+[2026-06-28 02:44:36] [INFO]    │  📈 预测 MASE: 0.998338
+[2026-06-28 02:44:36] [INFO]    │  💰 Reward: -0.9983 (error=-0.9983, stability=-0.0000)
+[2026-06-28 02:44:36] [INFO]    │  📉 Advantage: 1.5515 (reward - baseline=-2.5498)
+[2026-06-28 02:44:36] [INFO]    │  📊 Baseline: -2.5498 → -2.3947 | lr=0.00160
+[2026-06-28 02:44:36] [INFO]    └───
+[2026-06-28 02:44:36] [INFO]       ✅ [_rl_update] RL 更新完成, avg_mase=5.027752
+[2026-06-28 02:44:36] [INFO]    🔍 [step_with_gt] RL 更新完成
+[2026-06-28 02:44:36] [INFO]    🔍 [step_with_gt] 策略更新完成
+[2026-06-28 02:44:36] [INFO]    ✅ [step_with_gt] 窗口处理完成, MASE=0.998338
+[2026-06-28 02:44:36] [INFO]    🔍 [step_with_gt] 开始处理窗口, horizon=12, len(gt)=12
+[2026-06-28 02:44:36] [INFO]    🔍 [step] 开始 step #8, horizon=12, policies=4
+[2026-06-28 02:44:36] [INFO]    🔍 [step] rl_enabled=True, use_soft_mixture=False, policies=4
+[2026-06-28 02:44:36] [INFO]    🔍 [step] 进入 RL 分支...
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] 开始, horizon=12
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] numeric_state keys: ['data_length', 'mean', 'std', 'cv', 'min']...
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] active_policies: 4 条
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] 计算分布...
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] 分布计算完成, 4 个策略
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] is_exploration=False
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] 按概率采样: 3304ec49
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] 策略对象: fallback_policy
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] 执行策略预测...
+[2026-06-28 02:44:36] [INFO]       🔍 [_rl_predict] period=4

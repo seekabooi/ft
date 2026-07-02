@@ -1,0 +1,60 @@
+{
+  "window_id": 270,
+  "origin": 2690,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_270.pkl",
+  "best_strategy": {
+    "name": "多分辨率分解策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.7,
+          "residual_correction_advanced": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.6,
+          "holt_winters": 0.4
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "theta": 0.55,
+          "residual_correction": 0.45
+        }
+      }
+    ],
+    "description": "利用STL分解和多季节性朴素预测处理周期性，中期结合ETS和局部漂移，后期通过自适应集成和霍尔特-温特斯平滑预测，最后用theta方法校正残差"
+  },
+  "best_mase": 1.690122,
+  "features": {
+    "trend_strength": 0.043783,
+    "seasonal_strength": 0.127121,
+    "adf_pvalue": 0.357441,
+    "data_length": 600.0,
+    "skewness": 0.262241,
+    "cv": 0.366042,
+    "local_slope_30": -0.048832,
+    "local_std_ratio_30": 0.513118,
+    "local_change_rate_30": -0.10625,
+    "local_mean_ratio_30": 1.2695,
+    "local_slope_120": 0.062004,
+    "local_std_ratio_120": 0.793289,
+    "local_change_rate_120": 1.042857,
+    "local_mean_ratio_120": 1.059533
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-28 14:28:16"
+}

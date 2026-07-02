@@ -1,0 +1,54 @@
+{
+  "window_id": 297,
+  "origin": 2970,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_298.pkl",
+  "best_strategy": {
+    "name": "reind_6d57",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.623456,
+          "residual_correction_advanced": 0.376544
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "local_drift": 0.456789,
+          "seasonal_forecaster": 0.345678,
+          "bias_corrector": 0.197533
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.789012,
+          "incremental_gbm": 0.210988
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining multi-resolution initialization with local drift and seasonal adjustments, transitioning to ensemble methods for longer-term predictions."
+  },
+  "best_mase": 1.215638,
+  "features": {
+    "trend_strength": 0.073121,
+    "seasonal_strength": 0.16458,
+    "adf_pvalue": 0.06429,
+    "period": 4,
+    "data_length": 600,
+    "skewness": 0.239206,
+    "cv": 0.374823,
+    "local_slope_7": 0.375,
+    "local_std_ratio_7": 0.398898,
+    "local_change_rate_7": 0.119565,
+    "local_mean_ratio_7": 0.868069,
+    "local_slope_30": 0.044383,
+    "local_std_ratio_30": 0.694163,
+    "local_change_rate_30": 0.05102,
+    "local_mean_ratio_30": 0.894466
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-29 19:35:49"
+}

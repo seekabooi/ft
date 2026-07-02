@@ -77,7 +77,6 @@ class DataProfiler:
 
     @staticmethod
     def _sample_entropy(series, m=2, r=None):
-        """计算样本熵 (Sample Entropy) 衡量序列复杂度"""
         n = len(series)
         if n < m + 1:
             return 0.0
@@ -106,7 +105,6 @@ class DataProfiler:
 
     @staticmethod
     def _spectral_entropy(series, fs=1.0):
-        """频谱熵：衡量频率分布的信息熵"""
         n = len(series)
         if n < 10:
             return 0.0
@@ -166,15 +164,16 @@ class DataProfiler:
             'has_dates': False, 'month_of_year': 0, 'year': 0,
             'quarter': 0, 'is_month_end': False,
             'days_from_start': n, 'time_since_last': 0,
-            # 新增特征默认值
             'acf_peak_lag': 0, 'diff_adf_pvalue': 0.5, 'sample_entropy': 0.0,
-            'spectral_entropy': 0.0, 'fft_peak_freq': 0.0, 'acf_365': 0.0
+            'spectral_entropy': 0.0, 'fft_peak_freq': 0.0, 'acf_365': 0.0,
+            'skewness': 0.0, 'cv': 0.0
         }
 
         need_basic = any(f in feature_names for f in ['adf_pvalue','seasonal_strength','trend_strength',
                                                        'recent_volatility','local_slope','change_point_detected',
                                                        'acf_peak_lag','diff_adf_pvalue','sample_entropy',
-                                                       'spectral_entropy','fft_peak_freq','acf_365'])
+                                                       'spectral_entropy','fft_peak_freq','acf_365',
+                                                       'skewness','cv'])
         if need_basic:
             base = DataProfiler._statistical_profile(history, auto_period, freq, dates)
             for k, v in base.items():
@@ -229,7 +228,8 @@ class DataProfiler:
                     'missing_rate':0.0, 'data_length':n, 'recent_volatility':0.0,
                     'period':7, 'local_slope':0.0, 'change_point_detected':False,
                     'acf_peak_lag':0, 'diff_adf_pvalue':0.5, 'sample_entropy':0.0,
-                    'spectral_entropy':0.0, 'fft_peak_freq':0.0, 'acf_365':0.0}
+                    'spectral_entropy':0.0, 'fft_peak_freq':0.0, 'acf_365':0.0,
+                    'skewness':0.0, 'cv':0.0}
 
         try:
             adf_p = adfuller(history, maxlag=min(12, n//2))[1]
@@ -270,25 +270,21 @@ class DataProfiler:
         else:
             trend_strength = trend
 
-        # ========== 新增特征计算 ==========
-        # 1. ACF 峰值 lag
+        # ACF peak lag
         acf_peak_lag = 0
         if n >= 20:
             try:
                 acf_vals = acf(history, nlags=min(50, n//2))
-                # 排除 lag=0，寻找第一个显著峰值 (acf > 0.2 且大于邻居)
                 peaks = [i for i in range(2, len(acf_vals)-1) if acf_vals[i] > acf_vals[i-1] and acf_vals[i] > acf_vals[i+1] and acf_vals[i] > 0.2]
                 if peaks:
                     acf_peak_lag = peaks[0]
                 else:
-                    # 取最大自相关对应的 lag
                     best_lag = np.argmax(acf_vals[1:]) + 1
                     if acf_vals[best_lag] > 0.2:
                         acf_peak_lag = best_lag
             except:
                 pass
 
-        # 2. 一阶差分后的 ADF p-value
         diff_adf_pvalue = 0.5
         if n > 5:
             try:
@@ -297,7 +293,6 @@ class DataProfiler:
             except:
                 pass
 
-        # 3. 样本熵 (复杂度)
         sample_entropy = 0.0
         if n >= 30:
             try:
@@ -305,7 +300,6 @@ class DataProfiler:
             except:
                 pass
 
-        # 4. 频谱熵
         spectral_entropy = 0.0
         if n >= 30:
             try:
@@ -313,7 +307,6 @@ class DataProfiler:
             except:
                 pass
 
-        # 5. FFT 峰值频率 (归一化)
         fft_peak_freq = 0.0
         if n >= 30:
             try:
@@ -326,13 +319,21 @@ class DataProfiler:
             except:
                 pass
 
-        # 6. 年周期自相关 (365 lag)
         acf_365 = 0.0
         if n >= 730 and (freq and freq.lower() in ('d', 'daily')) or period == 365:
             try:
                 acf_365 = np.corrcoef(history[365:], history[:-365])[0, 1]
             except:
                 pass
+
+        try:
+            skewness = float(scipy_stats.skew(history))
+        except:
+            skewness = 0.0
+
+        mean_val = np.mean(history)
+        std_val = np.std(history)
+        cv = std_val / (mean_val + 1e-8)
 
         return {
             'adf_pvalue': adf_p, 'seasonal_strength': seas, 'trend_strength': trend_strength,
@@ -345,7 +346,9 @@ class DataProfiler:
             'sample_entropy': sample_entropy,
             'spectral_entropy': spectral_entropy,
             'fft_peak_freq': fft_peak_freq,
-            'acf_365': acf_365
+            'acf_365': acf_365,
+            'skewness': skewness,
+            'cv': cv
         }
 
     @staticmethod
@@ -354,7 +357,6 @@ class DataProfiler:
         if n < 20:
             return 7
 
-        # 1. 如果有日期数据，自动判断是否为日度数据（间隔1天）
         if dates is not None and len(dates) > 10:
             try:
                 dts = pd.to_datetime(dates)
@@ -367,7 +369,6 @@ class DataProfiler:
             except:
                 pass
 
-        # 2. 根据频率参数判断
         if freq:
             freq_lower = freq.lower()
             if freq_lower in ('d', 'daily'):
@@ -389,7 +390,6 @@ class DataProfiler:
             elif freq_lower in ('m', 'monthly'):
                 return 12
 
-        # 3. 无频率信息时，基于自相关检测
         try:
             max_lag = min(n//2, 50)
             acf_vals = acf(history, nlags=max_lag)

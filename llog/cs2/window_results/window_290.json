@@ -1,0 +1,59 @@
+{
+  "window_id": 290,
+  "origin": 2890,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_290.pkl",
+  "best_strategy": {
+    "name": "局部结构自适应策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.555555,
+          "local_drift": 0.444445
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.666666,
+          "theta": 0.333334
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_extractor": 0.3,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "residual_correction": 1.0
+        }
+      }
+    ],
+    "description": "根据局部斜率和变化率动态调整阶段划分，初期依赖局部漂移方法，中期使用指数平滑和Theta方法，后期结合STL分解和渐进式自适应组合"
+  },
+  "best_mase": 0.855319,
+  "features": {
+    "trend_strength": 0.127619,
+    "seasonal_strength": 0.19124,
+    "adf_pvalue": 0.05742,
+    "data_length": 600.0,
+    "skewness": 0.005947,
+    "cv": 0.36161,
+    "local_slope_30": 0.137753,
+    "local_std_ratio_30": 0.496048,
+    "local_change_rate_30": 0.367089,
+    "local_mean_ratio_30": 0.681084,
+    "local_slope_120": -0.064387,
+    "local_std_ratio_120": 0.796964,
+    "local_change_rate_120": -0.475728,
+    "local_mean_ratio_120": 0.854459
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-30 21:59:54"
+}

@@ -1,0 +1,61 @@
+{
+  "window_id": 81,
+  "origin": 800,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_81.pkl",
+  "best_strategy": {
+    "name": "Multi-Resolution Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.6,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_forecaster": 0.3,
+          "trend_forecaster": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Strategy focusing on decomposition-based methods with progressive adaptation to data characteristics"
+  },
+  "best_mase": 0.862783,
+  "features": {
+    "trend_strength": 0.064954,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.037653,
+    "data_length": 600.0,
+    "skewness": 0.119254,
+    "cv": 0.366222,
+    "local_slope_30": -0.041268,
+    "local_std_ratio_30": 0.875516,
+    "local_change_rate_30": -0.226994,
+    "local_mean_ratio_30": 1.042718,
+    "local_slope_120": 0.037539,
+    "local_std_ratio_120": 0.805982,
+    "local_change_rate_120": 2.230769,
+    "local_mean_ratio_120": 0.829948
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:01:51"
+}

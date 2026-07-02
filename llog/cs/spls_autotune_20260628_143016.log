@@ -1,0 +1,31 @@
+[2026-06-28 14:30:16] [INFO] 
+[2026-06-28 14:30:16] [INFO] [PID:36132] 🔹 窗口 295/24 (origin=2940, size=600)
+[2026-06-28 14:30:16] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 14:30:16] [INFO]    📋 可用技能数: 28
+[2026-06-28 14:30:16] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 14:30:16] [INFO]    📋 可用技能: 28 个
+[2026-06-28 14:30:16] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 295)
+[2026-06-28 14:30:16] [INFO]   📌 模型: glm-4
+[2026-06-28 14:30:16] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 14:30:16] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 14:30:16] [INFO]   📏 Prompt长度: 2150 字符
+[2026-06-28 14:30:16] [INFO]   📤 尝试 1/2...
+[2026-06-28 14:30:16] [INFO]   📌 模型: glm-4
+[2026-06-28 14:30:16] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 14:30:18] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 14:30:18] [INFO]   📏 Prompt长度: 2150 字符
+[2026-06-28 14:30:18] [INFO]   📤 尝试 1/2...
+[2026-06-28 14:30:25] [INFO]   📥 响应完成 (耗时 7.1s)
+[2026-06-28 14:30:25] [INFO]   📊 Token: prompt=1012, completion=503, total=1515
+[2026-06-28 14:30:25] [INFO]   📥 响应完成 (耗时 7.1s)
+[2026-06-28 14:30:25] [INFO]   📊 Token: prompt=1012, completion=503, total=1515
+[2026-06-28 14:30:25] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 14:30:25] [INFO]       策略 1: Adaptive Multi-Stage Ensemble → 3步{prophet:0.45, ets:0.35, holt_winters:0.2} → 4步{auto_arima:0.4, theta:0.3, residual_correction:0.3} → 5步{multi_seasonal_naive:0.5, local_drift:0.3, adaptive_weighted_ensemble:0.2}
+[2026-06-28 14:30:25] [INFO]       策略 2: Seasonality-Driven Progressive Strategy → 2步{seasonal_naive:0.6, fourier:0.4} → 5步{stl_decompose:0.45, seasonal_forecaster:0.35, bias_corrector:0.2} → 3步{croston:0.5, naive_drift:0.3, incremental_gbm:0.2} → 2步{tbats:0.7, multi_resolution:0.3}
+[2026-06-28 14:30:25] [INFO]        开始评估策略 1...
+[2026-06-28 14:36:08] [INFO]        策略 1 预测耗时: 342.47s
+[2026-06-28 14:36:08] [INFO]        策略 1: MASE=0.973524
+[2026-06-28 14:36:08] [INFO]        开始评估策略 2...
+[2026-06-28 14:36:26] [INFO]        策略 2 预测耗时: 18.61s
+[2026-06-28 14:36:26] [INFO]        策略 2: MASE=0.907233
+[2026-06-28 14:36:26] [INFO]    🏆 窗口 295 最优策略: Seasonality-Driven Progressive Strategy, MASE=0.907233

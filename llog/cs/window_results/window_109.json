@@ -1,0 +1,62 @@
+{
+  "window_id": 109,
+  "origin": 1080,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_109.pkl",
+  "best_strategy": {
+    "name": "Hybrid Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5,
+          "local_drift": 0.5
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_extractor": 0.3,
+          "trend_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.35,
+          "holt_winters": 0.35,
+          "residual_correction_advanced": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "adaptive_weighted_ensemble": 0.4,
+          "incremental_gbm": 0.2
+        }
+      }
+    ],
+    "description": "Strategy leveraging decomposition techniques to separate trend and seasonality, with progressive complexity increase."
+  },
+  "best_mase": 0.631297,
+  "features": {
+    "trend_strength": 0.116252,
+    "seasonal_strength": 0.083332,
+    "adf_pvalue": 0.026734,
+    "data_length": 600.0,
+    "skewness": 0.08132,
+    "cv": 0.374317,
+    "local_slope_30": 0.101735,
+    "local_std_ratio_30": 0.697041,
+    "local_change_rate_30": 0.877551,
+    "local_mean_ratio_30": 0.567007,
+    "local_slope_120": -0.051087,
+    "local_std_ratio_120": 0.851295,
+    "local_change_rate_120": -0.432099,
+    "local_mean_ratio_120": 0.753223
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:30:03"
+}

@@ -1,0 +1,55 @@
+{
+  "window_id": 287,
+  "origin": 2860,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_287.pkl",
+  "best_strategy": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.5,
+          "multi_seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages focusing on short-term residual correction, mid-term seasonal decomposition, and long-term adaptive ensemble"
+  },
+  "best_mase": 0.407073,
+  "features": {
+    "trend_strength": 0.076566,
+    "seasonal_strength": 0.16098,
+    "adf_pvalue": 0.22906,
+    "data_length": 600.0,
+    "skewness": -0.063726,
+    "cv": 0.348961,
+    "local_slope_30": 0.013771,
+    "local_std_ratio_30": 0.427797,
+    "local_change_rate_30": -0.233645,
+    "local_mean_ratio_30": 0.663349,
+    "local_slope_120": -0.084922,
+    "local_std_ratio_120": 0.920696,
+    "local_change_rate_120": -0.50303,
+    "local_mean_ratio_120": 0.989896
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 20:10:05"
+}

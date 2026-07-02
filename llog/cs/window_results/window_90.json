@@ -1,0 +1,65 @@
+{
+  "window_id": 90,
+  "origin": 890,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_90.pkl",
+  "best_strategy": {
+    "name": "Hybrid Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5,
+          "local_drift": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "trend_forecaster": 0.2,
+          "incremental_gbm": 0.1
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.35,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.25,
+          "multi_resolution": 0.15
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "auto_arima": 0.35,
+          "residual_correction_advanced": 0.25
+        }
+      }
+    ],
+    "description": "4-stage strategy combining decomposition, ensemble methods, and advanced residual correction for robust forecasting."
+  },
+  "best_mase": 0.457632,
+  "features": {
+    "trend_strength": 0.117768,
+    "seasonal_strength": 0.031706,
+    "adf_pvalue": 0.196658,
+    "data_length": 600.0,
+    "skewness": 0.044079,
+    "cv": 0.360633,
+    "local_slope_30": 0.055884,
+    "local_std_ratio_30": 0.498182,
+    "local_change_rate_30": 0.255639,
+    "local_mean_ratio_30": 1.350511,
+    "local_slope_120": 0.035506,
+    "local_std_ratio_120": 0.783495,
+    "local_change_rate_120": 0.02454,
+    "local_mean_ratio_120": 1.191455
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:09:23"
+}

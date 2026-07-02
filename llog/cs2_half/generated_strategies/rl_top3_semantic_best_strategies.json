@@ -1,0 +1,1796 @@
+{
+  "1": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "prophet": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "holt_winters": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "2": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "prophet": 0.3,
+          "local_drift": 0.2
+        }
+      }
+    ],
+    "description": "基于周期性特征和趋势稳定性，采用三阶段动态权重分配，初期强化季节性方法，中期结合平滑与自适应集成，后期侧重多周期预测与趋势漂移"
+  },
+  "4": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，短期依赖季节性残差修正，中期结合holt_winters和theta，后期采用多季节性模型和自适应集成"
+  },
+  "6": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "local_drift": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "holt_winters": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性，采用多阶段自适应权重分配，短期依赖季节性方法，中期结合趋势分解，长期使用集成预测"
+  },
+  "3": {
+    "name": "自适应动态阶段策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.25,
+          "holt_winters": 0.55,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于趋势强度和季节性特征，采用多阶段动态权重分配策略，初期以季节性方法为主，中期结合趋势和自适应集成，后期采用高级残差校正"
+  },
+  "5": {
+    "name": "自适应动态策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于ADF检验和局部变化率调整阶段划分，权重自适应分配"
+  },
+  "7": {
+    "name": "自适应动态策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和弱季节性特征，采用多阶段自适应权重分配策略，结合基础方法和高级集成方法"
+  },
+  "9": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "residual_correction_advanced": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "8": {
+    "name": "自适应动态阶段策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于趋势强度弱、季节性弱、ADF检验不显著的特征，采用多阶段动态权重分配策略，初期以季节性朴素方法为主，中期结合holt_winters和theta方法，后期使用prophet和高级残差校正"
+  },
+  "11": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于季节性强度和局部趋势动态划分阶段，初期侧重季节性基线预测，中期结合趋势与自适应集成，后期采用多方法融合提升精度"
+  },
+  "10": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "residual_correction_advanced": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性分解，中期结合趋势与周期，后期采用集成方法提升稳定性"
+  },
+  "12": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于季节性强度和局部变化率动态划分阶段，初期侧重季节性残差修正，中期结合趋势与季节性模型，后期采用集成方法提升预测稳定性"
+  },
+  "13": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期聚焦季节性模式，中期结合趋势与周期，后期采用集成方法提升精度"
+  },
+  "14": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "residual_correction_advanced": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期强化季节性捕捉，中期融合趋势与自适应集成，后期结合多方法残差修正"
+  },
+  "15": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "stl_decompose": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性，分阶段融合季节性分解与趋势预测方法"
+  },
+  "16": {
+    "name": "自适应多阶段预测策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.25,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于窗口特征动态划分阶段，结合季节性和趋势预测方法，适应中等强度周期性数据"
+  },
+  "17": {
+    "name": "自适应季节-趋势分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.55,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和季节性特征，采用多阶段自适应权重分配，初期依赖基础方法，中期强化季节性处理，后期结合高级模型进行修正"
+  },
+  "18": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "residual_correction_advanced": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期强化季节性捕捉，中期结合趋势与自适应集成，后期采用多方法融合提升精度"
+  },
+  "19": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "local_drift": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性方法，中期结合趋势分解，后期采用集成方法提升稳定性"
+  },
+  "20": {
+    "name": "自适应多阶段预测策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.15,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.25,
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于窗口特征动态划分阶段，结合季节性和趋势预测方法，适应中等趋势强度和季节性"
+  },
+  "21": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期聚焦季节性模式，中期结合趋势与周期，后期强化多方法集成"
+  },
+  "22": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期聚焦季节性模式，中期结合趋势与周期，后期强化多方法集成"
+  },
+  "23": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "trend_forecaster": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "24": {
+    "name": "自适应周期-趋势融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "prophet": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "holt_winters": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性主导（period=5）和弱趋势特征，分四阶段逐步融合季节性与趋势方法，短期依赖局部漂移，中期强化周期模型，长期结合自适应集成"
+  },
+  "25": {
+    "name": "自适应季节-趋势分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "prophet": 0.3,
+          "local_drift": 0.2
+        }
+      }
+    ],
+    "description": "基于弱趋势(0.056)和中等季节性(0.106)特征，采用三阶段动态分解：初期聚焦季节性基线，中期结合平滑与自适应集成，后期强化多周期预测与趋势漂移修正"
+  },
+  "26": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性分解，中期结合趋势与自适应集成，后期强化残差修正"
+  },
+  "27": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "stl_decompose": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，短期依赖季节性模式，中期结合趋势与残差修正，长期采用集成预测"
+  },
+  "29": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于季节性强度和局部趋势动态划分阶段，结合季节性分解和自适应集成方法"
+  },
+  "28": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和中等季节性特征，采用季节性分解与集成方法，分阶段处理短期和中期预测"
+  },
+  "30": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和中等季节性特征，采用季节性分解与自适应集成方法，分阶段处理短期、中期和长期预测需求"
+  },
+  "31": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "trend_forecaster": 0.25
+        }
+      }
+    ],
+    "description": "基于季节性强度和局部趋势变化，分三阶段动态调整权重组合"
+  },
+  "33": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "stl_decompose": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性，采用多阶段自适应权重分配策略"
+  },
+  "32": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "local_drift": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "calendar": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "34": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "stl_decompose": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "35": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成方法"
+  },
+  "36": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性，分阶段融合季节性分解与趋势预测方法"
+  },
+  "37": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.55,
+          "residual_correction_advanced": 0.45
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期强化季节性方法，中期结合趋势与集成，后期采用多方法融合"
+  },
+  "38": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性分解，中期结合趋势与自适应集成，后期强化多模型融合"
+  },
+  "40": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "naive": 0.25,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.55,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性提取与自适应集成方法"
+  },
+  "39": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "prophet": 0.3,
+          "local_drift": 0.2
+        }
+      }
+    ],
+    "description": "基于周期性特征和趋势稳定性，采用三阶段动态权重分配，初期强化季节性方法，中期结合平滑与自适应集成，后期侧重多方法融合"
+  },
+  "41": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "local_drift": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "calendar": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，结合季节性分解与自适应集成"
+  },
+  "43": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期强化季节性捕捉，中期平衡趋势与周期，后期结合残差修正"
+  },
+  "42": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，短期依赖季节性方法，中期结合趋势与残差修正，长期采用集成预测"
+  },
+  "44": {
+    "name": "自适应季节性趋势分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.3,
+          "ets": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "prophet": 0.3,
+          "local_drift": 0.2
+        }
+      }
+    ],
+    "description": "基于强季节性特征和中等趋势强度，采用三阶段动态预测：初期聚焦季节性基线，中期结合平滑与自适应集成，后期强化多方法融合"
+  },
+  "45": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和中等季节性特征，采用多阶段自适应权重分配，初期侧重季节性基线，中期强化趋势建模，后期结合高级残差校正"
+  },
+  "46": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期聚焦季节性模式，中期结合趋势与周期，后期采用集成方法提升稳定性"
+  },
+  "48": {
+    "name": "自适应动态策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.35,
+          "holt_winters": 0.45,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "ets": 0.35,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "基于趋势强度和季节性特征，采用多阶段动态权重分配策略"
+  },
+  "47": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "naive": 0.25,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "ets": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.7,
+          "residual_correction_advanced": 0.3
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，优先处理季节性成分，逐步融合趋势预测"
+  },
+  "50": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "fourier": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "ets": 0.25,
+          "local_drift": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "residual_correction_advanced": 0.6
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性分解，中期结合趋势与自适应集成，后期强化残差修正"
+  },
+  "49": {
+    "name": "自适应周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "naive": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "ets": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.65,
+          "residual_correction_advanced": 0.35
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势动态划分阶段，初期侧重季节性提取，中期强化趋势建模，后期结合多方法集成"
+  }
+}

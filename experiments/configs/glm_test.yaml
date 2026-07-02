@@ -1,3 +1,0 @@
-model: glm-4-flash
-num_tasks: 3
-agent: llm_planner

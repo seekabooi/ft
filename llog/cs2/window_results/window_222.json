@@ -1,0 +1,55 @@
+{
+  "window_id": 222,
+  "origin": 2210,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_222.pkl",
+  "best_strategy": {
+    "name": "自适应趋势-周期分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "residual_correction_advanced": 0.45,
+          "local_drift": 0.35,
+          "seasonal_extractor": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "residual_correction_advanced": 0.5,
+          "holt_winters": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "adaptive_weighted_ensemble": 0.25,
+          "seasonal_forecaster": 0.15
+        }
+      }
+    ],
+    "description": "基于弱趋势和弱周期性特征，采用渐进式权重调整，初期侧重局部漂移和残差修正，中期引入季节性分解，后期强化自适应组合"
+  },
+  "best_mase": 1.344448,
+  "features": {
+    "trend_strength": 0.024334,
+    "seasonal_strength": 0.024815,
+    "adf_pvalue": 0.045809,
+    "data_length": 600.0,
+    "skewness": 0.247831,
+    "cv": 0.335689,
+    "local_slope_30": 0.036151,
+    "local_std_ratio_30": 0.663145,
+    "local_change_rate_30": 0.369048,
+    "local_mean_ratio_30": 0.890246,
+    "local_slope_120": 0.001045,
+    "local_std_ratio_120": 0.643291,
+    "local_change_rate_120": -0.148148,
+    "local_mean_ratio_120": 0.793745
+  },
+  "is_trouble": true,
+  "saved_at": "2026-07-01 02:11:21"
+}

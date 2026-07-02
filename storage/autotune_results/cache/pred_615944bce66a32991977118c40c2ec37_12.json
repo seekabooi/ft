@@ -1,0 +1,28 @@
+{
+  "pred": [
+    12.7,
+    14.0,
+    13.7,
+    16.3,
+    20.0,
+    17.0,
+    15.2,
+    12.7,
+    14.0,
+    13.7,
+    16.3,
+    20.0
+  ],
+  "train_size": 600,
+  "test_size": 12,
+  "trajectory": [
+    {
+      "step": 0,
+      "weights": {
+        "seasonal_naive": 0.5102040817,
+        "progressive_adaptive_combiner": 0.4897959183
+      },
+      "interval": 2
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "window_id": 181,
+  "origin": 1800,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_181.pkl",
+  "best_strategy": {
+    "name": "周期性分解集成策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 0.5,
+          "detrender": 0.5
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.35,
+          "theta": 0.25,
+          "residual_correction_advanced": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.45,
+          "adaptive_weighted_ensemble": 0.55
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "incremental_gbm": 0.7,
+          "calendar": 0.3
+        }
+      }
+    ],
+    "description": "先分离季节性成分，通过STL分解和残差修正处理中期预测，最后结合多季节性模型和增量梯度提升进行长期预测"
+  },
+  "best_mase": 0.435378,
+  "features": {
+    "trend_strength": 0.181841,
+    "seasonal_strength": 0.033476,
+    "adf_pvalue": 0.21864,
+    "data_length": 600.0,
+    "skewness": -0.031771,
+    "cv": 0.332212,
+    "local_slope_30": 0.009166,
+    "local_std_ratio_30": 0.563061,
+    "local_change_rate_30": -0.125,
+    "local_mean_ratio_30": 0.535842,
+    "local_slope_120": -0.067957,
+    "local_std_ratio_120": 0.969257,
+    "local_change_rate_120": -0.473684,
+    "local_mean_ratio_120": 0.827891
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-30 20:45:09"
+}

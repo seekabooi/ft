@@ -1,0 +1,60 @@
+{
+  "window_id": 29,
+  "origin": 280,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_29.pkl",
+  "best_strategy": {
+    "name": "Seasonal-Trend Hybrid",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.3,
+          "local_drift": 0.7
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "seasonal_extractor": 0.25,
+          "holt_winters": 0.45,
+          "stl_decompose": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 1.0
+        }
+      }
+    ],
+    "description": "Four-stage strategy focusing on seasonal decomposition and trend modeling"
+  },
+  "best_mase": 0.754266,
+  "features": {
+    "trend_strength": 0.004249,
+    "seasonal_strength": 0.102965,
+    "adf_pvalue": 0.121322,
+    "data_length": 600.0,
+    "skewness": 0.058688,
+    "cv": 0.386109,
+    "local_slope_30": -0.179377,
+    "local_std_ratio_30": 0.660981,
+    "local_change_rate_30": -0.4,
+    "local_mean_ratio_30": 0.876415,
+    "local_slope_120": -0.083924,
+    "local_std_ratio_120": 0.948594,
+    "local_change_rate_120": -0.464286,
+    "local_mean_ratio_120": 1.149088
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 14:06:34"
+}

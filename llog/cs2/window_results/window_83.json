@@ -1,0 +1,62 @@
+{
+  "window_id": 83,
+  "origin": 820,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_83.pkl",
+  "best_strategy": {
+    "name": "多分辨率分解策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.4,
+          "local_drift": 0.6
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.35,
+          "seasonal_forecaster": 0.45,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_resolution": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "holt_winters": 0.35,
+          "chunk_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "基于多分辨率分解技术，逐步融合趋势和季节性成分，后期结合先进模型提升预测精度"
+  },
+  "best_mase": 1.1213,
+  "features": {
+    "trend_strength": 0.006196,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.114433,
+    "data_length": 600.0,
+    "skewness": 0.107379,
+    "cv": 0.363768,
+    "local_slope_30": 0.068765,
+    "local_std_ratio_30": 0.740222,
+    "local_change_rate_30": 0.44898,
+    "local_mean_ratio_30": 1.213128,
+    "local_slope_120": 0.039497,
+    "local_std_ratio_120": 0.814267,
+    "local_change_rate_120": 0.893333,
+    "local_mean_ratio_120": 0.95188
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-26 15:02:05"
+}

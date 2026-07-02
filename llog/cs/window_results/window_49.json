@@ -1,0 +1,64 @@
+{
+  "window_id": 49,
+  "origin": 480,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_49.pkl",
+  "best_strategy": {
+    "name": "Multi-Resolution Ensemble Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.3,
+          "local_drift": 0.4,
+          "chunk_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.25,
+          "holt_winters": 0.25,
+          "stl_decompose": 0.2,
+          "seasonal_forecaster": 0.2,
+          "incremental_gbm": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "auto_arima": 0.3,
+          "prophet": 0.3,
+          "multi_resolution": 0.4
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "Strategy using simple methods for very short-term, seasonal decomposition for mid-term, and advanced models for long-term with final ensemble correction"
+  },
+  "best_mase": 0.789303,
+  "features": {
+    "trend_strength": 0.140089,
+    "seasonal_strength": 0.076683,
+    "adf_pvalue": 0.285787,
+    "data_length": 600.0,
+    "skewness": 0.203759,
+    "cv": 0.414244,
+    "local_slope_30": 0.094816,
+    "local_std_ratio_30": 0.656841,
+    "local_change_rate_30": 1.631579,
+    "local_mean_ratio_30": 1.30363,
+    "local_slope_120": 0.046935,
+    "local_std_ratio_120": 0.731967,
+    "local_change_rate_120": 4.0,
+    "local_mean_ratio_120": 1.055281
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 14:26:55"
+}

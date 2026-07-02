@@ -1,0 +1,59 @@
+{
+  "window_id": 121,
+  "origin": 1200,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_121.pkl",
+  "best_strategy": {
+    "name": "Dynamic Residual Correction Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.5,
+          "residual_correction": 0.5
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.571429,
+          "seasonal_extractor": 0.428571
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.45,
+          "croston": 0.35,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "auto_arima": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ]
+  },
+  "best_mase": 0.846541,
+  "features": {
+    "trend_strength": 0.091967,
+    "seasonal_strength": 0.038592,
+    "adf_pvalue": 0.029182,
+    "data_length": 600.0,
+    "skewness": 0.28761,
+    "cv": 0.383537,
+    "local_slope_30": 0.0204,
+    "local_std_ratio_30": 0.630874,
+    "local_change_rate_30": -0.045752,
+    "local_mean_ratio_30": 1.325305,
+    "local_slope_120": 0.063004,
+    "local_std_ratio_120": 0.860998,
+    "local_change_rate_120": 1.027778,
+    "local_mean_ratio_120": 1.007206
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:46:44"
+}

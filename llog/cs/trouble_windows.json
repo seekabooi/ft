@@ -1,0 +1,488 @@
+[
+  {
+    "window_id": 102,
+    "origin": 1010,
+    "window_size": 600,
+    "mase": 1.102185,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_102.pkl",
+    "best_strategy_name": "多尺度分解策略",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 117,
+    "origin": 1160,
+    "window_size": 600,
+    "mase": 1.275156,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_117.pkl",
+    "best_strategy_name": "Adaptive Trend-Seasonal Strategy",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 12,
+    "origin": 110,
+    "window_size": 600,
+    "mase": 1.121329,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_12.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 127,
+    "origin": 1260,
+    "window_size": 600,
+    "mase": 1.091017,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_127.pkl",
+    "best_strategy_name": "动态阶段自适应策略",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 130,
+    "origin": 1290,
+    "window_size": 600,
+    "mase": 1.428526,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_130.pkl",
+    "best_strategy_name": "动态趋势-周期分解策略",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 133,
+    "origin": 1320,
+    "window_size": 600,
+    "mase": 1.540097,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_133.pkl",
+    "best_strategy_name": "动态趋势-周期融合策略",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 145,
+    "origin": 1440,
+    "window_size": 600,
+    "mase": 1.09591,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_145.pkl",
+    "best_strategy_name": "Seasonality-Aware Progressive Strategy",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 19,
+    "origin": 180,
+    "window_size": 600,
+    "mase": 1.710616,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_19.pkl",
+    "best_strategy_name": "多分辨率分解策略",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 20,
+    "origin": 190,
+    "window_size": 600,
+    "mase": 1.007954,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_20.pkl",
+    "best_strategy_name": "渐进式自适应组合策略",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 27,
+    "origin": 260,
+    "window_size": 600,
+    "mase": 1.231606,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_27.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Ensemble",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 34,
+    "origin": 330,
+    "window_size": 600,
+    "mase": 1.017994,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_34.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:45"
+  },
+  {
+    "window_id": 40,
+    "origin": 390,
+    "window_size": 600,
+    "mase": 1.013143,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_40.pkl",
+    "best_strategy_name": "局部结构驱动策略",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 56,
+    "origin": 550,
+    "window_size": 600,
+    "mase": 1.627556,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_56.pkl",
+    "best_strategy_name": "渐进式趋势-周期融合策略",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 62,
+    "origin": 610,
+    "window_size": 600,
+    "mase": 1.185843,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_62.pkl",
+    "best_strategy_name": "Dynamic Resolution Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 63,
+    "origin": 620,
+    "window_size": 600,
+    "mase": 1.215849,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_63.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 67,
+    "origin": 660,
+    "window_size": 600,
+    "mase": 1.01383,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_67.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 69,
+    "origin": 680,
+    "window_size": 600,
+    "mase": 1.094508,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_69.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 78,
+    "origin": 770,
+    "window_size": 600,
+    "mase": 1.192988,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_78.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 83,
+    "origin": 820,
+    "window_size": 600,
+    "mase": 1.1213,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_83.pkl",
+    "best_strategy_name": "多分辨率分解策略",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 93,
+    "origin": 920,
+    "window_size": 600,
+    "mase": 1.047903,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_93.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 97,
+    "origin": 960,
+    "window_size": 600,
+    "mase": 1.431456,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_97.pkl",
+    "best_strategy_name": "Seasonal-Aware Progressive Strategy",
+    "collected_at": "2026-06-26 16:40:46"
+  },
+  {
+    "window_id": 152,
+    "origin": 1510,
+    "window_size": 600,
+    "mase": 1.006617,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_152.pkl",
+    "best_strategy_name": "动态阶段自适应策略",
+    "collected_at": "2026-06-26 16:46:31"
+  },
+  {
+    "window_id": 185,
+    "origin": 1850,
+    "window_size": 600,
+    "mase": 1.424086,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_186.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 189,
+    "origin": 1890,
+    "window_size": 600,
+    "mase": 1.091703,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_190.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 193,
+    "origin": 1930,
+    "window_size": 600,
+    "mase": 1.046606,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_194.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 196,
+    "origin": 1960,
+    "window_size": 600,
+    "mase": 1.469862,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_197.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 205,
+    "origin": 2050,
+    "window_size": 600,
+    "mase": 1.02394,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_206.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 214,
+    "origin": 2140,
+    "window_size": 600,
+    "mase": 1.047397,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_215.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 221,
+    "origin": 2210,
+    "window_size": 600,
+    "mase": 1.105742,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_222.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 223,
+    "origin": 2230,
+    "window_size": 600,
+    "mase": 1.057156,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_224.pkl",
+    "best_strategy_name": "policy_0_9b6a",
+    "collected_at": "2026-06-26 16:46:49"
+  },
+  {
+    "window_id": 186,
+    "origin": 1850,
+    "window_size": 600,
+    "mase": 1.38096,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_186.pkl",
+    "best_strategy_name": "Adaptive Trend-Seasonal Strategy",
+    "collected_at": "2026-06-26 18:09:27"
+  },
+  {
+    "window_id": 178,
+    "origin": 1770,
+    "window_size": 600,
+    "mase": 1.111574,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_178.pkl",
+    "best_strategy_name": "多分辨率分解策略",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 194,
+    "origin": 1930,
+    "window_size": 600,
+    "mase": 1.184275,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_194.pkl",
+    "best_strategy_name": "Multi-Resolution Ensemble Strategy",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 190,
+    "origin": 1890,
+    "window_size": 600,
+    "mase": 1.013863,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_190.pkl",
+    "best_strategy_name": "Multi-Resolution Ensemble Strategy",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 199,
+    "origin": 1980,
+    "window_size": 600,
+    "mase": 1.030212,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_199.pkl",
+    "best_strategy_name": "动态趋势-周期混合策略",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 197,
+    "origin": 1960,
+    "window_size": 600,
+    "mase": 1.442646,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_197.pkl",
+    "best_strategy_name": "Adaptive Trend-Seasonal Strategy",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 206,
+    "origin": 2050,
+    "window_size": 600,
+    "mase": 1.087994,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_206.pkl",
+    "best_strategy_name": "Adaptive Trend-Seasonal Strategy",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 222,
+    "origin": 2210,
+    "window_size": 600,
+    "mase": 1.147552,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_222.pkl",
+    "best_strategy_name": "动态阶段自适应策略",
+    "collected_at": "2026-06-26 18:09:28"
+  },
+  {
+    "window_id": 269,
+    "origin": 2690,
+    "window_size": 600,
+    "mase": 1.089781,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_270.pkl",
+    "best_strategy_name": "reind_b194",
+    "collected_at": "2026-06-26 18:09:48"
+  },
+  {
+    "window_id": 275,
+    "origin": 2750,
+    "window_size": 600,
+    "mase": 1.52124,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_276.pkl",
+    "best_strategy_name": "reind_b194",
+    "collected_at": "2026-06-26 18:09:48"
+  },
+  {
+    "window_id": 288,
+    "origin": 2880,
+    "window_size": 600,
+    "mase": 1.139778,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_289.pkl",
+    "best_strategy_name": "reind_b194",
+    "collected_at": "2026-06-26 18:09:48"
+  },
+  {
+    "window_id": 298,
+    "origin": 2980,
+    "window_size": 600,
+    "mase": 1.228508,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_299.pkl",
+    "best_strategy_name": "reind_b194",
+    "collected_at": "2026-06-26 18:09:48"
+  },
+  {
+    "window_id": 302,
+    "origin": 3020,
+    "window_size": 600,
+    "mase": 1.058624,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_303.pkl",
+    "best_strategy_name": "reind_b194",
+    "collected_at": "2026-06-26 18:09:48"
+  },
+  {
+    "window_id": 270,
+    "origin": 2690,
+    "window_size": 600,
+    "mase": 1.486414,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_270.pkl",
+    "best_strategy_name": "渐进式分解策略",
+    "collected_at": "2026-06-26 20:42:02"
+  },
+  {
+    "window_id": 276,
+    "origin": 2750,
+    "window_size": 600,
+    "mase": 1.391202,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_276.pkl",
+    "best_strategy_name": "Hybrid Decomposition Strategy",
+    "collected_at": "2026-06-26 20:42:03"
+  },
+  {
+    "window_id": 284,
+    "origin": 2830,
+    "window_size": 600,
+    "mase": 1.057518,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_284.pkl",
+    "best_strategy_name": "Seasonal-Aware Progressive Strategy",
+    "collected_at": "2026-06-26 20:42:04"
+  },
+  {
+    "window_id": 299,
+    "origin": 2980,
+    "window_size": 600,
+    "mase": 1.197334,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_299.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-26 20:42:04"
+  },
+  {
+    "window_id": 303,
+    "origin": 3020,
+    "window_size": 600,
+    "mase": 1.157495,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_303.pkl",
+    "best_strategy_name": "多分辨率分解策略",
+    "collected_at": "2026-06-26 20:42:04"
+  },
+  {
+    "window_id": 224,
+    "origin": 2230,
+    "window_size": 600,
+    "mase": 1.02782,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_224.pkl",
+    "best_strategy_name": "Hybrid Decomposition Strategy",
+    "collected_at": "2026-06-26 22:42:45"
+  },
+  {
+    "window_id": 277,
+    "origin": 2760,
+    "window_size": 600,
+    "mase": 1.007185,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_277.pkl",
+    "best_strategy_name": "Progressive Refinement Strategy",
+    "collected_at": "2026-06-27 03:07:53"
+  },
+  {
+    "window_id": 187,
+    "origin": 1860,
+    "window_size": 600,
+    "mase": 1.290912,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_187.pkl",
+    "best_strategy_name": "Adaptive Trend-Seasonal Strategy",
+    "collected_at": "2026-06-27 09:23:32"
+  },
+  {
+    "window_id": 289,
+    "origin": 2880,
+    "window_size": 600,
+    "mase": 1.183694,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_289.pkl",
+    "best_strategy_name": "默认策略",
+    "collected_at": "2026-06-27 19:46:04"
+  },
+  {
+    "window_id": 208,
+    "origin": 2070,
+    "window_size": 600,
+    "mase": 1.012809,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_208.pkl",
+    "best_strategy_name": "Multi-Resolution Decomposition Strategy",
+    "collected_at": "2026-06-27 22:30:02"
+  },
+  {
+    "window_id": 267,
+    "origin": 2660,
+    "window_size": 600,
+    "mase": 1.083212,
+    "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_267.pkl",
+    "best_strategy_name": "Adaptive Multi-Stage Strategy",
+    "collected_at": "2026-06-28 10:07:34"
+  }
+]

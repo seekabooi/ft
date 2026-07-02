@@ -1,0 +1,1366 @@
+{
+  "window_best": [
+    {
+      "name": "Hybrid Decomposition Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive": 0.6,
+            "local_drift": 0.4
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "stl_decompose": 0.45,
+            "seasonal_forecaster": 0.3,
+            "trend_forecaster": 0.25
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "multi_seasonal_naive": 0.5,
+            "residual_correction_advanced": 0.3,
+            "adaptive_weighted_ensemble": 0.2
+          }
+        },
+        {
+          "steps": 2,
+          "weights": {
+            "incremental_gbm": 0.7,
+            "multi_resolution": 0.3
+          }
+        }
+      ],
+      "description": "Strategy leveraging decomposition for mid-term prediction with adaptive ensemble methods for uncertainty handling.",
+      "_window_id": 191,
+      "_origin": 1900,
+      "_mase": 0.654837,
+      "_features": {
+        "trend_strength": 0.035368,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.010298,
+        "data_length": 600.0,
+        "skewness": 0.294138,
+        "cv": 0.34515,
+        "local_slope_30": 0.209722,
+        "local_std_ratio_30": 0.974505,
+        "local_change_rate_30": 0.390805,
+        "local_mean_ratio_30": 1.108612,
+        "local_slope_120": 0.055926,
+        "local_std_ratio_120": 0.951938,
+        "local_change_rate_120": 0.32967,
+        "local_mean_ratio_120": 0.889644
+      }
+    },
+    {
+      "name": "动态趋势-周期混合策略",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.45,
+            "holt_winters": 0.35,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "auto_arima": 0.4,
+            "theta": 0.3,
+            "residual_correction": 0.3
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "ets": 0.625,
+            "naive_drift": 0.375
+          }
+        }
+      ],
+      "description": "基于弱趋势和弱周期特征，采用三阶段动态调整：初期使用prophet捕捉基础趋势，中期用auto_arima处理序列相关性，后期通过组合方法优化长期预测",
+      "_window_id": 192,
+      "_origin": 1910,
+      "_mase": 0.899137,
+      "_features": {
+        "trend_strength": 0.002889,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.018486,
+        "data_length": 600.0,
+        "skewness": 0.283126,
+        "cv": 0.340827,
+        "local_slope_30": 0.049722,
+        "local_std_ratio_30": 0.838801,
+        "local_change_rate_30": 0.336634,
+        "local_mean_ratio_30": 1.194191,
+        "local_slope_120": 0.056634,
+        "local_std_ratio_120": 0.963986,
+        "local_change_rate_120": 1.142857,
+        "local_mean_ratio_120": 0.935226
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "local_drift": 0.45,
+            "naive": 0.3,
+            "residual_correction": 0.25
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.5,
+            "seasonal_extractor": 0.3,
+            "trend_forecaster": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "multi_resolution": 0.4,
+            "adaptive_weighted_ensemble": 0.35,
+            "residual_correction_advanced": 0.25
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining local drift for short-term, seasonal decomposition for mid-term, and multi-resolution ensemble for long-term predictions",
+      "_window_id": 183,
+      "_origin": 1820,
+      "_mase": 0.648346,
+      "_features": {
+        "trend_strength": 0.175885,
+        "seasonal_strength": 0.025726,
+        "adf_pvalue": 0.159328,
+        "data_length": 600.0,
+        "skewness": 0.056825,
+        "cv": 0.337852,
+        "local_slope_30": 0.084828,
+        "local_std_ratio_30": 0.593545,
+        "local_change_rate_30": -0.333333,
+        "local_mean_ratio_30": 0.664309,
+        "local_slope_120": -0.040419,
+        "local_std_ratio_120": 0.805219,
+        "local_change_rate_120": -0.481481,
+        "local_mean_ratio_120": 0.771976
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "naive": 0.45,
+            "local_drift": 0.35,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.6,
+            "seasonal_extractor": 0.25,
+            "bias_corrector": 0.15
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "prophet": 0.4,
+            "ets": 0.35,
+            "adaptive_weighted_ensemble": 0.25
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining trend and seasonal methods with adaptive weighting",
+      "_window_id": 186,
+      "_origin": 1850,
+      "_mase": 1.597345,
+      "_features": {
+        "trend_strength": 0.167571,
+        "seasonal_strength": 0.015055,
+        "adf_pvalue": 0.1146,
+        "data_length": 600.0,
+        "skewness": 0.182822,
+        "cv": 0.346548,
+        "local_slope_30": 0.041646,
+        "local_std_ratio_30": 0.545046,
+        "local_change_rate_30": 0.813953,
+        "local_mean_ratio_30": 0.771274,
+        "local_slope_120": 0.000838,
+        "local_std_ratio_120": 0.648534,
+        "local_change_rate_120": -0.060241,
+        "local_mean_ratio_120": 0.720683
+      }
+    },
+    {
+      "name": "Progressive Structural Decomposition Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "stl_decompose": 0.6,
+            "seasonal_extractor": 0.4
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "trend_forecaster": 0.45,
+            "seasonal_forecaster": 0.35,
+            "bias_corrector": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "residual_correction_advanced": 1.0
+          }
+        },
+        {
+          "steps": 2,
+          "weights": {
+            "adaptive_weighted_ensemble": 0.6,
+            "multi_resolution": 0.4
+          }
+        }
+      ],
+      "description": "Stage-wise decomposition strategy focusing on progressive structural refinement",
+      "_window_id": 187,
+      "_origin": 1860,
+      "_mase": 1.112098,
+      "_features": {
+        "trend_strength": 0.140554,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.046961,
+        "data_length": 600.0,
+        "skewness": 0.212667,
+        "cv": 0.348214,
+        "local_slope_30": 0.261513,
+        "local_std_ratio_30": 0.93676,
+        "local_change_rate_30": 0.979381,
+        "local_mean_ratio_30": 0.875038,
+        "local_slope_120": 0.019523,
+        "local_std_ratio_120": 0.772929,
+        "local_change_rate_120": 1.461538,
+        "local_mean_ratio_120": 0.753398
+      }
+    },
+    {
+      "name": "动态趋势-周期混合策略",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "naive": 0.25,
+            "local_drift": 0.35,
+            "trend_forecaster": 0.4
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.45,
+            "seasonal_extractor": 0.25,
+            "residual_correction": 0.3
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "multi_resolution": 0.6,
+            "adaptive_weighted_ensemble": 0.4
+          }
+        }
+      ],
+      "description": "基于弱趋势和强局部波动性的三阶段策略，初期捕捉短期漂移，中期整合季节性，后期自适应组合多分辨率预测",
+      "_window_id": 193,
+      "_origin": 1920,
+      "_mase": 0.659437,
+      "_features": {
+        "trend_strength": 0.039485,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.022137,
+        "data_length": 600.0,
+        "skewness": 0.361088,
+        "cv": 0.342934,
+        "local_slope_30": -0.026541,
+        "local_std_ratio_30": 1.071352,
+        "local_change_rate_30": 0.113402,
+        "local_mean_ratio_30": 1.282501,
+        "local_slope_120": 0.05373,
+        "local_std_ratio_120": 0.999671,
+        "local_change_rate_120": 0.227273,
+        "local_mean_ratio_120": 1.003461
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.45,
+            "holt_winters": 0.35,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "auto_arima": 0.4,
+            "ets": 0.3,
+            "residual_correction": 0.3
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "adaptive_weighted_ensemble": 1.0
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining trend and seasonal methods with adaptive weighting",
+      "_window_id": 188,
+      "_origin": 1870,
+      "_mase": 0.710457,
+      "_features": {
+        "trend_strength": 0.11751,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.07157,
+        "data_length": 600.0,
+        "skewness": 0.227236,
+        "cv": 0.347259,
+        "local_slope_30": 0.089789,
+        "local_std_ratio_30": 0.886364,
+        "local_change_rate_30": -0.126316,
+        "local_mean_ratio_30": 1.015675,
+        "local_slope_120": 0.03342,
+        "local_std_ratio_120": 0.829071,
+        "local_change_rate_120": -0.361538,
+        "local_mean_ratio_120": 0.776532
+      }
+    },
+    {
+      "name": "多尺度残差修正策略",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive_drift": 0.7,
+            "residual_correction_advanced": 0.3
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "theta": 0.45,
+            "local_drift": 0.35,
+            "incremental_gbm": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "multi_resolution": 0.55123,
+            "adaptive_weighted_ensemble": 0.24877,
+            "bias_corrector": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "holt_winters": 0.6,
+            "ets": 0.4
+          }
+        }
+      ],
+      "description": "结合多尺度分析和渐进式残差修正的分层预测策略",
+      "_window_id": 196,
+      "_origin": 1950,
+      "_mase": 1.405152,
+      "_features": {
+        "trend_strength": 0.105897,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.029204,
+        "data_length": 600.0,
+        "skewness": 0.327112,
+        "cv": 0.344039,
+        "local_slope_30": 0.058865,
+        "local_std_ratio_30": 0.696546,
+        "local_change_rate_30": 0.104348,
+        "local_mean_ratio_30": 1.252581,
+        "local_slope_120": 0.047594,
+        "local_std_ratio_120": 0.985151,
+        "local_change_rate_120": 0.309278,
+        "local_mean_ratio_120": 1.108203
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "local_drift": 0.45,
+            "residual_correction_advanced": 0.35,
+            "naive_drift": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.5,
+            "local_drift": 0.25,
+            "residual_correction_advanced": 0.25
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "theta": 0.4,
+            "seasonal_forecaster": 0.3,
+            "adaptive_weighted_ensemble": 0.3
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining local drift, residual correction, and seasonal methods based on trend strength and local structure.",
+      "_window_id": 215,
+      "_origin": 2140,
+      "_mase": 0.743335,
+      "_features": {
+        "trend_strength": 0.021336,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.044419,
+        "data_length": 600.0,
+        "skewness": 0.10018,
+        "cv": 0.31779,
+        "local_slope_30": -0.093571,
+        "local_std_ratio_30": 0.624937,
+        "local_change_rate_30": -0.611111,
+        "local_mean_ratio_30": 0.677159,
+        "local_slope_120": -0.072905,
+        "local_std_ratio_120": 0.940179,
+        "local_change_rate_120": -0.65493,
+        "local_mean_ratio_120": 0.998466
+      }
+    },
+    {
+      "name": "自适应分解-集成策略",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "stl_decompose": 0.6,
+            "detrender": 0.4
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "seasonal_forecaster": 0.45,
+            "trend_forecaster": 0.35,
+            "bias_corrector": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "chunk_ensemble": 0.714286,
+            "fft_filter": 0.285714
+          }
+        },
+        {
+          "steps": 2,
+          "weights": {
+            "multi_seasonal_naive": 0.55,
+            "calendar": 0.45
+          }
+        }
+      ],
+      "description": "通过STL分解分离趋势和季节性，分别预测后集成，最后结合多季节性基线",
+      "_window_id": 207,
+      "_origin": 2060,
+      "_mase": 0.990074,
+      "_features": {
+        "trend_strength": 0.183436,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.016581,
+        "data_length": 600.0,
+        "skewness": 0.189551,
+        "cv": 0.321823,
+        "local_slope_30": -0.106518,
+        "local_std_ratio_30": 0.708913,
+        "local_change_rate_30": 0.096552,
+        "local_mean_ratio_30": 1.253792,
+        "local_slope_120": -0.006913,
+        "local_std_ratio_120": 0.702508,
+        "local_change_rate_120": 0.081633,
+        "local_mean_ratio_120": 1.27972
+      }
+    },
+    {
+      "name": "自适应趋势-周期分解策略",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "residual_correction_advanced": 0.45,
+            "local_drift": 0.35,
+            "seasonal_extractor": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "residual_correction_advanced": 0.5,
+            "holt_winters": 0.3,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "residual_correction_advanced": 0.6,
+            "adaptive_weighted_ensemble": 0.25,
+            "seasonal_forecaster": 0.15
+          }
+        }
+      ],
+      "description": "基于弱趋势和弱周期性特征，采用渐进式权重调整，初期侧重局部漂移和残差修正，中期引入季节性分解，后期强化自适应组合",
+      "_window_id": 222,
+      "_origin": 2210,
+      "_mase": 1.344448,
+      "_features": {
+        "trend_strength": 0.024334,
+        "seasonal_strength": 0.024815,
+        "adf_pvalue": 0.045809,
+        "data_length": 600.0,
+        "skewness": 0.247831,
+        "cv": 0.335689,
+        "local_slope_30": 0.036151,
+        "local_std_ratio_30": 0.663145,
+        "local_change_rate_30": 0.369048,
+        "local_mean_ratio_30": 0.890246,
+        "local_slope_120": 0.001045,
+        "local_std_ratio_120": 0.643291,
+        "local_change_rate_120": -0.148148,
+        "local_mean_ratio_120": 0.793745
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "naive": 0.45,
+            "local_drift": 0.35,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.5,
+            "seasonal_extractor": 0.3,
+            "trend_forecaster": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "multi_resolution": 0.4,
+            "adaptive_weighted_ensemble": 0.4,
+            "residual_correction_advanced": 0.2
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining short-term stability, mid-term seasonal adjustment, and long-term adaptive ensemble",
+      "_window_id": 200,
+      "_origin": 1990,
+      "_mase": 0.728045,
+      "_features": {
+        "trend_strength": 0.204586,
+        "seasonal_strength": 0.002243,
+        "adf_pvalue": 0.057255,
+        "data_length": 600.0,
+        "skewness": 0.353595,
+        "cv": 0.360429,
+        "local_slope_30": -0.105206,
+        "local_std_ratio_30": 0.760056,
+        "local_change_rate_30": -0.006579,
+        "local_mean_ratio_30": 1.557285,
+        "local_slope_120": 0.05524,
+        "local_std_ratio_120": 0.920812,
+        "local_change_rate_120": 0.735632,
+        "local_mean_ratio_120": 1.270079
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "multi_resolution": 0.722222,
+            "residual_correction_advanced": 0.277778
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "local_drift": 0.4,
+            "ets": 0.35,
+            "holt_winters": 0.25
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "adaptive_weighted_ensemble": 0.6,
+            "residual_correction": 0.25,
+            "bias_corrector": 0.15
+          }
+        }
+      ],
+      "_window_id": 189,
+      "_origin": 1880,
+      "_mase": 1.114923,
+      "_features": {
+        "trend_strength": 0.098407,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.010311,
+        "data_length": 600.0,
+        "skewness": 0.222526,
+        "cv": 0.345256,
+        "local_slope_30": -0.075729,
+        "local_std_ratio_30": 0.961763,
+        "local_change_rate_30": 0.076087,
+        "local_mean_ratio_30": 1.038607,
+        "local_slope_120": 0.035476,
+        "local_std_ratio_120": 0.831162,
+        "local_change_rate_120": -0.168067,
+        "local_mean_ratio_120": 0.802214
+      }
+    },
+    {
+      "name": "Multi-Resolution Decomposition Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "stl_decompose": 0.75,
+            "naive_drift": 0.25
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "multi_resolution": 0.6,
+            "seasonal_extractor": 0.4
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "chunk_ensemble": 0.5,
+            "residual_correction_advanced": 0.5
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "adaptive_weighted_ensemble": 1.0
+          }
+        }
+      ],
+      "description": "Strategy leveraging decomposition techniques with progressive complexity and ensemble refinement",
+      "_window_id": 208,
+      "_origin": 2070,
+      "_mase": 0.713675,
+      "_features": {
+        "trend_strength": 0.163946,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.012626,
+        "data_length": 600.0,
+        "skewness": 0.178934,
+        "cv": 0.317899,
+        "local_slope_30": -0.202403,
+        "local_std_ratio_30": 0.841756,
+        "local_change_rate_30": -0.203593,
+        "local_mean_ratio_30": 1.145405,
+        "local_slope_120": -0.031499,
+        "local_std_ratio_120": 0.739692,
+        "local_change_rate_120": -0.179012,
+        "local_mean_ratio_120": 1.267223
+      }
+    },
+    {
+      "name": "多尺度分解集成策略",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive": 0.6,
+            "local_drift": 0.4
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "stl_decompose": 0.4,
+            "seasonal_forecaster": 0.35,
+            "residual_correction": 0.25
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "multi_resolution": 0.45,
+            "adaptive_weighted_ensemble": 0.35,
+            "holt_winters": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.5,
+            "multi_resolution": 0.3,
+            "adaptive_weighted_ensemble": 0.2
+          }
+        }
+      ],
+      "description": "利用多尺度分解和自适应集成的方法，通过STL分解处理局部结构，结合多分辨率方法提升长期预测稳定性",
+      "_window_id": 195,
+      "_origin": 1940,
+      "_mase": 0.650279,
+      "_features": {
+        "trend_strength": 0.097459,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.066839,
+        "data_length": 600.0,
+        "skewness": 0.362722,
+        "cv": 0.345117,
+        "local_slope_30": 0.045295,
+        "local_std_ratio_30": 0.983515,
+        "local_change_rate_30": 0.348684,
+        "local_mean_ratio_30": 1.306387,
+        "local_slope_120": 0.054715,
+        "local_std_ratio_120": 1.017722,
+        "local_change_rate_120": 3.767442,
+        "local_mean_ratio_120": 1.083945
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "naive_drift": 0.45,
+            "local_drift": 0.35,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.5,
+            "seasonal_naive": 0.3,
+            "ets": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "multi_resolution": 0.4,
+            "chunk_ensemble": 0.35,
+            "adaptive_weighted_ensemble": 0.25
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining drift-based methods for short-term, seasonal methods for mid-term, and ensemble methods for long-term predictions.",
+      "_window_id": 220,
+      "_origin": 2190,
+      "_mase": 0.588284,
+      "_features": {
+        "trend_strength": 0.035747,
+        "seasonal_strength": 0.029499,
+        "adf_pvalue": 0.029042,
+        "data_length": 600.0,
+        "skewness": 0.196724,
+        "cv": 0.33183,
+        "local_slope_30": 0.04901,
+        "local_std_ratio_30": 0.530712,
+        "local_change_rate_30": 0.011765,
+        "local_mean_ratio_30": 0.768755,
+        "local_slope_120": -0.04195,
+        "local_std_ratio_120": 0.772531,
+        "local_change_rate_120": -0.459119,
+        "local_mean_ratio_120": 0.838809
+      }
+    },
+    {
+      "name": "Multi-Resolution Ensemble Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive": 0.5,
+            "seasonal_naive": 0.3,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "multi_resolution": 0.45,
+            "fft_filter": 0.35,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "theta": 0.4,
+            "holt_winters": 0.35,
+            "adaptive_weighted_ensemble": 0.25
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.5,
+            "auto_arima": 0.3,
+            "incremental_gbm": 0.2
+          }
+        }
+      ],
+      "description": "Strategy leveraging multiple resolution methods with progressive refinement",
+      "_window_id": 190,
+      "_origin": 1890,
+      "_mase": 0.949339,
+      "_features": {
+        "trend_strength": 0.067808,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.025163,
+        "data_length": 600.0,
+        "skewness": 0.237171,
+        "cv": 0.342829,
+        "local_slope_30": 0.00832,
+        "local_std_ratio_30": 0.694901,
+        "local_change_rate_30": -0.229412,
+        "local_mean_ratio_30": 1.021027,
+        "local_slope_120": 0.050568,
+        "local_std_ratio_120": 0.863565,
+        "local_change_rate_120": 0.6375,
+        "local_mean_ratio_120": 0.821923
+      }
+    },
+    {
+      "name": "Multi-Resolution Ensemble Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive_drift": 0.6,
+            "local_drift": 0.4
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "theta": 0.3,
+            "holt_winters": 0.3,
+            "multi_resolution": 0.4
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.5,
+            "adaptive_weighted_ensemble": 0.3,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 2,
+          "weights": {
+            "ets": 0.7,
+            "incremental_gbm": 0.3
+          }
+        }
+      ],
+      "description": "Strategy leveraging multi-resolution analysis with progressive ensemble refinement",
+      "_window_id": 209,
+      "_origin": 2080,
+      "_mase": 0.794339,
+      "_features": {
+        "trend_strength": 0.165023,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.015823,
+        "data_length": 600.0,
+        "skewness": 0.131971,
+        "cv": 0.314991,
+        "local_slope_30": 0.12921,
+        "local_std_ratio_30": 0.743039,
+        "local_change_rate_30": -0.025157,
+        "local_mean_ratio_30": 1.094953,
+        "local_slope_120": -0.031415,
+        "local_std_ratio_120": 0.743512,
+        "local_change_rate_120": 0.019737,
+        "local_mean_ratio_120": 1.256843
+      }
+    },
+    {
+      "name": "Adaptive Multi-Stage Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "naive": 0.45,
+            "local_drift": 0.35,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.4,
+            "ets": 0.3,
+            "seasonal_extractor": 0.2,
+            "bias_corrector": 0.1
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "multi_resolution": 0.5,
+            "adaptive_weighted_ensemble": 0.3,
+            "incremental_gbm": 0.2
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term prediction.",
+      "_window_id": 223,
+      "_origin": 2220,
+      "_mase": 0.745028,
+      "_features": {
+        "trend_strength": 0.028765,
+        "seasonal_strength": 0.018551,
+        "adf_pvalue": 0.027717,
+        "data_length": 600.0,
+        "skewness": 0.270167,
+        "cv": 0.340168,
+        "local_slope_30": 0.017464,
+        "local_std_ratio_30": 0.766601,
+        "local_change_rate_30": 0.753247,
+        "local_mean_ratio_30": 0.837867,
+        "local_slope_120": 0.007615,
+        "local_std_ratio_120": 0.643573,
+        "local_change_rate_120": 0.551724,
+        "local_mean_ratio_120": 0.781135
+      }
+    },
+    {
+      "name": "Hybrid Decomposition Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "stl_decompose": 0.5,
+            "seasonal_extractor": 0.3,
+            "trend_forecaster": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "croston": 0.4,
+            "fourier": 0.3,
+            "residual_correction": 0.3
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.45,
+            "adaptive_weighted_ensemble": 0.35,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 2,
+          "weights": {
+            "naive": 0.4,
+            "multi_seasonal_naive": 0.6
+          }
+        }
+      ],
+      "description": "Strategy starts with decomposition and seasonal extraction, shifts to Croston and Fourier for mid-term, then Prophet with ensemble for late-term, ending with naive methods.",
+      "_window_id": 198,
+      "_origin": 1970,
+      "_mase": 0.500521,
+      "_features": {
+        "trend_strength": 0.171062,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.223681,
+        "data_length": 600.0,
+        "skewness": 0.377715,
+        "cv": 0.3567,
+        "local_slope_30": 0.298042,
+        "local_std_ratio_30": 0.8187,
+        "local_change_rate_30": 0.421769,
+        "local_mean_ratio_30": 1.4507,
+        "local_slope_120": 0.050623,
+        "local_std_ratio_120": 0.96899,
+        "local_change_rate_120": 1.271739,
+        "local_mean_ratio_120": 1.227687
+      }
+    },
+    {
+      "name": "Adaptive Multi-Stage Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "naive": 0.45,
+            "local_drift": 0.35,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.4,
+            "ets": 0.3,
+            "adaptive_weighted_ensemble": 0.3
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "prophet": 0.583333,
+            "multi_seasonal_naive": 0.416667
+          }
+        }
+      ],
+      "description": "Dynamic strategy with 3 stages, adapting from simple methods to complex ensembles based on trend and seasonality strength.",
+      "_window_id": 227,
+      "_origin": 2260,
+      "_mase": 0.748941,
+      "_features": {
+        "trend_strength": 0.026,
+        "seasonal_strength": 0.001958,
+        "adf_pvalue": 0.029174,
+        "data_length": 600.0,
+        "skewness": 0.326394,
+        "cv": 0.340867,
+        "local_slope_30": 0.018554,
+        "local_std_ratio_30": 0.710107,
+        "local_change_rate_30": -0.140741,
+        "local_mean_ratio_30": 1.00096,
+        "local_slope_120": 0.027196,
+        "local_std_ratio_120": 0.718964,
+        "local_change_rate_120": 1.32,
+        "local_mean_ratio_120": 0.870509
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "local_drift": 0.45,
+            "naive": 0.3,
+            "residual_correction": 0.25
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.5,
+            "seasonal_naive": 0.3,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "prophet": 0.4,
+            "ets": 0.35,
+            "residual_correction": 0.25
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining local drift for short-term, seasonal methods for mid-term, and advanced models for long-term prediction",
+      "_window_id": 179,
+      "_origin": 1780,
+      "_mase": 0.671366,
+      "_features": {
+        "trend_strength": 0.158246,
+        "seasonal_strength": 0.009908,
+        "adf_pvalue": 0.236068,
+        "data_length": 600.0,
+        "skewness": -0.072866,
+        "cv": 0.317411,
+        "local_slope_30": -0.142336,
+        "local_std_ratio_30": 0.798395,
+        "local_change_rate_30": -0.553846,
+        "local_mean_ratio_30": 0.641855,
+        "local_slope_120": -0.065734,
+        "local_std_ratio_120": 0.990409,
+        "local_change_rate_120": -0.508475,
+        "local_mean_ratio_120": 0.9084
+      }
+    },
+    {
+      "name": "Adaptive Trend-Seasonal Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "local_drift": 0.456789,
+            "naive_drift": 0.345678,
+            "residual_correction": 0.197533
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.523456,
+            "ets": 0.278912,
+            "residual_correction": 0.197632
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "prophet": 0.412345,
+            "theta": 0.356789,
+            "adaptive_weighted_ensemble": 0.230866
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining local drift for short-term, exponential smoothing for mid-term, and Prophet for long-term predictions",
+      "_window_id": 210,
+      "_origin": 2090,
+      "_mase": 0.735228,
+      "_features": {
+        "trend_strength": 0.152639,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.015474,
+        "data_length": 600.0,
+        "skewness": 0.10971,
+        "cv": 0.31243,
+        "local_slope_30": 0.039956,
+        "local_std_ratio_30": 0.654936,
+        "local_change_rate_30": 0.235849,
+        "local_mean_ratio_30": 1.083152,
+        "local_slope_120": -0.024015,
+        "local_std_ratio_120": 0.697984,
+        "local_change_rate_120": -0.255682,
+        "local_mean_ratio_120": 1.20549
+      }
+    },
+    {
+      "name": "Multi-Resolution Ensemble Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive_drift": 0.6,
+            "local_drift": 0.4
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "theta": 0.45,
+            "stl_decompose": 0.35,
+            "residual_correction_advanced": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "croston": 0.4,
+            "tbats": 0.35,
+            "incremental_gbm": 0.25
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "chunk_ensemble": 0.6,
+            "multi_resolution": 0.4
+          }
+        }
+      ],
+      "description": "Multi-stage strategy combining various resolution methods with ensemble techniques",
+      "_window_id": 224,
+      "_origin": 2230,
+      "_mase": 0.996886,
+      "_features": {
+        "trend_strength": 0.016268,
+        "seasonal_strength": 0.010895,
+        "adf_pvalue": 0.019769,
+        "data_length": 600.0,
+        "skewness": 0.304774,
+        "cv": 0.341081,
+        "local_slope_30": 0.043003,
+        "local_std_ratio_30": 0.774337,
+        "local_change_rate_30": -0.1,
+        "local_mean_ratio_30": 0.874595,
+        "local_slope_120": 0.018633,
+        "local_std_ratio_120": 0.667812,
+        "local_change_rate_120": -0.285714,
+        "local_mean_ratio_120": 0.791369
+      }
+    },
+    {
+      "name": "Adaptive Multi-Stage Strategy",
+      "stages": [
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.45,
+            "holt_winters": 0.35,
+            "local_drift": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "multi_resolution": 0.5,
+            "seasonal_forecaster": 0.3,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 5,
+          "weights": {
+            "adaptive_weighted_ensemble": 0.625,
+            "ets": 0.375
+          }
+        }
+      ],
+      "description": "Dynamic strategy combining trend, seasonal, and adaptive methods across three stages",
+      "_window_id": 225,
+      "_origin": 2240,
+      "_mase": 0.709797,
+      "_features": {
+        "trend_strength": 0.006994,
+        "seasonal_strength": 0.007608,
+        "adf_pvalue": 0.048289,
+        "data_length": 600.0,
+        "skewness": 0.327218,
+        "cv": 0.340409,
+        "local_slope_30": 0.136596,
+        "local_std_ratio_30": 0.764875,
+        "local_change_rate_30": 0.955882,
+        "local_mean_ratio_30": 0.907755,
+        "local_slope_120": 0.030745,
+        "local_std_ratio_120": 0.701957,
+        "local_change_rate_120": 0.494382,
+        "local_mean_ratio_120": 0.809587
+      }
+    },
+    {
+      "name": "Multi-Resolution Ensemble Strategy",
+      "stages": [
+        {
+          "steps": 2,
+          "weights": {
+            "naive_drift": 0.4,
+            "local_drift": 0.4,
+            "residual_correction": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "theta": 0.45,
+            "ets": 0.35,
+            "incremental_gbm": 0.2
+          }
+        },
+        {
+          "steps": 4,
+          "weights": {
+            "holt_winters": 0.5,
+            "multi_seasonal_naive": 0.3,
+            "adaptive_weighted_ensemble": 0.2
+          }
+        },
+        {
+          "steps": 3,
+          "weights": {
+            "prophet": 0.6,
+            "chunk_ensemble": 0.25,
+            "residual_correction_advanced": 0.15
+          }
+        }
+      ],
+      "description": "Strategy leveraging multi-resolution methods with progressive adaptation to local trends and seasonality.",
+      "_window_id": 216,
+      "_origin": 2150,
+      "_mase": 0.406118,
+      "_features": {
+        "trend_strength": 0.009458,
+        "seasonal_strength": 0.0,
+        "adf_pvalue": 0.032009,
+        "data_length": 600.0,
+        "skewness": 0.110853,
+        "cv": 0.32068,
+        "local_slope_30": 0.107831,
+        "local_std_ratio_30": 0.652481,
+        "local_change_rate_30": -0.157303,
+        "local_mean_ratio_30": 0.673776,
+        "local_slope_120": -0.072105,
+        "local_std_ratio_120": 0.941633,
+        "local_change_rate_120": -0.482759,
+        "local_mean_ratio_120": 0.968858
+      }
+    }
+  ],
+  "processed_ids": [
+    179,
+    183,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    195,
+    196,
+    198,
+    200,
+    207,
+    208,
+    209,
+    210,
+    215,
+    216,
+    220,
+    222,
+    223,
+    224,
+    225,
+    227
+  ],
+  "timestamp": 1782843557.5286348
+}

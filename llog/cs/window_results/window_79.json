@@ -1,0 +1,59 @@
+{
+  "window_id": 79,
+  "origin": 780,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_79.pkl",
+  "best_strategy": {
+    "name": "多分辨率分解策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 1.0
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "bias_corrector": 0.25
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_resolution": 0.45,
+          "adaptive_weighted_ensemble": 0.35,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "利用局部标准差比和ADF检验结果划分阶段，前期聚焦短期趋势，中期结合分解和季节性方法，后期采用多分辨率和集成方法提升预测精度"
+  },
+  "best_mase": 0.7446,
+  "features": {
+    "trend_strength": 0.121715,
+    "seasonal_strength": 0.064865,
+    "adf_pvalue": 0.022314,
+    "data_length": 600.0,
+    "skewness": 0.249939,
+    "cv": 0.38164,
+    "local_slope_30": 0.135751,
+    "local_std_ratio_30": 0.770001,
+    "local_change_rate_30": 0.525,
+    "local_mean_ratio_30": 0.881316,
+    "local_slope_120": 0.029401,
+    "local_std_ratio_120": 0.705652,
+    "local_change_rate_120": 0.506173,
+    "local_mean_ratio_120": 0.761499
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 14:57:43"
+}

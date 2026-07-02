@@ -1,0 +1,179 @@
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO] [PID:33696] 🔹 窗口 178/22 (origin=1770, size=600)
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO] [PID:33852] 🔹 窗口 184/22 (origin=1830, size=600)
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO] [PID:1140] 🔹 窗口 186/22 (origin=1850, size=600)
+[2026-06-28 03:04:48] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO] 
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO] [PID:32108] 🔹 窗口 187/22 (origin=1860, size=600)
+[2026-06-28 03:04:48] [INFO] [PID:27832] 🔹 窗口 190/22 (origin=1890, size=600)
+[2026-06-28 03:04:48] [INFO] [PID:34340] 🔹 窗口 192/22 (origin=1910, size=600)
+[2026-06-28 03:04:48] [INFO] [PID:24736] 🔹 窗口 193/22 (origin=1920, size=600)
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 184)
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 178)
+[2026-06-28 03:04:48] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 186)
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:48] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2185 字符
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2188 字符
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 187)
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 190)
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 193)
+[2026-06-28 03:04:48] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 192)
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2145 字符
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2184 字符
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2145 字符
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2147 字符
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   📏 Prompt长度: 2179 字符
+[2026-06-28 03:04:48] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:48] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2145 字符
+[2026-06-28 03:04:51] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2147 字符
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2188 字符
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2185 字符
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2145 字符
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2179 字符
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2184 字符
+[2026-06-28 03:04:52] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:52] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:52] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:52] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:52] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:05:00] [INFO]   📥 响应完成 (耗时 8.1s)
+[2026-06-28 03:05:00] [INFO]   📊 Token: prompt=1020, completion=525, total=1545
+[2026-06-28 03:05:00] [INFO]   📥 响应完成 (耗时 8.3s)
+[2026-06-28 03:05:00] [INFO]   📊 Token: prompt=1020, completion=525, total=1545
+[2026-06-28 03:05:00] [INFO]    🔍 策略 1 阶段 3 发现无效技能: ['progressive_adaptive_combiner(黑名单)']
+[2026-06-28 03:05:00] [INFO]    🔍 策略 2 阶段 4 发现无效技能: ['progressive_adaptive_combiner(黑名单)']
+[2026-06-28 03:05:00] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:00] [INFO]       策略 1: 动态趋势-周期混合策略 → 3步{prophet:0.45, holt_winters:0.35, local_drift:0.2} → 4步{auto_arima:0.4, theta:0.3, seasonal_extractor:0.2, bias_corrector:0.1} → 5步{ets:0.625, residual_correction:0.375}
+[2026-06-28 03:05:00] [INFO]       策略 2: 局部结构自适应策略 → 2步{naive_drift:0.5, local_drift:0.5} → 5步{multi_resolution:0.4, fft_filter:0.3, adaptive_weighted_ensemble:0.3} → 3步{stl_decompose:0.45, seasonal_forecaster:0.35, incremental_gbm:0.2} → 2步{residual_correction_advanced:1}
+[2026-06-28 03:05:00] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:00] [INFO]   📥 响应完成 (耗时 9.0s)
+[2026-06-28 03:05:00] [INFO]   📊 Token: prompt=1006, completion=497, total=1503
+[2026-06-28 03:05:00] [INFO]   📥 响应完成 (耗时 9.1s)
+[2026-06-28 03:05:00] [INFO]   📊 Token: prompt=1006, completion=497, total=1503
+[2026-06-28 03:05:00] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:00] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{naive_drift:0.45, local_drift:0.35, residual_correction:0.2} → 4步{holt_winters:0.5, ets:0.3, residual_correction:0.2} → 5步{prophet:0.4, multi_seasonal_naive:0.35, adaptive_weighted_ensemble:0.25}
+[2026-06-28 03:05:00] [INFO]       策略 2: Multi-Resolution Decomposition Strategy → 2步{naive:0.3, local_drift:0.4, residual_correction:0.3} → 5步{stl_decompose:0.35, seasonal_forecaster:0.3, trend_forecaster:0.25, residual_correction_advanced:0.1} → 3步{theta:0.4, holt_winters:0.35, adaptive_weighted_ensemble:0.25} → 2步{prophet:0.5, multi_resolution:0.5}
+[2026-06-28 03:05:00] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:01] [INFO]   📥 响应完成 (耗时 9.1s)
+[2026-06-28 03:05:01] [INFO]   📊 Token: prompt=1018, completion=516, total=1534
+[2026-06-28 03:05:01] [INFO]   📥 响应完成 (耗时 9.3s)
+[2026-06-28 03:05:01] [INFO]   📊 Token: prompt=1018, completion=516, total=1534
+[2026-06-28 03:05:01] [INFO]    🔍 策略 2 阶段 2 发现无效技能: ['progressive_adaptive_combiner(黑名单)']
+[2026-06-28 03:05:01] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:01] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{naive_drift:0.45, local_drift:0.35, residual_correction:0.2} → 4步{holt_winters:0.4, ets:0.3, trend_forecaster:0.2, seasonal_forecaster:0.1} → 5步{prophet:0.35, auto_arima:0.25, adaptive_weighted_ensemble:0.25, residual_correction_advanced:0.15}
+[2026-06-28 03:05:01] [INFO]       策略 2: Multi-Resolution Ensemble Strategy → 2步{naive:0.5, seasonal_naive:0.3, local_drift:0.2} → 5步{multi_resolution:0.5, chunk_ensemble:0.375, fft_filter:0.125} → 3步{theta:0.35, holt_winters:0.35, adaptive_weighted_ensemble:0.3} → 2步{prophet:0.6, ets:0.4}
+[2026-06-28 03:05:01] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:01] [INFO]   📥 响应完成 (耗时 9.2s)
+[2026-06-28 03:05:01] [INFO]   📊 Token: prompt=1015, completion=460, total=1475
+[2026-06-28 03:05:01] [INFO]   📥 响应完成 (耗时 9.4s)
+[2026-06-28 03:05:01] [INFO]   📊 Token: prompt=1015, completion=460, total=1475
+[2026-06-28 03:05:01] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:01] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{multi_resolution:0.6234, residual_correction_advanced:0.3766} → 4步{holt_winters:0.5, local_drift:0.3, residual_correction:0.2} → 5步{adaptive_weighted_ensemble:0.7, ets:0.2, naive_drift:0.1}
+[2026-06-28 03:05:01] [INFO]       策略 2: Local Structure Focused Strategy → 2步{local_drift:0.8, residual_correction_advanced:0.2} → 5步{holt_winters:0.6, local_drift:0.25, naive_drift:0.15} → 3步{adaptive_weighted_ensemble:0.75, ets:0.15, residual_correction:0.1} → 2步{multi_resolution:0.5, residual_correction_advanced:0.5}
+[2026-06-28 03:05:01] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:01] [INFO]   📥 响应完成 (耗时 9.8s)
+[2026-06-28 03:05:01] [INFO]   📊 Token: prompt=1014, completion=464, total=1478
+[2026-06-28 03:05:01] [INFO]   📥 响应完成 (耗时 10.1s)
+[2026-06-28 03:05:01] [INFO]   📊 Token: prompt=1014, completion=464, total=1478
+[2026-06-28 03:05:01] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:01] [INFO]       策略 1: Adaptive Multi-Stage Strategy → 3步{multi_resolution:0.623456, residual_correction_advanced:0.376544} → 4步{local_drift:0.456789, seasonal_extractor:0.343211, bias_corrector:0.2} → 5步{holt_winters:0.555555, adaptive_weighted_ensemble:0.444445}
+[2026-06-28 03:05:01] [INFO]       策略 2: Hybrid Decomposition Strategy → 2步{stl_decompose:0.7, trend_forecaster:0.3} → 5步{seasonal_forecaster:0.5, incremental_gbm:0.3, residual_correction:0.2} → 3步{theta:0.6, multi_seasonal_naive:0.4} → 2步{adaptive_weighted_ensemble:1}
+[2026-06-28 03:05:01] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:02] [INFO]   📥 响应完成 (耗时 10.0s)
+[2026-06-28 03:05:02] [INFO]   📊 Token: prompt=1003, completion=459, total=1462
+[2026-06-28 03:05:02] [INFO]   📥 响应完成 (耗时 10.2s)
+[2026-06-28 03:05:02] [INFO]   📊 Token: prompt=1003, completion=459, total=1462
+[2026-06-28 03:05:02] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:02] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{naive:0.45, local_drift:0.35, residual_correction:0.2} → 4步{holt_winters:0.5, ets:0.3, residual_correction_advanced:0.2} → 5步{prophet:0.4, multi_resolution:0.35, adaptive_weighted_ensemble:0.25}
+[2026-06-28 03:05:02] [INFO]       策略 2: Multi-Resolution Ensemble Strategy → 2步{naive_drift:0.6, local_drift:0.4} → 5步{theta:0.3, holt_winters:0.3, multi_resolution:0.25, residual_correction:0.15} → 3步{prophet:0.45, adaptive_weighted_ensemble:0.35, incremental_gbm:0.2} → 2步{multi_resolution:0.7, residual_correction_advanced:0.3}
+[2026-06-28 03:05:02] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:02] [INFO]   📥 响应完成 (耗时 10.9s)
+[2026-06-28 03:05:02] [INFO]   📊 Token: prompt=1003, completion=451, total=1454
+[2026-06-28 03:05:02] [INFO]   📥 响应完成 (耗时 11.1s)
+[2026-06-28 03:05:02] [INFO]   📊 Token: prompt=1003, completion=451, total=1454
+[2026-06-28 03:05:02] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:02] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{naive:0.45, local_drift:0.35, residual_correction:0.2} → 4步{holt_winters:0.6, seasonal_extractor:0.25, bias_corrector:0.15} → 5步{prophet:0.4, multi_seasonal_naive:0.35, adaptive_weighted_ensemble:0.25}
+[2026-06-28 03:05:02] [INFO]       策略 2: Multi-Resolution Ensemble Strategy → 2步{naive_drift:0.5, local_drift:0.5} → 3步{ets:0.45, theta:0.35, residual_correction:0.2} → 4步{stl_decompose:0.4, seasonal_forecaster:0.35, incremental_gbm:0.25} → 3步{multi_resolution:0.6, adaptive_weighted_ensemble:0.4}
+[2026-06-28 03:05:03] [INFO]        开始评估策略 1...
+[2026-06-28 03:05:09] [INFO]        策略 1 预测耗时: 7.60s
+[2026-06-28 03:05:09] [INFO]        策略 1: MASE=0.568579
+[2026-06-28 03:05:09] [INFO]        开始评估策略 2...

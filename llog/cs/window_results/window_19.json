@@ -1,0 +1,60 @@
+{
+  "window_id": 19,
+  "origin": 180,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_19.pkl",
+  "best_strategy": {
+    "name": "多分辨率分解策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.7,
+          "detrender": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.35,
+          "ets": 0.25,
+          "seasonal_extractor": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "incremental_gbm": 0.4
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.8,
+          "residual_correction_advanced": 0.2
+        }
+      }
+    ],
+    "description": "利用STL分解和多分辨率分析，初期分解趋势和季节性，中期结合Theta、ETS和季节性提取，后期采用多季节性朴素预测和增量GBM，最后用Prophet优化"
+  },
+  "best_mase": 1.710616,
+  "features": {
+    "trend_strength": 0.101699,
+    "seasonal_strength": 0.102733,
+    "adf_pvalue": 0.295044,
+    "data_length": 600.0,
+    "skewness": 0.210145,
+    "cv": 0.400846,
+    "local_slope_30": 0.104138,
+    "local_std_ratio_30": 0.631233,
+    "local_change_rate_30": -0.058442,
+    "local_mean_ratio_30": 1.421542,
+    "local_slope_120": 0.038063,
+    "local_std_ratio_120": 0.653226,
+    "local_change_rate_120": 0.367925,
+    "local_mean_ratio_120": 1.240439
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-26 13:55:23"
+}

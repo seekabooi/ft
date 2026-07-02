@@ -1,0 +1,61 @@
+{
+  "window_id": 295,
+  "origin": 2940,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_295.pkl",
+  "best_strategy": {
+    "name": "Seasonality-Driven Progressive Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 0.6,
+          "fourier": 0.4
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_forecaster": 0.35,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "croston": 0.5,
+          "naive_drift": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "tbats": 0.7,
+          "multi_resolution": 0.3
+        }
+      }
+    ],
+    "description": "Strategy leveraging seasonal patterns initially, transitioning to STL decomposition and seasonal forecasting, then using Croston and drift for intermittent data, and TBATS for complex seasonality in the final stage."
+  },
+  "best_mase": 0.907233,
+  "features": {
+    "trend_strength": 0.129508,
+    "seasonal_strength": 0.203011,
+    "adf_pvalue": 0.188572,
+    "data_length": 600.0,
+    "skewness": 0.16395,
+    "cv": 0.37686,
+    "local_slope_30": 0.055217,
+    "local_std_ratio_30": 0.592324,
+    "local_change_rate_30": 0.354839,
+    "local_mean_ratio_30": 0.733421,
+    "local_slope_120": 0.001378,
+    "local_std_ratio_120": 0.494073,
+    "local_change_rate_120": 0.41573,
+    "local_mean_ratio_120": 0.718191
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-28 14:36:26"
+}

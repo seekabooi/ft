@@ -1,0 +1,1711 @@
+{
+  "1": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.5,
+          "fft_filter": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining drift-based methods for short-term, decomposition-based for mid-term, and ensemble methods for long-term predictions, tailored for moderate trend and seasonal patterns."
+  },
+  "2": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.35,
+          "trend_forecaster": 0.35,
+          "seasonal_extractor": 0.3
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "ets": 0.4,
+          "theta": 0.3,
+          "residual_correction_advanced": 0.2,
+          "local_drift": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.45,
+          "incremental_gbm": 0.35,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic 4-stage strategy combining decomposition, trend/seasonal modeling, and ensemble methods to handle moderate trend and seasonality with adaptive weighting."
+  },
+  "4": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal patterns, and adaptive ensembles for short-term to medium-term forecasting"
+  },
+  "3": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "ets": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, local drift, and ensemble methods for balanced short and medium-term forecasting"
+  },
+  "5": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.5,
+          "multi_resolution": 0.3,
+          "incremental_gbm": 0.2
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple methods across three stages, focusing on capturing short-term patterns, seasonal components, and adaptive ensemble learning for longer-term predictions."
+  },
+  "7": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.25,
+          "ets": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.35,
+          "holt_winters": 0.4,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term forecasting, tailored to moderate trend and weak seasonality."
+  },
+  "6": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "ets": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "theta": 0.25,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "calendar": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic 4-stage strategy combining multiple methods to handle trend, seasonality, and local variations. Early stages focus on baseline methods with seasonal adjustments, middle stages incorporate advanced decomposition and ensemble techniques, and final stages leverage Prophet for long-term trend capture."
+  },
+  "8": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate trend and weak seasonality"
+  },
+  "9": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.4,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term forecasting"
+  },
+  "12": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the weak trend and moderate seasonality observed in the data."
+  },
+  "11": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "theta": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "auto_arima": 0.5,
+          "multi_seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "A dynamic 3-stage strategy combining simple baselines with advanced methods, tailored for moderate seasonality and trend stability."
+  },
+  "10": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the moderate trend strength, weak seasonality, and recent local volatility observed in the data."
+  },
+  "13": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple methods across four stages, focusing on seasonal patterns and trend adjustments with adaptive weighting."
+  },
+  "14": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "incremental_gbm": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "15": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the moderate trend and seasonal strength while addressing local variations."
+  },
+  "16": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.4,
+          "incremental_gbm": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple baselines with advanced decomposition methods, adapting to weak trend and seasonality"
+  },
+  "17": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "ets": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "fft_filter": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, ensemble, and adaptive methods for balanced short-term and medium-term forecasting"
+  },
+  "18": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining multiple methods across stages, focusing on trend and seasonal decomposition with adaptive weighting."
+  },
+  "19": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal patterns, and adaptive ensembles for balanced short-term and medium-term forecasting"
+  },
+  "20": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate trend and seasonality with local variations."
+  },
+  "21": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, STL decomposition for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "22": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.4,
+          "incremental_gbm": 0.3
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining decomposition, seasonal patterns, and adaptive ensembles for balanced short-term and medium-term forecasting."
+  },
+  "24": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term predictions"
+  },
+  "23": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining decomposition, local drift, and ensemble methods to handle moderate trend and seasonal patterns with adaptive weighting across four stages."
+  },
+  "25": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate seasonality and weak trend."
+  },
+  "26": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the observed trend and seasonal patterns."
+  },
+  "28": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the weak trend and moderate seasonality observed in the data."
+  },
+  "29": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "theta": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "auto_arima": 0.5,
+          "multi_seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic 3-stage strategy combining simple methods for short-term, seasonal-aware methods for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "30": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.4,
+          "theta": 0.35,
+          "incremental_gbm": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining short-term naive methods with mid-term decomposition and long-term exponential smoothing, adapting to weak trend and moderate seasonality."
+  },
+  "31": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.5
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.7,
+          "fft_filter": 0.3
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate seasonality and weak trend."
+  },
+  "32": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.3,
+          "multi_resolution": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "holt_winters": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining decomposition, seasonal adjustment, and adaptive ensemble methods to handle moderate trend and seasonality with varying prediction horizons."
+  },
+  "33": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate trend and seasonal patterns"
+  },
+  "34": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.25,
+          "ets": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "local_drift": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, decomposition-based for mid-term, and advanced ensemble for long-term forecasting"
+  },
+  "36": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate trend and seasonal strength with varying local volatility."
+  },
+  "35": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the moderate trend and seasonal strength while addressing local variations."
+  },
+  "37": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "theta": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining decomposition, seasonal modeling, and adaptive ensembles to handle moderate trend and seasonality with varying prediction horizons."
+  },
+  "38": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal patterns, and adaptive methods for balanced short-term and medium-term forecasting"
+  },
+  "39": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "ets": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "theta": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining short-term naive methods with seasonal decomposition and advanced ensemble techniques for medium-term predictions"
+  },
+  "40": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.3,
+          "multi_resolution": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "holt_winters": 0.6,
+          "ets": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining multiple forecasting methods across four stages, adapting to the moderate trend and seasonal strength while addressing local volatility."
+  },
+  "41": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining short-term naive methods with mid-term decomposition and long-term seasonal modeling"
+  },
+  "42": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal decomposition with adaptive ensembles for mixed trend and seasonal patterns"
+  },
+  "27": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.5,
+          "multi_resolution": 0.3,
+          "incremental_gbm": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal patterns, and adaptive ensembles for balanced short and medium-term forecasting"
+  },
+  "43": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining short-term naive methods with mid-term decomposition and long-term seasonal modeling"
+  },
+  "44": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "theta": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "auto_arima": 0.5,
+          "multi_seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic 3-stage strategy combining simple methods for short-term, seasonal-aware methods for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "45": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.3,
+          "holt_winters": 0.4,
+          "incremental_gbm": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining naive and seasonal methods for short-term, STL decomposition for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "46": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "incremental_gbm": 0.3,
+          "multi_resolution": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "holt_winters": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple baselines with advanced decomposition methods, adapting to weak trend and moderate seasonality"
+  },
+  "47": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.25,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "holt_winters": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate trend and weak seasonality"
+  },
+  "48": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.25,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "ets": 0.45,
+          "theta": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, tailored for moderate trend and weak seasonality."
+  },
+  "49": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "holt_winters": 0.5,
+          "multi_resolution": 0.3,
+          "incremental_gbm": 0.2
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines with advanced decomposition methods, adapting to moderate trend and weak seasonality."
+  },
+  "50": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "ets": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.4,
+          "holt_winters": 0.4,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_resolution": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal modeling, and adaptive ensembles for mixed trend and seasonal patterns"
+  }
+}

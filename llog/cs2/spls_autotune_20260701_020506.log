@@ -1,0 +1,32 @@
+[2026-07-01 02:05:06] [INFO] 
+[2026-07-01 02:05:06] [INFO] [PID:16100] 🔹 窗口 208/26 (origin=2070, size=600)
+[2026-07-01 02:05:06] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-07-01 02:05:06] [INFO]    📋 可用技能数: 28
+[2026-07-01 02:05:06] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-07-01 02:05:06] [INFO]    📋 可用技能: 28 个
+[2026-07-01 02:05:06] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 208)
+[2026-07-01 02:05:06] [INFO]   📌 模型: glm-4
+[2026-07-01 02:05:06] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-07-01 02:05:06] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-07-01 02:05:06] [INFO]   📏 Prompt长度: 2186 字符
+[2026-07-01 02:05:06] [INFO]   📤 尝试 1/2...
+[2026-07-01 02:05:06] [INFO]   📌 模型: glm-4
+[2026-07-01 02:05:06] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-07-01 02:05:08] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-07-01 02:05:08] [INFO]   📏 Prompt长度: 2186 字符
+[2026-07-01 02:05:08] [INFO]   📤 尝试 1/2...
+[2026-07-01 02:05:13] [INFO]   📥 响应完成 (耗时 5.3s)
+[2026-07-01 02:05:13] [INFO]   📊 Token: prompt=1013, completion=407, total=1420
+[2026-07-01 02:05:13] [INFO]   📥 响应完成 (耗时 5.5s)
+[2026-07-01 02:05:13] [INFO]   📊 Token: prompt=1013, completion=407, total=1420
+[2026-07-01 02:05:13] [INFO]    🔍 策略 2 阶段 3 发现无效技能: ['progressive_adaptive_combiner(黑名单)']
+[2026-07-01 02:05:13] [INFO]    📋 候选策略 (2 个):
+[2026-07-01 02:05:13] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{residual_correction_advanced:0.623456, local_drift:0.376544} → 4步{holt_winters:0.512345, residual_correction:0.487655} → 5步{adaptive_weighted_ensemble:1}
+[2026-07-01 02:05:13] [INFO]       策略 2: Multi-Resolution Decomposition Strategy → 2步{stl_decompose:0.75, naive_drift:0.25} → 3步{multi_resolution:0.6, seasonal_extractor:0.4} → 4步{chunk_ensemble:0.5, residual_correction_advanced:0.5} → 3步{adaptive_weighted_ensemble:1}
+[2026-07-01 02:05:13] [INFO]        开始评估策略 1...
+[2026-07-01 02:11:33] [INFO]        策略 1 预测耗时: 379.65s
+[2026-07-01 02:11:33] [INFO]        策略 1: MASE=1.552337
+[2026-07-01 02:11:33] [INFO]        开始评估策略 2...
+[2026-07-01 02:11:51] [INFO]        策略 2 预测耗时: 18.62s
+[2026-07-01 02:11:51] [INFO]        策略 2: MASE=0.713675
+[2026-07-01 02:11:51] [INFO]    🏆 窗口 208 最优策略: Multi-Resolution Decomposition Strategy, MASE=0.713675

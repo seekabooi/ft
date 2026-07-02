@@ -1,8 +1,22 @@
+# run_benchmark.py
+"""
+SPLS Benchmark
+
+基于 Policy System 的基准测试
+支持 Token 统计输出
+"""
+
 import argparse
 import os
 from datetime import datetime
 import pandas as pd
+import numpy as np
+import warnings  # ★ 新增
+# ★ 屏蔽 LightGBM 特征名警告（不影响功能）
+warnings.filterwarnings("ignore", message="X does not have valid feature names")
+
 from src.agents.llm_planner import LLMPlannerAgent
+from src.agents.llm_client import LLMClient
 from src.skills.registry import SkillRegistry
 from src.skills.naive import NaiveSkill
 from src.skills.seasonal_naive import SeasonalNaiveSkill
@@ -33,7 +47,6 @@ from src.skills.residual_correction_advanced import ResidualCorrectionAdvancedSk
 from src.skills.adaptive_weighted_ensemble import AdaptiveWeightedEnsemble
 from src.skills.fft_filter import FFTFilterSkill
 
-# 移除可能导致问题的技能（如 incremental_gbm 需要 lightgbm）
 try:
     from src.skills.incremental_gbm import IncrementalGBMSkill
     HAS_LGB = True
@@ -43,7 +56,7 @@ except ImportError:
 DATASETS = ['airline_passengers', 'gold_price', 'champagne_sales', 'sunspots', 'melbourne_temp']
 
 
-def build_full_registry():
+def build_full_registry(no_residual=False):
     registry = SkillRegistry()
 
     # 基础技能
@@ -52,7 +65,9 @@ def build_full_registry():
     prophet = ProphetSkill()
     auto_arima = AutoARIMASkill()
     naive_drift = NaiveDriftSkill()
-    residual_corr = ResidualCorrectionSkill(base_skill=auto_arima)
+
+    residual_corr = ResidualCorrectionSkill(base_skill=auto_arima) if not no_residual else None
+
     local_drift = LocalDriftSkill(window=5)
     ets = ETSSkill()
     theta = ThetaSkill()
@@ -63,7 +78,6 @@ def build_full_registry():
     fourier = FourierSkill(period=12)
     multi_sea = MultiSeasonalNaiveSkill(period=12)
 
-    # 分解/组合技能
     detrender = DetrenderSkill()
     seasonal_extractor = SeasonalExtractorSkill(period=12)
     trend_forecaster = TrendForecasterSkill()
@@ -72,27 +86,33 @@ def build_full_registry():
     progressive_combiner = ProgressiveAdaptiveCombiner()
     stl = STLDecomposeSkill()
 
-    # 长序列专用技能
     chunk_ensemble = ChunkEnsembleSkill()
     multi_res = MultiResolutionSkill()
-    residual_adv = ResidualCorrectionAdvancedSkill()
+
+    residual_adv = ResidualCorrectionAdvancedSkill() if not no_residual else None
+
     adaptive_ensemble = AdaptiveWeightedEnsemble(skills=[naive, seasonal_naive, hw, calendar_skill])
     fft_filter = FFTFilterSkill()
     incremental_gbm = IncrementalGBMSkill() if HAS_LGB else None
 
     all_skills = [
         naive, seasonal_naive, prophet, auto_arima,
-        naive_drift, residual_corr, local_drift,
-        ets, theta, hw, croston, tbats, calendar_skill, fourier, multi_sea,
+        naive_drift,
+        *([residual_corr] if residual_corr is not None else []),
+        local_drift, ets, theta, hw, croston, tbats,
+        calendar_skill, fourier, multi_sea,
         detrender, seasonal_extractor, trend_forecaster, seasonal_forecaster,
         bias_corrector, progressive_combiner, stl,
-        chunk_ensemble, multi_res, residual_adv, adaptive_ensemble, fft_filter
+        chunk_ensemble, multi_res,
+        *([residual_adv] if residual_adv is not None else []),
+        adaptive_ensemble, fft_filter
     ]
     if incremental_gbm:
         all_skills.append(incremental_gbm)
 
     for s in all_skills:
-        registry.register(s)
+        if s is not None:
+            registry.register(s)
 
     return registry, all_skills
 
@@ -108,7 +128,20 @@ def main():
     parser.add_argument('--skill_mode', choices=['branch', 'single', 'ensemble'], default='branch')
     parser.add_argument('--skill_name', type=str, default=None)
     parser.add_argument('--llm_call_interval', type=int, default=1)
+    parser.add_argument('--no_residual', action='store_true',
+                        help='彻底禁用残差修正技能')
+    parser.add_argument('--use_rules', type=str, default=None,
+                        help='使用规则文件路径')
+    parser.add_argument('--reset_stats', action='store_true',
+                        help='重置 Token 统计（默认不重置，累加）')
+    parser.add_argument('--print_stats', action='store_true',
+                        help='打印 Token 统计')
     args = parser.parse_args()
+
+    # ★ 重置 Token 统计（如果需要）★
+    if args.reset_stats:
+        LLMClient.reset_token_stats()
+        print("🔄 Token 统计已重置")
 
     os.makedirs('storage/logs', exist_ok=True)
     datasets = [args.dataset] if args.dataset else DATASETS
@@ -116,7 +149,12 @@ def main():
     for ds in datasets:
         log_file = f'storage/logs/agent_{ds}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
 
-        full_registry, all_skills = build_full_registry()
+        full_registry, all_skills = build_full_registry(no_residual=args.no_residual)
+
+        print(f"🧹 残差修正禁用状态: {args.no_residual}")
+        if args.use_rules:
+            print(f"📋 使用规则文件: {args.use_rules}")
+
         use_skills = not args.no_skills
 
         if args.skill_mode == 'single':
@@ -138,7 +176,8 @@ def main():
             skill_registry=registry,
             log_file=log_file,
             use_skills=use_skills,
-            llm_call_interval=args.llm_call_interval
+            llm_call_interval=args.llm_call_interval,
+            rules_file=args.use_rules
         )
         evaluator = FixedOriginEvaluator(
             agent,
@@ -151,8 +190,10 @@ def main():
         try:
             res = evaluator.evaluate(ds)
             evaluator.print_report(res)
-            df = pd.DataFrame({'prediction': res.get('predictions', []),
-                               'actual': res.get('actuals', [])})
+            df = pd.DataFrame({
+                'prediction': res.get('predictions', []),
+                'actual': res.get('actuals', [])
+            })
             os.makedirs('storage', exist_ok=True)
             df.to_csv(f'storage/eval_{ds}.csv', index=False)
             print(f"📁 保存至 storage/eval_{ds}.csv")
@@ -160,6 +201,19 @@ def main():
             print(f"❌ {ds} 失败: {e}")
             import traceback
             traceback.print_exc()
+
+    # ★ ★ ★ 输出 Token 统计 ★ ★ ★
+    if args.print_stats or True:  # 默认总是打印
+        stats_str = LLMClient.print_token_stats("LLM Token 统计 (run_benchmark)")
+        print("\n" + stats_str)
+
+        # 同时保存到文件
+        stats = LLMClient.get_token_stats()
+        stats_file = f'storage/token_stats_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
+        import json
+        with open(stats_file, 'w', encoding='utf-8') as f:
+            json.dump(stats, f, ensure_ascii=False, indent=2)
+        print(f"📁 Token 统计已保存: {stats_file}")
 
 
 if __name__ == '__main__':

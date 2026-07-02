@@ -1,0 +1,27 @@
+{
+  "pred": [
+    16.12,
+    15.52,
+    14.02,
+    13.02,
+    16.62,
+    18.32,
+    16.52,
+    16.12,
+    15.52,
+    14.02,
+    13.02,
+    16.62
+  ],
+  "train_size": 600,
+  "test_size": 12,
+  "trajectory": [
+    {
+      "step": 0,
+      "weights": {
+        "residual_correction_advanced": 1.0
+      },
+      "interval": 2
+    }
+  ]
+}

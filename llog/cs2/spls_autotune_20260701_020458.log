@@ -1,0 +1,32 @@
+[2026-07-01 02:04:58] [INFO] 
+[2026-07-01 02:04:58] [INFO] [PID:5608] 🔹 窗口 207/26 (origin=2060, size=600)
+[2026-07-01 02:04:58] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-07-01 02:04:58] [INFO]    📋 可用技能数: 28
+[2026-07-01 02:04:58] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-07-01 02:04:58] [INFO]    📋 可用技能: 28 个
+[2026-07-01 02:04:58] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 207)
+[2026-07-01 02:04:58] [INFO]   📌 模型: glm-4
+[2026-07-01 02:04:58] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-07-01 02:04:58] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-07-01 02:04:58] [INFO]   📏 Prompt长度: 2148 字符
+[2026-07-01 02:04:58] [INFO]   📤 尝试 1/2...
+[2026-07-01 02:04:58] [INFO]   📌 模型: glm-4
+[2026-07-01 02:04:58] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-07-01 02:05:02] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-07-01 02:05:02] [INFO]   📏 Prompt长度: 2148 字符
+[2026-07-01 02:05:02] [INFO]   📤 尝试 1/2...
+[2026-07-01 02:05:09] [INFO]   📥 响应完成 (耗时 6.8s)
+[2026-07-01 02:05:09] [INFO]   📊 Token: prompt=1000, completion=477, total=1477
+[2026-07-01 02:05:09] [INFO]   📥 响应完成 (耗时 7.2s)
+[2026-07-01 02:05:09] [INFO]   📊 Token: prompt=1000, completion=477, total=1477
+[2026-07-01 02:05:09] [INFO]    🔍 策略 2 阶段 3 发现无效技能: ['progressive_adaptive_combiner(黑名单)']
+[2026-07-01 02:05:09] [INFO]    📋 候选策略 (2 个):
+[2026-07-01 02:05:09] [INFO]       策略 1: 动态趋势-周期混合策略 → 3步{local_drift:0.45, naive:0.3, residual_correction:0.25} → 4步{holt_winters:0.5, ets:0.3, residual_correction_advanced:0.2} → 5步{multi_resolution:0.4, adaptive_weighted_ensemble:0.35, incremental_gbm:0.25}
+[2026-07-01 02:05:09] [INFO]       策略 2: 自适应分解-集成策略 → 2步{stl_decompose:0.6, detrender:0.4} → 5步{seasonal_forecaster:0.45, trend_forecaster:0.35, bias_corrector:0.2} → 3步{chunk_ensemble:0.714286, fft_filter:0.285714} → 2步{multi_seasonal_naive:0.55, calendar:0.45}
+[2026-07-01 02:05:09] [INFO]        开始评估策略 1...
+[2026-07-01 02:10:40] [INFO]        策略 1 预测耗时: 330.81s
+[2026-07-01 02:10:40] [INFO]        策略 1: MASE=1.309916
+[2026-07-01 02:10:40] [INFO]        开始评估策略 2...
+[2026-07-01 02:10:48] [INFO]        策略 2 预测耗时: 8.36s
+[2026-07-01 02:10:48] [INFO]        策略 2: MASE=0.990074
+[2026-07-01 02:10:48] [INFO]    🏆 窗口 207 最优策略: 自适应分解-集成策略, MASE=0.990074

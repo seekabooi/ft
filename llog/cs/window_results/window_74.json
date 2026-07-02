@@ -1,0 +1,55 @@
+{
+  "window_id": 74,
+  "origin": 730,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_74.pkl",
+  "best_strategy": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, statistical models for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "best_mase": 0.468454,
+  "features": {
+    "trend_strength": 0.163441,
+    "seasonal_strength": 0.097311,
+    "adf_pvalue": 0.18154,
+    "data_length": 600.0,
+    "skewness": 0.128327,
+    "cv": 0.375874,
+    "local_slope_30": -0.004894,
+    "local_std_ratio_30": 0.450976,
+    "local_change_rate_30": -0.093333,
+    "local_mean_ratio_30": 0.790422,
+    "local_slope_120": -0.005874,
+    "local_std_ratio_120": 0.674202,
+    "local_change_rate_120": -0.339806,
+    "local_mean_ratio_120": 0.706967
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 14:51:20"
+}

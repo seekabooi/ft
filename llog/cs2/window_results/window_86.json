@@ -1,0 +1,55 @@
+{
+  "window_id": 86,
+  "origin": 850,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_86.pkl",
+  "best_strategy": {
+    "name": "渐进式趋势-季节分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "residual_correction_advanced": 0.45,
+          "local_drift": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "adaptive_weighted_ensemble": 0.35,
+          "residual_correction_advanced": 0.25
+        }
+      }
+    ],
+    "description": "基于弱趋势和强局部性的渐进式分解策略，初期结合残差校正和局部漂移，中期引入Holt-Winters捕捉潜在季节性，后期通过多季节性朴素和自适应集成提升稳定性"
+  },
+  "best_mase": 0.910084,
+  "features": {
+    "trend_strength": 0.046971,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.082821,
+    "data_length": 600.0,
+    "skewness": 0.14305,
+    "cv": 0.363448,
+    "local_slope_30": 0.019177,
+    "local_std_ratio_30": 0.776033,
+    "local_change_rate_30": 0.04,
+    "local_mean_ratio_30": 1.191106,
+    "local_slope_120": 0.047582,
+    "local_std_ratio_120": 0.88433,
+    "local_change_rate_120": 0.11828,
+    "local_mean_ratio_120": 1.031116
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:02:30"
+}

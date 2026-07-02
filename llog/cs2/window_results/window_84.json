@@ -1,0 +1,55 @@
+{
+  "window_id": 84,
+  "origin": 830,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_84.pkl",
+  "best_strategy": {
+    "name": "动态趋势-周期混合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.6,
+          "multi_resolution": 0.25,
+          "incremental_gbm": 0.15
+        }
+      }
+    ],
+    "description": "基于弱趋势和强局部波动性的三阶段策略，初期使用简单漂移模型，中期引入季节性处理，后期采用自适应集成"
+  },
+  "best_mase": 0.611381,
+  "features": {
+    "trend_strength": 0.013448,
+    "seasonal_strength": 0.000449,
+    "adf_pvalue": 0.098618,
+    "data_length": 600.0,
+    "skewness": 0.167029,
+    "cv": 0.365535,
+    "local_slope_30": 0.004383,
+    "local_std_ratio_30": 0.881447,
+    "local_change_rate_30": -0.337349,
+    "local_mean_ratio_30": 1.241009,
+    "local_slope_120": 0.043445,
+    "local_std_ratio_120": 0.869535,
+    "local_change_rate_120": -0.009009,
+    "local_mean_ratio_120": 0.981141
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:03:57"
+}

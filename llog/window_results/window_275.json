@@ -1,0 +1,63 @@
+{
+  "window_id": 275,
+  "origin": 2750,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_276.pkl",
+  "best_strategy": {
+    "name": "reind_fallback",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.5794137611764152,
+          "theta": 0.5134175329253948
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.36688381840871576,
+          "residual_correction_advanced": 0.30783559868836485,
+          "local_drift": 0.2878385447265701
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.40357356003706557,
+          "multi_resolution": 0.35874836571680807,
+          "incremental_gbm": 0.295790473721844
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.540886,
+          "adaptive_weighted_ensemble": 0.387805,
+          "calendar": 0.071309
+        }
+      }
+    ],
+    "description": "Strategy leveraging multi-resolution decomposition and ensemble methods for robust forecasting."
+  },
+  "best_mase": 1.485497,
+  "features": {
+    "trend_strength": 0.103835,
+    "seasonal_strength": 0.163558,
+    "adf_pvalue": 0.489162,
+    "period": 7,
+    "data_length": 600,
+    "skewness": 0.065815,
+    "cv": 0.358471,
+    "local_slope_7": -0.114286,
+    "local_std_ratio_7": 0.227798,
+    "local_change_rate_7": -0.099476,
+    "local_mean_ratio_7": 1.599648,
+    "local_slope_30": 0.159377,
+    "local_std_ratio_30": 0.512675,
+    "local_change_rate_30": 0.194444,
+    "local_mean_ratio_30": 1.395561
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-29 19:31:38"
+}

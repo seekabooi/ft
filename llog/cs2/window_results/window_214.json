@@ -1,0 +1,54 @@
+{
+  "window_id": 214,
+  "origin": 2140,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_215.pkl",
+  "best_strategy": {
+    "name": "reind_3462",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy with initial short-term focus on local patterns, transitioning to seasonal methods, and ending with advanced ensemble techniques."
+  },
+  "best_mase": 1.039411,
+  "features": {
+    "trend_strength": 0.021336,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.044419,
+    "period": 10,
+    "data_length": 600,
+    "skewness": 0.10018,
+    "cv": 0.31779,
+    "local_slope_7": -0.732143,
+    "local_std_ratio_7": 0.517737,
+    "local_change_rate_7": -0.51,
+    "local_mean_ratio_7": 0.640136,
+    "local_slope_30": -0.093571,
+    "local_std_ratio_30": 0.624937,
+    "local_change_rate_30": -0.611111,
+    "local_mean_ratio_30": 0.677159
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-29 22:02:07"
+}

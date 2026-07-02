@@ -1,0 +1,62 @@
+{
+  "window_id": 300,
+  "origin": 2990,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_300.pkl",
+  "best_strategy": {
+    "name": "Hybrid Resolution Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.5,
+          "local_drift": 0.5
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.3,
+          "tbats": 0.25,
+          "fourier": 0.2,
+          "multi_resolution": 0.15,
+          "fft_filter": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "chunk_ensemble": 0.666667,
+          "residual_correction_advanced": 0.333333
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "calendar": 0.6,
+          "seasonal_extractor": 0.4
+        }
+      }
+    ],
+    "description": "Multi-stage strategy combining drift, decomposition, and ensemble methods"
+  },
+  "best_mase": 0.899991,
+  "features": {
+    "trend_strength": 0.000698,
+    "seasonal_strength": 0.121191,
+    "adf_pvalue": 0.083088,
+    "data_length": 600.0,
+    "skewness": 0.174827,
+    "cv": 0.363734,
+    "local_slope_30": 0.181201,
+    "local_std_ratio_30": 0.74574,
+    "local_change_rate_30": 0.555556,
+    "local_mean_ratio_30": 1.076657,
+    "local_slope_120": 0.038775,
+    "local_std_ratio_120": 0.747198,
+    "local_change_rate_120": 0.655914,
+    "local_mean_ratio_120": 0.863929
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 01:13:51"
+}

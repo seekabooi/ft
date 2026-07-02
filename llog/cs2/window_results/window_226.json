@@ -1,0 +1,56 @@
+{
+  "window_id": 226,
+  "origin": 2260,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_227.pkl",
+  "best_strategy": {
+    "name": "reind_8231",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.25,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "theta": 0.25,
+          "adaptive_weighted_ensemble": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy with 3 stages focusing on short-term stability, mid-term trend capture, and long-term adaptive ensemble"
+  },
+  "best_mase": 0.89662,
+  "features": {
+    "trend_strength": 0.026,
+    "seasonal_strength": 0.001958,
+    "adf_pvalue": 0.029174,
+    "period": 6,
+    "data_length": 600,
+    "skewness": 0.326394,
+    "cv": 0.340867,
+    "local_slope_7": 0.089286,
+    "local_std_ratio_7": 0.590276,
+    "local_change_rate_7": -0.188811,
+    "local_mean_ratio_7": 1.090081,
+    "local_slope_30": 0.018554,
+    "local_std_ratio_30": 0.710107,
+    "local_change_rate_30": -0.140741,
+    "local_mean_ratio_30": 1.00096
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 22:14:15"
+}

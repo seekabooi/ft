@@ -1,0 +1,61 @@
+{
+  "window_id": 272,
+  "origin": 2710,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_272.pkl",
+  "best_strategy": {
+    "name": "Seasonality-Focused Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "seasonal_naive": 0.6,
+          "multi_seasonal_naive": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.55,
+          "fourier": 0.25,
+          "seasonal_extractor": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "tbats": 0.4,
+          "calendar": 0.35,
+          "stl_decompose": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.692308,
+          "adaptive_weighted_ensemble": 0.307692
+        }
+      }
+    ],
+    "description": "Strategy emphasizing seasonal patterns with gradual integration of trend and residual components."
+  },
+  "best_mase": 0.476651,
+  "features": {
+    "trend_strength": 0.078931,
+    "seasonal_strength": 0.133034,
+    "adf_pvalue": 0.320793,
+    "data_length": 600.0,
+    "skewness": 0.217507,
+    "cv": 0.368826,
+    "local_slope_30": 0.072036,
+    "local_std_ratio_30": 0.625641,
+    "local_change_rate_30": 0.12782,
+    "local_mean_ratio_30": 1.33721,
+    "local_slope_120": 0.059005,
+    "local_std_ratio_120": 0.783776,
+    "local_change_rate_120": 2.0,
+    "local_mean_ratio_120": 1.148811
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-30 17:23:57"
+}

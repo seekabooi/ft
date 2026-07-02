@@ -1,0 +1,60 @@
+{
+  "window_id": 62,
+  "origin": 610,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_62.pkl",
+  "best_strategy": {
+    "name": "Dynamic Resolution Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.5,
+          "local_drift": 0.5
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "ets": 0.25,
+          "theta": 0.25,
+          "stl_decompose": 0.5
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "multi_seasonal_naive": 0.4,
+          "calendar": 0.3,
+          "fourier": 0.3
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "策略基于局部变化率和周期特征划分阶段，初期聚焦短期漂移，中期分解趋势和季节性，后期结合多周期方法，最终通过自适应集成优化预测精度。"
+  },
+  "best_mase": 1.185843,
+  "features": {
+    "trend_strength": 0.087454,
+    "seasonal_strength": 0.063602,
+    "adf_pvalue": 0.13137,
+    "data_length": 600.0,
+    "skewness": 0.034847,
+    "cv": 0.340041,
+    "local_slope_30": 0.051368,
+    "local_std_ratio_30": 0.47067,
+    "local_change_rate_30": 0.088235,
+    "local_mean_ratio_30": 0.952945,
+    "local_slope_120": -0.03907,
+    "local_std_ratio_120": 0.706846,
+    "local_change_rate_120": -0.201439,
+    "local_mean_ratio_120": 1.168867
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-26 14:40:42"
+}

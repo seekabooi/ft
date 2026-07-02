@@ -1,0 +1,52 @@
+{
+  "window_id": 87,
+  "origin": 860,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_87.pkl",
+  "best_strategy": {
+    "name": "动态趋势-残差混合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "local_drift": 0.623456,
+          "residual_correction_advanced": 0.376544
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.512345,
+          "residual_correction": 0.487655
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.723585,
+          "adaptive_weighted_ensemble": 0.276415
+        }
+      }
+    ],
+    "description": "基于局部趋势和残差修正的动态混合策略，前期侧重短期漂移预测，中期引入季节性调整，后期采用多分辨率融合"
+  },
+  "best_mase": 0.574656,
+  "features": {
+    "trend_strength": 0.083552,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.134428,
+    "data_length": 600.0,
+    "skewness": 0.145186,
+    "cv": 0.364768,
+    "local_slope_30": 0.103337,
+    "local_std_ratio_30": 0.525254,
+    "local_change_rate_30": 0.301587,
+    "local_mean_ratio_30": 1.236109,
+    "local_slope_120": 0.049165,
+    "local_std_ratio_120": 0.888094,
+    "local_change_rate_120": 0.451327,
+    "local_mean_ratio_120": 1.075281
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:06:29"
+}

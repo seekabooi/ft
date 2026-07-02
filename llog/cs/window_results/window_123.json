@@ -1,0 +1,55 @@
+{
+  "window_id": 123,
+  "origin": 1220,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_123.pkl",
+  "best_strategy": {
+    "name": "Adaptive Trend-Seasonal Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "ets": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "seasonal_naive": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining trend and seasonal methods with adaptive weights based on local structure."
+  },
+  "best_mase": 0.410243,
+  "features": {
+    "trend_strength": 0.143522,
+    "seasonal_strength": 0.06643,
+    "adf_pvalue": 0.023214,
+    "data_length": 600.0,
+    "skewness": 0.243804,
+    "cv": 0.383807,
+    "local_slope_30": -0.049833,
+    "local_std_ratio_30": 0.37271,
+    "local_change_rate_30": -0.05,
+    "local_mean_ratio_30": 1.366659,
+    "local_slope_120": 0.061702,
+    "local_std_ratio_120": 0.837078,
+    "local_change_rate_120": 2.694444,
+    "local_mean_ratio_120": 1.101295
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 15:52:05"
+}

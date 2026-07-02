@@ -1,0 +1,54 @@
+{
+  "window_id": 298,
+  "origin": 2980,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_299.pkl",
+  "best_strategy": {
+    "name": "reind_1999",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.45,
+          "holt_winters": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining exponential smoothing, Prophet, and adaptive ensembles based on trend and seasonality strength."
+  },
+  "best_mase": 1.323723,
+  "features": {
+    "trend_strength": 0.050596,
+    "seasonal_strength": 0.119787,
+    "adf_pvalue": 0.017609,
+    "period": 13,
+    "data_length": 600,
+    "skewness": 0.261783,
+    "cv": 0.373557,
+    "local_slope_7": -0.746429,
+    "local_std_ratio_7": 0.569316,
+    "local_change_rate_7": -0.383562,
+    "local_mean_ratio_7": 0.974869,
+    "local_slope_30": 0.025829,
+    "local_std_ratio_30": 0.669437,
+    "local_change_rate_30": 0.730769,
+    "local_mean_ratio_30": 0.93862
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-29 19:35:54"
+}

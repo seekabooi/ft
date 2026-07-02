@@ -1,0 +1,56 @@
+{
+  "window_id": 203,
+  "origin": 2030,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_204.pkl",
+  "best_strategy": {
+    "name": "reind_6d01",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "trend_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "incremental_gbm": 0.3
+        }
+      }
+    ],
+    "description": "基于局部趋势和自适应权重组合的渐进式预测策略"
+  },
+  "best_mase": 0.624487,
+  "features": {
+    "trend_strength": 0.196211,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.034868,
+    "period": 11,
+    "data_length": 600,
+    "skewness": 0.21658,
+    "cv": 0.339796,
+    "local_slope_7": -0.425,
+    "local_std_ratio_7": 0.492491,
+    "local_change_rate_7": -0.17284,
+    "local_mean_ratio_7": 1.15735,
+    "local_slope_30": -0.040934,
+    "local_std_ratio_30": 0.492303,
+    "local_change_rate_30": 0.015152,
+    "local_mean_ratio_30": 1.292288
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 21:46:35"
+}

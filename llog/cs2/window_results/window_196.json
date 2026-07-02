@@ -1,0 +1,61 @@
+{
+  "window_id": 196,
+  "origin": 1950,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_196.pkl",
+  "best_strategy": {
+    "name": "多尺度残差修正策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.7,
+          "residual_correction_advanced": 0.3
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.45,
+          "local_drift": 0.35,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_resolution": 0.55123,
+          "adaptive_weighted_ensemble": 0.24877,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.6,
+          "ets": 0.4
+        }
+      }
+    ],
+    "description": "结合多尺度分析和渐进式残差修正的分层预测策略"
+  },
+  "best_mase": 1.405152,
+  "features": {
+    "trend_strength": 0.105897,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.029204,
+    "data_length": 600.0,
+    "skewness": 0.327112,
+    "cv": 0.344039,
+    "local_slope_30": 0.058865,
+    "local_std_ratio_30": 0.696546,
+    "local_change_rate_30": 0.104348,
+    "local_mean_ratio_30": 1.252581,
+    "local_slope_120": 0.047594,
+    "local_std_ratio_120": 0.985151,
+    "local_change_rate_120": 0.309278,
+    "local_mean_ratio_120": 1.108203
+  },
+  "is_trouble": true,
+  "saved_at": "2026-07-01 02:07:06"
+}

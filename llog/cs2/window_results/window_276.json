@@ -1,0 +1,62 @@
+{
+  "window_id": 276,
+  "origin": 2750,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_276.pkl",
+  "best_strategy": {
+    "name": "Progressive Refinement Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "prophet": 0.6,
+          "naive_drift": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.4,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.5,
+          "residual_correction": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Strategy that progressively refines predictions using residual correction and adaptive weighting"
+  },
+  "best_mase": 1.757634,
+  "features": {
+    "trend_strength": 0.103835,
+    "seasonal_strength": 0.163558,
+    "adf_pvalue": 0.489162,
+    "data_length": 600.0,
+    "skewness": 0.065815,
+    "cv": 0.358471,
+    "local_slope_30": 0.159377,
+    "local_std_ratio_30": 0.512675,
+    "local_change_rate_30": 0.194444,
+    "local_mean_ratio_30": 1.395561,
+    "local_slope_120": 0.034392,
+    "local_std_ratio_120": 0.633832,
+    "local_change_rate_120": 0.563636,
+    "local_mean_ratio_120": 1.266419
+  },
+  "is_trouble": true,
+  "saved_at": "2026-07-01 01:13:51"
+}

@@ -1,0 +1,1900 @@
+{
+  "policies": [
+    {
+      "policy_id": "9b6a2466",
+      "name": "policy_0_9b6a",
+      "version": 1,
+      "embedding": [
+        0.02118460783610253,
+        0.02570419010553837,
+        0.08509236781540275,
+        -0.024304535110872806,
+        0.02659057388521748,
+        -0.06671375461225508,
+        -0.01610930404591757,
+        0.2509022311584092
+      ],
+      "state_condition": {
+        "trend_strength": "<= 0.099",
+        "seasonal_strength": "<= 0.081"
+      },
+      "feature_groups": [
+        "trend_strength",
+        "seasonal_strength"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Trend-Seasonal Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "naive": 0.45,
+              "seasonal_naive": 0.35,
+              "local_drift": 0.2
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "holt_winters": 0.5,
+              "ets": 0.3,
+              "residual_correction": 0.2
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "prophet": 0.4,
+              "multi_resolution": 0.35,
+              "adaptive_weighted_ensemble": 0.25
+            }
+          }
+        ],
+        "description": "Dynamic strategy combining trend and seasonal methods with increasing complexity",
+        "_window_id": 10,
+        "_origin": 90,
+        "_mase": 0.541891,
+        "_features": {
+          "trend_strength": 0.040905,
+          "seasonal_strength": 0.064685,
+          "adf_pvalue": 0.134711,
+          "data_length": 600.0,
+          "skewness": 0.389815,
+          "cv": 0.417969,
+          "local_slope_30": 0.057175,
+          "local_std_ratio_30": 0.668486,
+          "local_change_rate_30": 0.188679,
+          "local_mean_ratio_30": 1.137002,
+          "local_slope_120": 0.04655,
+          "local_std_ratio_120": 0.769391,
+          "local_change_rate_120": 0.326316,
+          "local_mean_ratio_120": 0.861889
+        }
+      },
+      "status": "ACTIVE",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9518998,
+      "error_mean": 0.9565704000000002,
+      "error_std": 0.34200875746746606,
+      "error_trend": -0.49706909277359157,
+      "reward_ema": -10.687992449692059,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.84066,
+        19.956998,
+        0.785109,
+        0.886355,
+        0.561226,
+        0.800089,
+        0.570052,
+        1.090423,
+        0.637967,
+        0.882874,
+        0.988316,
+        1.026385,
+        0.632564,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.67402,
+        0.789016,
+        1.669135,
+        0.541251
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 1.1914629122595917
+      },
+      "dynamic_confidence": 0.1489321280261547,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 10.18049973567016,
+      "state_decay": 0.9,
+      "state_history": [
+        0.9399999999999998,
+        2.765999999999999,
+        3.839399999999999,
+        4.355459999999999,
+        4.949913999999999,
+        5.614922599999998,
+        6.243430339999998,
+        6.179087305999998,
+        6.061178575399998,
+        6.445060717859999,
+        6.700554646073998,
+        7.450499181466599,
+        7.485449263319939,
+        7.396904336987945,
+        7.33721390328915,
+        8.143492512960234,
+        8.439143261664212,
+        8.695228935497791,
+        8.905706041948012,
+        9.28513543775321,
+        9.976621893977889,
+        10.5689597045801,
+        10.82206373412209,
+        10.84985736070988,
+        10.974871624638892,
+        10.687384462175004,
+        10.768646015957504,
+        10.721781414361754,
+        10.809603272925578,
+        11.228642945633021,
+        10.95577865106972,
+        10.680200785962748,
+        10.292180707366473,
+        10.312962636629827,
+        10.311666372966844,
+        10.18049973567016
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 204,
+      "last_used": null,
+      "created_at": "2026-06-26 16:46:46",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,趋势敏感；MASE=0.702；用holt_winters,prophet,ets",
+      "cluster_id": "cluster_1",
+      "logit_weight": 0.08289659639645357,
+      "cumulative_reward": -29.147446000000002,
+      "selection_count": 36,
+      "_error_volatility": 0.3538374002219249
+    },
+    {
+      "policy_id": "1eb9521a",
+      "name": "policy_1_1eb9",
+      "version": 1,
+      "embedding": [
+        0.030323019059142788,
+        -0.25275265026404703,
+        -0.08080136265179544,
+        0.028188452803399634,
+        -0.11491909669637242,
+        0.07287455288911268,
+        -0.14256654817679723,
+        0.08853109080516891
+      ],
+      "state_condition": {
+        "seasonal_strength": "<= 0.053",
+        "adf_pvalue": "<= 0.104"
+      },
+      "feature_groups": [
+        "seasonal_strength",
+        "adf_pvalue"
+      ],
+      "skill_strategy": {
+        "name": "Seasonal-Trend Hybrid Strategy",
+        "stages": [
+          {
+            "steps": 2,
+            "weights": {
+              "naive": 0.3,
+              "local_drift": 0.7
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "seasonal_forecaster": 0.45,
+              "trend_forecaster": 0.35,
+              "stl_decompose": 0.2
+            }
+          },
+          {
+            "steps": 3,
+            "weights": {
+              "prophet": 0.5,
+              "theta": 0.3,
+              "residual_correction_advanced": 0.2
+            }
+          },
+          {
+            "steps": 2,
+            "weights": {
+              "multi_resolution": 0.6,
+              "adaptive_weighted_ensemble": 0.4
+            }
+          }
+        ],
+        "description": "Hybrid strategy focusing on seasonal decomposition and trend modeling, with progressive refinement through advanced residual correction.",
+        "_window_id": 11,
+        "_origin": 100,
+        "_mase": 0.884441,
+        "_features": {
+          "trend_strength": 0.0032,
+          "seasonal_strength": 0.059666,
+          "adf_pvalue": 0.194578,
+          "data_length": 600.0,
+          "skewness": 0.389162,
+          "cv": 0.415642,
+          "local_slope_30": 0.083582,
+          "local_std_ratio_30": 0.646992,
+          "local_change_rate_30": 1.246377,
+          "local_mean_ratio_30": 1.242287,
+          "local_slope_120": 0.0584,
+          "local_std_ratio_120": 0.827642,
+          "local_change_rate_120": 4.535714,
+          "local_mean_ratio_120": 0.918458
+        }
+      },
+      "status": "ACTIVE",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9668244000000001,
+      "error_mean": 8.284030900000001,
+      "error_std": 15.855381743714313,
+      "error_trend": -0.013668868482351937,
+      "reward_ema": -1144.7108301128628,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        6.72895,
+        0.828454,
+        0.762618,
+        0.486335,
+        0.660441,
+        1.116653,
+        0.668908,
+        1.035123,
+        1.201772,
+        0.808869,
+        25.138534,
+        0.682945,
+        0.726994,
+        0.846157,
+        50.611557,
+        0.800089,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.789016
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 30.220014131228908
+      },
+      "dynamic_confidence": 0.1423885694558805,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 10.316445441230567,
+      "state_decay": 0.9,
+      "state_history": [
+        1.5099999999999996,
+        2.8489999999999993,
+        4.184099999999999,
+        5.035689999999999,
+        6.082120999999999,
+        6.323908899999999,
+        6.841518009999999,
+        7.277366208999998,
+        7.809629588099998,
+        8.058666629289998,
+        8.142799966360998,
+        8.388519969724898,
+        8.449667972752408,
+        9.014701175477168,
+        9.91323105792945,
+        10.291907952136503,
+        10.862717156922853,
+        10.316445441230567
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 92,
+      "last_used": null,
+      "created_at": "2026-06-26 16:46:46",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,平稳性敏感；MASE=0.777；用prophet,theta,trend_forecaster",
+      "cluster_id": "cluster_2",
+      "logit_weight": 0.03320013852621477,
+      "cumulative_reward": -28827.258856000008,
+      "selection_count": 18,
+      "_error_volatility": 1.0
+    },
+    {
+      "policy_id": "e2d03a16",
+      "name": "policy_2_e2d0",
+      "version": 1,
+      "embedding": [
+        -0.05348358094727593,
+        0.09509963952486375,
+        -0.12184488552579181,
+        -0.12687322337030577,
+        0.009199680194411024,
+        0.11477752672909379,
+        -0.014517084141934767,
+        -0.010108875822314498
+      ],
+      "state_condition": {
+        "cv": "> 0.373",
+        "volatility_ratio": "> 0.0"
+      },
+      "feature_groups": [
+        "cv",
+        "volatility_ratio"
+      ],
+      "skill_strategy": {
+        "name": "动态阶段自适应策略",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "multi_resolution": 0.4864,
+              "detrender": 0.5136
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "seasonal_extractor": 0.35,
+              "trend_forecaster": 0.45,
+              "residual_correction": 0.2
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "holt_winters": 0.6,
+              "adaptive_weighted_ensemble": 0.4
+            }
+          }
+        ],
+        "description": "基于初始趋势和季节性强度动态划分阶段，前期侧重多分辨率分解，中期结合季节性和趋势预测，后期采用自适应集成提升稳定性",
+        "_window_id": 1,
+        "_origin": 0,
+        "_mase": 0.957248,
+        "_features": {
+          "trend_strength": 0.204165,
+          "seasonal_strength": 0.156738,
+          "adf_pvalue": 0.032771,
+          "data_length": 600.0,
+          "skewness": 0.263197,
+          "cv": 0.424569,
+          "local_slope_30": 0.065495,
+          "local_std_ratio_30": 0.564615,
+          "local_change_rate_30": -0.463158,
+          "local_mean_ratio_30": 0.628465,
+          "local_slope_120": -0.027871,
+          "local_std_ratio_120": 0.686545,
+          "local_change_rate_120": -0.26087,
+          "local_mean_ratio_120": 0.607417
+        }
+      },
+      "status": "ACTIVE",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9518998,
+      "error_mean": 0.9565704000000002,
+      "error_std": 0.34200875746746606,
+      "error_trend": -0.49706909277359157,
+      "reward_ema": -10.687992449794695,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.84066,
+        19.956998,
+        0.785109,
+        0.886355,
+        0.561226,
+        0.800089,
+        0.570052,
+        1.090423,
+        0.637967,
+        0.882874,
+        0.988316,
+        1.026385,
+        0.632564,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.67402,
+        0.789016,
+        1.669135,
+        0.541251
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 1.1914629122595917
+      },
+      "dynamic_confidence": 0.1489321280261547,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 10.358198491593681,
+      "state_decay": 0.9,
+      "state_history": [
+        0.6999999999999998,
+        1.4399999999999997,
+        3.345999999999999,
+        4.371399999999999,
+        5.0942599999999985,
+        6.204833999999998,
+        6.944350599999998,
+        7.839915539999998,
+        8.365923985999999,
+        9.049331587399998,
+        9.474398428659999,
+        9.156958585793998,
+        8.971262727214599,
+        8.87413645449314,
+        9.456722809043825,
+        10.011050528139442,
+        10.529945475325498,
+        10.046950927792949,
+        9.992255835013653,
+        10.253030251512287,
+        10.277727226361058,
+        10.109954503724952,
+        9.798959053352457,
+        9.629063148017211,
+        9.97615683321549,
+        11.028541149893941,
+        11.255687034904547,
+        11.680118331414091,
+        11.002106498272683,
+        10.561895848445415,
+        10.005706263600874,
+        9.995135637240788,
+        10.405622073516708,
+        10.415059866165038,
+        10.453553879548535,
+        10.358198491593681
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 204,
+      "last_used": null,
+      "created_at": "2026-06-26 16:46:46",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 波动敏感；MASE=0.835；用holt_winters,seasonal_extractor,tr...",
+      "cluster_id": "cluster_3",
+      "logit_weight": 0.08379235183790562,
+      "cumulative_reward": -28.002155,
+      "selection_count": 36,
+      "_error_volatility": 0.3538374002219249
+    },
+    {
+      "policy_id": "3304ec49",
+      "name": "fallback_policy",
+      "version": 1,
+      "embedding": [
+        0.02118460783610253,
+        0.02570419010553837,
+        0.08509236781540275,
+        -0.024304535110872806,
+        0.02659057388521748,
+        -0.06671375461225508,
+        -0.01610930404591757,
+        0.2509022311584092
+      ],
+      "state_condition": {
+        "local_slope_120": "> 0.0",
+        "local_std_ratio_120": "> 0.0"
+      },
+      "feature_groups": [
+        "local_slope_120",
+        "local_std_ratio_120"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Trend-Seasonal Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "naive": 0.5461917531403769,
+              "seasonal_naive": 0.30546163502914464,
+              "local_drift": 0.14795081952592415
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "holt_winters": 0.5629580683808696,
+              "ets": 0.27369033801950937,
+              "residual_correction": 0.2262780771614784
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "prophet": 0.378824,
+              "multi_resolution": 0.328009,
+              "adaptive_weighted_ensemble": 0.293167
+            }
+          }
+        ],
+        "description": "Dynamic strategy combining trend and seasonal methods with increasing complexity",
+        "_window_id": 10,
+        "_origin": 90,
+        "_mase": 0.541891,
+        "_features": {
+          "trend_strength": 0.040905,
+          "seasonal_strength": 0.064685,
+          "adf_pvalue": 0.134711,
+          "data_length": 600.0,
+          "skewness": 0.389815,
+          "cv": 0.417969,
+          "local_slope_30": 0.057175,
+          "local_std_ratio_30": 0.668486,
+          "local_change_rate_30": 0.188679,
+          "local_mean_ratio_30": 1.137002,
+          "local_slope_120": 0.04655,
+          "local_std_ratio_120": 0.769391,
+          "local_change_rate_120": 0.326316,
+          "local_mean_ratio_120": 0.861889
+        }
+      },
+      "status": "ACTIVE",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.7018136142857142,
+      "error_mean": 0.7018136142857142,
+      "error_std": 0.0,
+      "error_trend": 0.0,
+      "reward_ema": 0.3,
+      "utility_ema": 0.3,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [],
+      "state_error_map": {},
+      "dynamic_confidence": 0.5,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 10.206798062296295,
+      "state_decay": 0.9,
+      "state_history": [
+        0.5799999999999998,
+        1.8319999999999994,
+        2.918799999999999,
+        3.966919999999999,
+        4.630227999999999,
+        4.657205199999999,
+        4.941484679999999,
+        5.797336211999999,
+        5.937602590799999,
+        6.6738423317199995,
+        7.386458098547999,
+        8.1278122886932,
+        8.305031059823879,
+        8.24452795384149,
+        8.930075158457342,
+        9.397067642611608,
+        8.937360878350448,
+        8.903624790515403,
+        9.533262311463863,
+        9.299936080317478,
+        9.65994247228573,
+        10.163948225057156,
+        10.10755340255144,
+        10.206798062296295
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 0,
+      "last_used": null,
+      "created_at": "2026-06-26 16:46:46",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "通用兜底策略，适用于所有场景",
+      "cluster_id": "cluster_4",
+      "logit_weight": 0.055199668261160975,
+      "cumulative_reward": -18.470686999999998,
+      "selection_count": 24,
+      "_error_volatility": 0.0
+    },
+    {
+      "policy_id": "abaa97aa",
+      "name": "reind_abaa",
+      "version": 1,
+      "embedding": [
+        0.11957899950296913,
+        0.07645729044368461,
+        0.00336366725753983,
+        0.06947950182764745,
+        0.13628646642700856,
+        0.014401372010346246,
+        -0.047695913900728026,
+        -0.01671179965323604
+      ],
+      "state_condition": {
+        "trend_strength": "<= 0.091",
+        "seasonal_strength": "<= 0.007"
+      },
+      "feature_groups": [
+        "trend_strength",
+        "seasonal_strength"
+      ],
+      "skill_strategy": {
+        "name": "Multi-Resolution Ensemble Strategy",
+        "stages": [
+          {
+            "steps": 2,
+            "weights": {
+              "naive_drift": 0.6,
+              "local_drift": 0.4
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "stl_decompose": 0.35,
+              "seasonal_forecaster": 0.3,
+              "trend_forecaster": 0.2,
+              "bias_corrector": 0.15
+            }
+          },
+          {
+            "steps": 3,
+            "weights": {
+              "chunk_ensemble": 0.714286,
+              "adaptive_weighted_ensemble": 0.285714
+            }
+          },
+          {
+            "steps": 2,
+            "weights": {
+              "theta": 0.55,
+              "ets": 0.45
+            }
+          }
+        ],
+        "description": "Strategy leveraging multi-resolution decomposition and ensemble methods",
+        "_window_id": 178,
+        "_origin": 1770,
+        "_mase": 0.878263,
+        "_features": {
+          "trend_strength": 0.144946,
+          "seasonal_strength": 0.0,
+          "adf_pvalue": 0.132756,
+          "data_length": 600.0,
+          "skewness": -0.053871,
+          "cv": 0.308652,
+          "local_slope_30": -0.025139,
+          "local_std_ratio_30": 0.707617,
+          "local_change_rate_30": -0.038462,
+          "local_mean_ratio_30": 0.729262,
+          "local_slope_120": -0.05111,
+          "local_std_ratio_120": 0.92788,
+          "local_change_rate_120": -0.395161,
+          "local_mean_ratio_120": 0.947452
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9518998,
+      "error_mean": 0.9565704000000002,
+      "error_std": 0.34200875746746606,
+      "error_trend": -0.49706909277359157,
+      "reward_ema": -10.687992449732757,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.84066,
+        19.956998,
+        0.785109,
+        0.886355,
+        0.561226,
+        0.800089,
+        0.570052,
+        1.090423,
+        0.637967,
+        0.882874,
+        0.988316,
+        1.026385,
+        0.632564,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.67402,
+        0.789016,
+        1.669135,
+        0.541251
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 1.1914629122595917
+      },
+      "dynamic_confidence": 0.1489321280261547,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 9.87426821778536,
+      "state_decay": 0.9,
+      "state_history": [
+        0.8899999999999998,
+        1.2209999999999996,
+        2.198899999999999,
+        2.759009999999999,
+        3.473108999999999,
+        4.205798099999999,
+        5.8752182899999985,
+        6.397696460999998,
+        6.237926814899998,
+        7.214134133409998,
+        7.922720720068998,
+        8.930448648062098,
+        8.997403783255887,
+        9.597663404930298,
+        9.967897064437269,
+        9.391107357993542,
+        9.44199662219419,
+        9.84779695997477,
+        10.023017263977295,
+        9.830715537579566,
+        10.03764398382161,
+        9.66387958543945,
+        10.127491626895505,
+        10.104742464205955,
+        9.87426821778536
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 204,
+      "last_used": null,
+      "created_at": "2026-06-28 03:40:14",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,趋势敏感；MASE=0.749；用naive_drift,bias_corrector,ch...",
+      "cluster_id": "cluster_1",
+      "logit_weight": 0.02376010142603114,
+      "cumulative_reward": -1476928.7631930003,
+      "selection_count": 25,
+      "_error_volatility": 0.3538374002219249
+    },
+    {
+      "policy_id": "04a7c0e1",
+      "name": "reind_04a7",
+      "version": 1,
+      "embedding": [
+        0.03498996493943978,
+        -0.030594365214927262,
+        0.04516018778811851,
+        0.1297418780786186,
+        -0.08520704441553856,
+        0.10595942148315839,
+        -0.01919260801863846,
+        -0.031084569403235708
+      ],
+      "state_condition": {
+        "seasonal_strength": "<= 0.029",
+        "adf_pvalue": "<= 0.057"
+      },
+      "feature_groups": [
+        "seasonal_strength",
+        "adf_pvalue"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Multi-Stage Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "multi_resolution": 0.623456,
+              "residual_correction_advanced": 0.376544
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "local_drift": 0.456789,
+              "seasonal_naive": 0.345678,
+              "residual_correction": 0.197533
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "holt_winters": 0.56789,
+              "adaptive_weighted_ensemble": 0.43211
+            }
+          }
+        ],
+        "description": "Dynamic strategy combining multi-resolution and residual correction for short-term, local drift with seasonal adjustment for mid-term, and Holt-Winters with ensemble for long-term prediction.",
+        "_window_id": 184,
+        "_origin": 1830,
+        "_mase": 0.437413,
+        "_features": {
+          "trend_strength": 0.174475,
+          "seasonal_strength": 0.021768,
+          "adf_pvalue": 0.117649,
+          "data_length": 600.0,
+          "skewness": 0.08833,
+          "cv": 0.340447,
+          "local_slope_30": 0.023493,
+          "local_std_ratio_30": 0.535335,
+          "local_change_rate_30": 0.25,
+          "local_mean_ratio_30": 0.766504,
+          "local_slope_120": -0.024698,
+          "local_std_ratio_120": 0.735136,
+          "local_change_rate_120": 0.571429,
+          "local_mean_ratio_120": 0.75401
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 10.856314,
+      "error_mean": 8.313477599999999,
+      "error_std": 15.841919123684871,
+      "error_trend": 1.0548773712199382,
+      "reward_ema": -2392.238596534274,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.647184,
+        0.982708,
+        0.722172,
+        1.045573,
+        6.72895,
+        0.828454,
+        0.762618,
+        0.486335,
+        0.660441,
+        1.116653,
+        0.668908,
+        1.035123,
+        1.201772,
+        0.808869,
+        25.138534,
+        0.682945,
+        0.726994,
+        0.846157,
+        50.611557,
+        1.413917
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 131.48675420176963
+      },
+      "dynamic_confidence": 0.1,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 10.36048117784154,
+      "state_decay": 0.9,
+      "state_history": [
+        0.7499999999999998,
+        1.5049999999999997,
+        2.5645,
+        3.4680499999999994,
+        4.451244999999999,
+        4.816120499999999,
+        5.5445084499999995,
+        5.800057604999999,
+        6.080051844499999,
+        6.882046660049999,
+        7.563841994044999,
+        8.4074577946405,
+        8.72671201517645,
+        8.604040813658804,
+        9.073636732292924,
+        9.54627305906363,
+        10.111645753157267,
+        10.36048117784154
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 76,
+      "last_used": null,
+      "created_at": "2026-06-28 03:40:14",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,平稳性敏感；MASE=0.790；用seasonal_naive,multi_resolut...",
+      "cluster_id": "cluster_2",
+      "logit_weight": 0.03800931694237138,
+      "cumulative_reward": -15.180466999999998,
+      "selection_count": 18,
+      "_error_volatility": 1.0
+    },
+    {
+      "policy_id": "3c6ba141",
+      "name": "reind_3c6b",
+      "version": 1,
+      "embedding": [
+        -0.03514516973224314,
+        0.006398010669265247,
+        -0.011422388506517119,
+        0.037451787796440345,
+        0.21775854700540448,
+        0.02658746845294806,
+        -0.16092363828918693,
+        0.040965749471416686
+      ],
+      "state_condition": {
+        "trend_strength": "<= 0.083",
+        "seasonal_strength": "<= 0.138"
+      },
+      "feature_groups": [
+        "trend_strength",
+        "seasonal_strength"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Multi-Stage Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "naive": 0.45,
+              "seasonal_naive": 0.35,
+              "detrender": 0.2
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "prophet": 0.4,
+              "holt_winters": 0.3,
+              "residual_correction": 0.3
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "adaptive_weighted_ensemble": 1.0
+            }
+          }
+        ],
+        "description": "Dynamic strategy combining simple methods for early steps, advanced models for mid-term, and adaptive ensemble for long-term prediction.",
+        "_window_id": 264,
+        "_origin": 2630,
+        "_mase": 0.726128,
+        "_features": {
+          "trend_strength": 0.133674,
+          "seasonal_strength": 0.116516,
+          "adf_pvalue": 0.187958,
+          "data_length": 600.0,
+          "skewness": 0.239094,
+          "cv": 0.36664,
+          "local_slope_30": 0.051924,
+          "local_std_ratio_30": 0.507482,
+          "local_change_rate_30": 0.371134,
+          "local_mean_ratio_30": 0.952641,
+          "local_slope_120": 0.047227,
+          "local_std_ratio_120": 0.653304,
+          "local_change_rate_120": 0.6625,
+          "local_mean_ratio_120": 0.73558
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 1.0213177999999998,
+      "error_mean": 10.2468287,
+      "error_std": 27.89047617416852,
+      "error_trend": -0.37924431557788035,
+      "reward_ema": -297.2246048887791,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        25.138534,
+        0.682945,
+        0.726994,
+        0.846157,
+        50.611557,
+        1.483264,
+        0.595639,
+        0.533198,
+        14.421306,
+        1.087788,
+        0.476962,
+        1.422789,
+        0.898365,
+        93.913514,
+        0.650068,
+        1.091915,
+        0.84066,
+        1.413917,
+        1.086077,
+        0.67402
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 21.510938048965027
+      },
+      "dynamic_confidence": 0.12820213550511245,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 9.447557373991103,
+      "state_decay": 0.9,
+      "state_history": [
+        0.6599999999999998,
+        1.8839999999999997,
+        3.1055999999999995,
+        3.33504,
+        4.081536,
+        4.5733824,
+        4.6960441600000005,
+        5.436439744,
+        6.2527957696,
+        6.96751619264,
+        7.000764573375999,
+        7.900688116038399,
+        8.830619304434558,
+        9.447557373991103
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 48,
+      "last_used": null,
+      "created_at": "2026-06-28 05:46:10",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,趋势敏感；MASE=0.829；用detrender,seasonal_naive,resi...",
+      "cluster_id": "cluster_1",
+      "logit_weight": 0.03323737312583183,
+      "cumulative_reward": -11.939132,
+      "selection_count": 14,
+      "_error_volatility": 1.0
+    },
+    {
+      "policy_id": "fd9ef811",
+      "name": "reind_fd9e",
+      "version": 1,
+      "embedding": [
+        -0.06279662627263673,
+        -0.1297450637238908,
+        0.057816183557296674,
+        -0.10038345708529373,
+        -0.08402533016113257,
+        0.09234961262593888,
+        0.15162915953854392,
+        -0.11432066364797938
+      ],
+      "state_condition": {
+        "seasonal_strength": "<= 0.171",
+        "adf_pvalue": "<= 0.238"
+      },
+      "feature_groups": [
+        "seasonal_strength",
+        "adf_pvalue"
+      ],
+      "skill_strategy": {
+        "name": "Seasonal-Trend Hybrid Strategy",
+        "stages": [
+          {
+            "steps": 2,
+            "weights": {
+              "seasonal_naive": 0.5,
+              "multi_seasonal_naive": 0.5
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "holt_winters": 0.4,
+              "ets": 0.3,
+              "tbats": 0.3
+            }
+          },
+          {
+            "steps": 3,
+            "weights": {
+              "prophet": 0.45,
+              "calendar": 0.35,
+              "fourier": 0.2
+            }
+          },
+          {
+            "steps": 2,
+            "weights": {
+              "adaptive_weighted_ensemble": 0.7,
+              "incremental_gbm": 0.3
+            }
+          }
+        ],
+        "description": "Strategy emphasizing seasonal methods initially, transitioning to hybrid seasonal-trend methods, and ending with advanced ensemble techniques.",
+        "_window_id": 278,
+        "_origin": 2770,
+        "_mase": 0.88789,
+        "_features": {
+          "trend_strength": 0.088913,
+          "seasonal_strength": 0.139711,
+          "adf_pvalue": 0.28794,
+          "data_length": 600.0,
+          "skewness": -0.019594,
+          "cv": 0.351282,
+          "local_slope_30": -0.113993,
+          "local_std_ratio_30": 0.68648,
+          "local_change_rate_30": 0.090909,
+          "local_mean_ratio_30": 1.285546,
+          "local_slope_120": 0.007879,
+          "local_std_ratio_120": 0.592521,
+          "local_change_rate_120": 0.374046,
+          "local_mean_ratio_120": 1.261148
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9518998,
+      "error_mean": 0.9565704000000002,
+      "error_std": 0.34200875746746606,
+      "error_trend": -0.49706909277359157,
+      "reward_ema": -174.49439968074645,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.701488,
+        0.592814,
+        1.26339,
+        1.049631,
+        0.898365,
+        93.913514,
+        0.650068,
+        0.785109,
+        0.800089,
+        0.570052,
+        0.988316,
+        1.026385,
+        0.632564,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.67402,
+        0.789016,
+        1.669135,
+        0.541251
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 2.300893038302078
+      },
+      "dynamic_confidence": 0.1489321280261547,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 8.529451928711998,
+      "state_decay": 0.9,
+      "state_history": [
+        1.7199999999999995,
+        2.7079999999999993,
+        3.387199999999999,
+        4.098479999999999,
+        4.538631999999999,
+        4.9047687999999985,
+        5.164291919999998,
+        5.587862727999998,
+        7.119076455199998,
+        7.677168809679999,
+        8.529451928711998
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 95,
+      "last_used": null,
+      "created_at": "2026-06-28 05:46:10",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,平稳性敏感；全池最优；MASE=0.905；用calendar,seasonal_naive...",
+      "cluster_id": "cluster_2",
+      "logit_weight": 0.026155936887841628,
+      "cumulative_reward": -11.173872999999997,
+      "selection_count": 11,
+      "_error_volatility": 0.3538374002219249
+    },
+    {
+      "policy_id": "1fcfb894",
+      "name": "reind_1fcf",
+      "version": 1,
+      "embedding": [
+        -0.08217660278310522,
+        0.017014663328971676,
+        -0.03409308813303888,
+        0.030321994545828592,
+        0.07702759996806172,
+        -0.08698023595356963,
+        0.229035171292903,
+        0.01656459864313037
+      ],
+      "state_condition": {
+        "trend_strength": "<= 0.08",
+        "seasonal_strength": "<= 0.006"
+      },
+      "feature_groups": [
+        "trend_strength",
+        "seasonal_strength"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Trend-Seasonal Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "prophet": 0.45,
+              "holt_winters": 0.35,
+              "ets": 0.2
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "auto_arima": 0.4,
+              "theta": 0.3,
+              "residual_correction": 0.3
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "local_drift": 0.625,
+              "naive_drift": 0.375
+            }
+          }
+        ],
+        "description": "Dynamic strategy combining trend-focused methods in early stages with adaptive ensembles in later stages",
+        "_window_id": 192,
+        "_origin": 1910,
+        "_mase": 0.897279,
+        "_features": {
+          "trend_strength": 0.002889,
+          "seasonal_strength": 0.0,
+          "adf_pvalue": 0.018486,
+          "data_length": 600.0,
+          "skewness": 0.283126,
+          "cv": 0.340827,
+          "local_slope_30": 0.049722,
+          "local_std_ratio_30": 0.838801,
+          "local_change_rate_30": 0.336634,
+          "local_mean_ratio_30": 1.194191,
+          "local_slope_120": 0.056634,
+          "local_std_ratio_120": 0.963986,
+          "local_change_rate_120": 1.142857,
+          "local_mean_ratio_120": 0.935226
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 1.0213177999999998,
+      "error_mean": 10.3079113,
+      "error_std": 27.86967354058328,
+      "error_trend": -0.37924431557788035,
+      "reward_ema": -329.52855950575224,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.808869,
+        25.138534,
+        0.682945,
+        0.726994,
+        0.846157,
+        50.611557,
+        1.483264,
+        0.595639,
+        0.533198,
+        14.421306,
+        1.087788,
+        1.422789,
+        0.898365,
+        93.913514,
+        0.650068,
+        1.091915,
+        0.84066,
+        1.413917,
+        1.086077,
+        0.67402
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 25.443008715411747
+      },
+      "dynamic_confidence": 0.12820213550511245,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 4.108727999999999,
+      "state_decay": 0.9,
+      "state_history": [
+        0.7799999999999998,
+        1.5319999999999996,
+        2.8687999999999994,
+        3.931919999999999,
+        4.108727999999999
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 32,
+      "last_used": null,
+      "created_at": "2026-06-28 07:58:24",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,趋势敏感；MASE=0.858；用residual_correction,theta,hol...",
+      "cluster_id": "cluster_1",
+      "logit_weight": 0.011938362375012296,
+      "cumulative_reward": -4.022086,
+      "selection_count": 5,
+      "_error_volatility": 1.0
+    },
+    {
+      "policy_id": "cd2bc3d4",
+      "name": "reind_cd2b",
+      "version": 1,
+      "embedding": [
+        0.004059040402626126,
+        -0.025570509273555288,
+        0.12953371674686096,
+        -0.010712609096960549,
+        0.05721508827750041,
+        0.08886601374808244,
+        -0.05785545572807247,
+        0.020290718037291763
+      ],
+      "state_condition": {
+        "seasonal_strength": "<= 0.01",
+        "adf_pvalue": "<= 0.038"
+      },
+      "feature_groups": [
+        "seasonal_strength",
+        "adf_pvalue"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Trend-Seasonal Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "naive": 0.45,
+              "local_drift": 0.35,
+              "residual_correction": 0.2
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "holt_winters": 0.5,
+              "seasonal_extractor": 0.3,
+              "trend_forecaster": 0.2
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "prophet": 0.4,
+              "multi_seasonal_naive": 0.35,
+              "adaptive_weighted_ensemble": 0.25
+            }
+          }
+        ],
+        "description": "Dynamic strategy combining trend and seasonal methods with adaptive weights",
+        "_window_id": 186,
+        "_origin": 1850,
+        "_mase": 1.398948,
+        "_features": {
+          "trend_strength": 0.167571,
+          "seasonal_strength": 0.015055,
+          "adf_pvalue": 0.1146,
+          "data_length": 600.0,
+          "skewness": 0.182822,
+          "cv": 0.346548,
+          "local_slope_30": 0.041646,
+          "local_std_ratio_30": 0.545046,
+          "local_change_rate_30": 0.813953,
+          "local_mean_ratio_30": 0.771274,
+          "local_slope_120": 0.000838,
+          "local_std_ratio_120": 0.648534,
+          "local_change_rate_120": -0.060241,
+          "local_mean_ratio_120": 0.720683
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 15.763806800000001,
+      "error_mean": 8.8500968,
+      "error_std": 15.688271624167665,
+      "error_trend": 0.7388825318823892,
+      "reward_ema": -6147.790559473356,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.565145,
+        0.648084,
+        0.617624,
+        1.029396,
+        0.600852,
+        0.65451,
+        0.647184,
+        0.982708,
+        0.722172,
+        1.045573,
+        6.72895,
+        0.762618,
+        0.486335,
+        0.668908,
+        1.035123,
+        0.808869,
+        25.138534,
+        0.846157,
+        50.611557,
+        1.413917
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 913.2745569696281
+      },
+      "dynamic_confidence": 0.1,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 5.6835657999999984,
+      "state_decay": 0.9,
+      "state_history": [
+        1.9199999999999995,
+        2.5779999999999994,
+        3.580199999999999,
+        4.382179999999999,
+        4.603961999999999,
+        5.6835657999999984
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 28,
+      "last_used": null,
+      "created_at": "2026-06-28 07:58:24",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,平稳性敏感；MASE=0.943；用residual_correction,holt_win...",
+      "cluster_id": "cluster_2",
+      "logit_weight": 0.0143139932949591,
+      "cumulative_reward": -6.150219999999999,
+      "selection_count": 6,
+      "_error_volatility": 1.0
+    },
+    {
+      "policy_id": "8231da93",
+      "name": "reind_8231",
+      "version": 1,
+      "embedding": [
+        0.1619277207969294,
+        0.02757712079939316,
+        0.027284821739495868,
+        0.12704668658548077,
+        -0.09115131985081742,
+        -0.04700178913205628,
+        -0.025419124208513062,
+        -0.02369488749069571
+      ],
+      "state_condition": {
+        "trend_strength": "<= 0.089",
+        "seasonal_strength": "<= 0.138"
+      },
+      "feature_groups": [
+        "trend_strength",
+        "seasonal_strength"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Multi-Stage Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "naive": 0.35,
+              "seasonal_naive": 0.25,
+              "local_drift": 0.4
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "holt_winters": 0.45,
+              "ets": 0.3,
+              "residual_correction": 0.25
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "prophet": 0.35,
+              "theta": 0.25,
+              "adaptive_weighted_ensemble": 0.4
+            }
+          }
+        ],
+        "description": "Dynamic strategy with 3 stages focusing on short-term stability, mid-term trend capture, and long-term adaptive ensemble",
+        "_window_id": 263,
+        "_origin": 2620,
+        "_mase": 0.598468,
+        "_features": {
+          "trend_strength": 0.148265,
+          "seasonal_strength": 0.119069,
+          "adf_pvalue": 0.241777,
+          "data_length": 600.0,
+          "skewness": 0.21376,
+          "cv": 0.366141,
+          "local_slope_30": 0.075106,
+          "local_std_ratio_30": 0.563354,
+          "local_change_rate_30": 0.6,
+          "local_mean_ratio_30": 0.895617,
+          "local_slope_120": 0.03806,
+          "local_std_ratio_120": 0.604456,
+          "local_change_rate_120": 0.0,
+          "local_mean_ratio_120": 0.706235
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9518998,
+      "error_mean": 0.9565704000000002,
+      "error_std": 0.34200875746746606,
+      "error_trend": -0.49706909277359157,
+      "reward_ema": -2.602284682235623,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.84066,
+        19.956998,
+        0.785109,
+        0.886355,
+        0.561226,
+        0.800089,
+        0.570052,
+        1.090423,
+        0.637967,
+        0.882874,
+        0.988316,
+        1.026385,
+        0.632564,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.67402,
+        0.789016,
+        1.669135,
+        0.541251
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 1.190618074333907
+      },
+      "dynamic_confidence": 0.1489321280261547,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 3.0385399999999994,
+      "state_decay": 0.9,
+      "state_history": [
+        0.5599999999999998,
+        1.8339999999999996,
+        2.4205999999999994,
+        3.0385399999999994
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 51,
+      "last_used": null,
+      "created_at": "2026-06-28 10:07:34",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,趋势敏感；MASE=0.811；用seasonal_naive,residual_corre...",
+      "cluster_id": "cluster_1",
+      "logit_weight": 0.00955973860027404,
+      "cumulative_reward": -2.563653,
+      "selection_count": 4,
+      "_error_volatility": 0.3538374002219249
+    },
+    {
+      "policy_id": "4553bf00",
+      "name": "reind_4553",
+      "version": 1,
+      "embedding": [
+        -0.2288376062124461,
+        0.08350350847656399,
+        -0.0013953274854129783,
+        0.07046732148404382,
+        0.21074552597036056,
+        -0.029770514281052336,
+        -0.1911415038831646,
+        -0.28055514423863154
+      ],
+      "state_condition": {
+        "seasonal_strength": "<= 0.143",
+        "adf_pvalue": "<= 0.259"
+      },
+      "feature_groups": [
+        "seasonal_strength",
+        "adf_pvalue"
+      ],
+      "skill_strategy": {
+        "name": "Adaptive Seasonal-Trend Strategy",
+        "stages": [
+          {
+            "steps": 3,
+            "weights": {
+              "seasonal_naive": 0.45,
+              "local_drift": 0.35,
+              "residual_correction": 0.2
+            }
+          },
+          {
+            "steps": 4,
+            "weights": {
+              "holt_winters": 0.5,
+              "seasonal_forecaster": 0.3,
+              "bias_corrector": 0.2
+            }
+          },
+          {
+            "steps": 5,
+            "weights": {
+              "prophet": 0.4,
+              "multi_seasonal_naive": 0.35,
+              "residual_correction_advanced": 0.25
+            }
+          }
+        ],
+        "description": "Dynamic strategy focusing on seasonal patterns early, transitioning to trend-aware methods mid-term, and combining advanced techniques for long-term stability.",
+        "_window_id": 284,
+        "_origin": 2830,
+        "_mase": 0.865924,
+        "_features": {
+          "trend_strength": 0.003775,
+          "seasonal_strength": 0.129622,
+          "adf_pvalue": 0.25333,
+          "data_length": 600.0,
+          "skewness": -0.121654,
+          "cv": 0.338826,
+          "local_slope_30": -0.129032,
+          "local_std_ratio_30": 0.680355,
+          "local_change_rate_30": -0.086957,
+          "local_mean_ratio_30": 0.843898,
+          "local_slope_120": -0.055217,
+          "local_std_ratio_120": 0.793729,
+          "local_change_rate_120": -0.385965,
+          "local_mean_ratio_120": 1.128392
+        }
+      },
+      "status": "TRIAL",
+      "trial_start_step": 0,
+      "trial_end_step": 0,
+      "last_evolution_step": 0,
+      "cooldown_period": 200,
+      "in_cooldown": false,
+      "refresh_count": 0,
+      "last_refresh_step": 0,
+      "activation_count": 0,
+      "coverage_rate": 0.0,
+      "win_rate": 0.0,
+      "avg_mase": 0.9518998,
+      "error_mean": 0.9565704000000002,
+      "error_std": 0.34200875746746606,
+      "error_trend": -0.49706909277359157,
+      "reward_ema": -2.602423559874771,
+      "utility_ema": 0.01,
+      "rare_score": 0.0,
+      "uniqueness": 0.0,
+      "marginal_coverage": 0.0,
+      "marginal_utility": 0.0,
+      "marginal_value": 0.0,
+      "confidence": 0.5,
+      "confidence_lower_bound": 0.0,
+      "error_history": [
+        0.84066,
+        19.956998,
+        0.785109,
+        0.886355,
+        0.561226,
+        0.800089,
+        0.570052,
+        1.090423,
+        0.637967,
+        0.882874,
+        0.988316,
+        1.026385,
+        0.632564,
+        0.745023,
+        1.413917,
+        1.086077,
+        0.67402,
+        0.789016,
+        1.669135,
+        0.541251
+      ],
+      "state_error_map": {
+        "trend_strength_low_seasonal_strength_low_cv_high": 1.190618074333907
+      },
+      "dynamic_confidence": 0.1489321280261547,
+      "temperature": 1.0,
+      "selection_prob": 0.0,
+      "internal_state": 6.06565492,
+      "state_decay": 0.9,
+      "state_history": [
+        1.1199999999999997,
+        1.9079999999999995,
+        2.5171999999999994,
+        3.7454799999999997,
+        4.790932,
+        5.2618388,
+        6.06565492
+      ],
+      "dominance_counter": 0,
+      "penalty_factor": 1.0,
+      "usage_count": 51,
+      "last_used": null,
+      "created_at": "2026-06-28 10:07:34",
+      "enhanced_by": [],
+      "suppresses": [],
+      "metadata": {},
+      "semantic_description": "适用: 季节敏感,平稳性敏感；表现优异；MASE=0.831；用seasonal_naive,bias_cor...",
+      "cluster_id": "cluster_2",
+      "logit_weight": 0.016686942390399407,
+      "cumulative_reward": -7.477648,
+      "selection_count": 7,
+      "_error_volatility": 0.3538374002219249
+    }
+  ]
+}

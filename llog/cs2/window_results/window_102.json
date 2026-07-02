@@ -1,0 +1,61 @@
+{
+  "window_id": 102,
+  "origin": 1010,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_102.pkl",
+  "best_strategy": {
+    "name": "多尺度分解策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.555555,
+          "seasonal_extractor": 0.444445
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "theta": 0.333333,
+          "multi_seasonal_naive": 0.333334,
+          "adaptive_weighted_ensemble": 0.333333
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "calendar": 0.25,
+          "fourier": 0.15
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "incremental_gbm": 0.7,
+          "residual_correction_advanced": 0.3
+        }
+      }
+    ],
+    "description": "利用STL分解和多尺度分析，初期分解趋势和季节性，中期结合多种时间序列方法，后期使用机器学习优化残差预测"
+  },
+  "best_mase": 1.102185,
+  "features": {
+    "trend_strength": 0.014511,
+    "seasonal_strength": 0.031693,
+    "adf_pvalue": 0.019919,
+    "data_length": 600.0,
+    "skewness": 0.028193,
+    "cv": 0.331655,
+    "local_slope_30": -0.097108,
+    "local_std_ratio_30": 0.698573,
+    "local_change_rate_30": 0.234043,
+    "local_mean_ratio_30": 0.813893,
+    "local_slope_120": -0.060879,
+    "local_std_ratio_120": 1.032048,
+    "local_change_rate_120": -0.236842,
+    "local_mean_ratio_120": 1.134297
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-26 15:23:12"
+}

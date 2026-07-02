@@ -1,0 +1,59 @@
+{
+  "window_id": 40,
+  "origin": 390,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_40.pkl",
+  "best_strategy": {
+    "name": "局部结构驱动策略",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.55,
+          "local_drift": 0.45
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "ets": 0.35,
+          "theta": 0.3,
+          "stl_decompose": 0.35
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "chunk_ensemble": 1.0
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "calendar": 0.4
+        }
+      }
+    ],
+    "description": "根据局部斜率和变化率划分阶段，早期关注局部趋势，中期分解时序结构，后期结合周期性和自适应方法"
+  },
+  "best_mase": 1.013143,
+  "features": {
+    "trend_strength": 0.08082,
+    "seasonal_strength": 0.125476,
+    "adf_pvalue": 0.104172,
+    "data_length": 600.0,
+    "skewness": 0.24607,
+    "cv": 0.428417,
+    "local_slope_30": -0.021491,
+    "local_std_ratio_30": 0.561804,
+    "local_change_rate_30": 2.733333,
+    "local_mean_ratio_30": 0.82575,
+    "local_slope_120": 0.012888,
+    "local_std_ratio_120": 0.610772,
+    "local_change_rate_120": 0.493333,
+    "local_mean_ratio_120": 0.733177
+  },
+  "is_trouble": true,
+  "saved_at": "2026-06-26 14:18:09"
+}

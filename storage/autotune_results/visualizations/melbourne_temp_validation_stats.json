@@ -1,0 +1,43 @@
+{
+  "dataset": "melbourne_temp",
+  "timestamp": "2026-06-23T00:22:37.176533",
+  "avg_mase": 0.7934056666666667,
+  "std_mase": 0.039255858554983716,
+  "min_mase": 0.743338,
+  "max_mase": 0.839211,
+  "threshold": 0.9520868,
+  "hard_count": 0,
+  "total_windows": 3,
+  "hard_ratio": 0.0,
+  "threshold_multiplier": 1.2,
+  "worst_3_window_ids": [],
+  "window_details": [
+    {
+      "window_id": 15,
+      "mase": 0.839211,
+      "no_rule_mase": 0.6975083504372307,
+      "improvement": -0.20315548835213734,
+      "policy_id": "128b469f",
+      "policy_name": "policy_1_128b",
+      "applicability_score": 0.7917695598082333
+    },
+    {
+      "window_id": 16,
+      "mase": 0.743338,
+      "no_rule_mase": 0.754386569975288,
+      "improvement": 0.014645767057663607,
+      "policy_id": "128b469f",
+      "policy_name": "policy_1_128b",
+      "applicability_score": 0.7651920571569347
+    },
+    {
+      "window_id": 17,
+      "mase": 0.797668,
+      "no_rule_mase": 1.2228263873683014,
+      "improvement": 0.3476849958098332,
+      "policy_id": "3b9bbbcb",
+      "policy_name": "clone_policy_0_087c_0",
+      "applicability_score": 0.7240756393188884
+    }
+  ]
+}

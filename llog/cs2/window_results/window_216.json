@@ -1,0 +1,63 @@
+{
+  "window_id": 216,
+  "origin": 2150,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_216.pkl",
+  "best_strategy": {
+    "name": "Multi-Resolution Ensemble Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive_drift": 0.4,
+          "local_drift": 0.4,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.45,
+          "ets": 0.35,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "multi_seasonal_naive": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.6,
+          "chunk_ensemble": 0.25,
+          "residual_correction_advanced": 0.15
+        }
+      }
+    ],
+    "description": "Strategy leveraging multi-resolution methods with progressive adaptation to local trends and seasonality."
+  },
+  "best_mase": 0.406118,
+  "features": {
+    "trend_strength": 0.009458,
+    "seasonal_strength": 0.0,
+    "adf_pvalue": 0.032009,
+    "data_length": 600.0,
+    "skewness": 0.110853,
+    "cv": 0.32068,
+    "local_slope_30": 0.107831,
+    "local_std_ratio_30": 0.652481,
+    "local_change_rate_30": -0.157303,
+    "local_mean_ratio_30": 0.673776,
+    "local_slope_120": -0.072105,
+    "local_std_ratio_120": 0.941633,
+    "local_change_rate_120": -0.482759,
+    "local_mean_ratio_120": 0.968858
+  },
+  "is_trouble": false,
+  "saved_at": "2026-07-01 02:19:14"
+}

@@ -1,0 +1,54 @@
+{
+  "window_id": 261,
+  "origin": 2600,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_261.pkl",
+  "best_strategy": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "multi_resolution": 0.723585,
+          "chunk_ensemble": 0.276415
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "local_drift": 0.4,
+          "naive_drift": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining multi-resolution initialization with Holt-Winters and ETS for mid-term, followed by drift-based methods for short-term adaptation."
+  },
+  "best_mase": 0.560832,
+  "features": {
+    "trend_strength": 0.179539,
+    "seasonal_strength": 0.131456,
+    "adf_pvalue": 0.233365,
+    "data_length": 600.0,
+    "skewness": 0.140838,
+    "cv": 0.365708,
+    "local_slope_30": 0.011591,
+    "local_std_ratio_30": 0.55353,
+    "local_change_rate_30": 0.042857,
+    "local_mean_ratio_30": 0.775631,
+    "local_slope_120": 0.019222,
+    "local_std_ratio_120": 0.593233,
+    "local_change_rate_120": 0.013889,
+    "local_mean_ratio_120": 0.641737
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-30 19:45:18"
+}

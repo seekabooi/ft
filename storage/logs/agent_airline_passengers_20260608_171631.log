@@ -1,1 +1,0 @@
-{"event": "llm_raw_response", "content": "```json\n{\n    \"skill_weights\": {\n        \"holt_winters\": 0.6500000000,\n        \"calendar\": 0.2500000000,\n        \"residual_correction\": 0.1000000000\n    },\n    \"replan_interval\": 2\n}\n```"}

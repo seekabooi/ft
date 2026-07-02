@@ -1,0 +1,62 @@
+{
+  "window_id": 258,
+  "origin": 2580,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_259.pkl",
+  "best_strategy": {
+    "name": "reind_c673",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "stl_decompose": 0.7,
+          "naive": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "trend_forecaster": 0.4,
+          "seasonal_forecaster": 0.35,
+          "residual_correction_advanced": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.45,
+          "croston": 0.35,
+          "incremental_gbm": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "multi_seasonal_naive": 0.6,
+          "adaptive_weighted_ensemble": 0.4
+        }
+      }
+    ],
+    "description": "Strategy leveraging decomposition for initial trend/seasonality separation, followed by specialized forecasting methods"
+  },
+  "best_mase": 0.679501,
+  "features": {
+    "trend_strength": 0.18985,
+    "seasonal_strength": 0.141067,
+    "adf_pvalue": 0.300832,
+    "period": 6,
+    "data_length": 600,
+    "skewness": 0.100735,
+    "cv": 0.363043,
+    "local_slope_7": 0.253571,
+    "local_std_ratio_7": 0.258573,
+    "local_change_rate_7": 0.32,
+    "local_mean_ratio_7": 0.698843,
+    "local_slope_30": 0.061023,
+    "local_std_ratio_30": 0.439359,
+    "local_change_rate_30": 0.1,
+    "local_mean_ratio_30": 0.656645
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-29 20:01:17"
+}

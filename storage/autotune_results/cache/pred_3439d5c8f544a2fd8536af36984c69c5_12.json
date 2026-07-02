@@ -1,0 +1,28 @@
+{
+  "pred": [
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078,
+    10.078
+  ],
+  "train_size": 600,
+  "test_size": 12,
+  "trajectory": [
+    {
+      "step": 0,
+      "weights": {
+        "progressive_adaptive_combiner": 0.6360354066,
+        "chunk_ensemble": 0.3639645934
+      },
+      "interval": 2
+    }
+  ]
+}

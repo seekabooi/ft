@@ -1,0 +1,254 @@
+audit_threshold_multiplier: 1.2
+auto_build_cache: true
+branch_loading:
+  cache_ttl: 3600
+  enabled: true
+  evolution:
+    merge: false
+    patch: false
+    refresh: false
+    retire: false
+  model: glm-4
+  predict:
+    max_calls_per_step: 2
+    trigger_score_gap: 0.1
+condition_generation:
+  conflict_threshold: 0.7
+  max_rules: 12
+  min_features: 2
+  min_val_windows: 8
+  val_improvement_threshold: -0.1
+  validate_on_val: false
+confidence:
+  method: wilson_score
+  min_activation_threshold: 5
+continuous_evolution:
+  ema_decay: 0.95
+  enabled: false
+  learning_rate: 0.005
+  update_interval: 10
+coverage_gap:
+  gap_threshold: 0.15
+  min_support_windows: 30
+  support_window_size: 200
+data_split:
+  B_ratio: 0.5
+  first_round_ratio: 0.5
+  test_end_ratio: 0.0
+  test_mode: custom
+  test_start_ratio: 0.0
+datasets:
+- horizon: 12
+  name: melbourne_temp
+  step_size: 10
+  window_sizes:
+  - 600
+entropy_regularization:
+  enabled: true
+  weight: 0.0
+evolution:
+  b_subset_count: 2
+  b_subset_indices:
+  - 0
+  - 1
+  b_subset_mode: sequential
+  cooldown:
+    global_period: 200
+  lifetime_budget:
+    max_new_rules: 60
+  trigger:
+    base_interval: 200
+    hard_window_threshold: 0.15
+    interval_per_policy: 30
+    redundancy_threshold: 0.6
+evolution_objective:
+  weights:
+    accuracy_gain: 0.5
+    complexity_penalty: 0.1
+    coverage_gain: 0.2
+    evolution_cost: 0.1
+    stability_gain: 0.2
+fixed_params:
+  long_skill_force_threshold: 0.7
+  residual_acf_threshold: 0.2
+  route_bonus_long_skill: 0.15
+freeze_guard:
+  consecutive_decline_threshold: 3
+  freeze_duration: 1000
+lifecycle:
+  degradation_threshold: 0.15
+  min_usage_threshold: 5
+  retire_days_threshold: 30
+llm:
+  flash_model: glm-4.5-air
+  max_tokens: 4096
+  model: glm-4
+  temperature: 0.0
+llm_feedback:
+  enabled: false
+  gradient_weight: 0.0
+llog_dir: /root/xx/llog
+local_window_sizes:
+- 30
+- 120
+max_rules: 12
+merge:
+  candidate_threshold:
+    direct_merge: 0.8
+    observe_merge: 0.55
+    observe_periods: 2
+  cheap_filter:
+    corr_threshold: 0.65
+    merge_score_threshold: 0.45
+  simulation:
+    validation_required: false
+meta_skills:
+  concept_drift:
+    consecutive: 3
+    enabled: true
+    threshold: 1.5
+    window_size: 10
+  expert_voting:
+    enabled: true
+    std_threshold: 0.2
+  safety_net:
+    enabled: true
+    iqr_multiplier: 3.0
+online_evolution:
+  enabled: false
+  max_rules_online: 12
+  trigger_threshold: 1.5
+optimization:
+  entropy_weight: 0.0
+  loss: MASE
+  objective: min (MASE + λ1*stability_penalty - λ2*consistency_bonus)
+output_dir: /root/xx/storage/autotune_results
+parallel:
+  cache_workers: 12
+  enabled: true
+  prefetch_llm: true
+  test_parallel: true
+  test_workers: 24
+  window_max_retries: 2
+  window_parallel: true
+  window_retry_delay: 5
+  window_workers: 12
+  workers: 12
+patch:
+  budget_calc:
+    max_budget: 2
+    min_budget: 0
+    ratio_multiplier: 10
+  hard_window_ratio_max: 0.05
+  persistent_periods: 2
+policy_pool:
+  hard_max: 30
+  min_policies: 3
+  soft_max: 30
+  target_policies: 28
+policy_status:
+- ACTIVE
+- TRIAL
+- DEPRECATED
+- ARCHIVE
+price_optimization:
+  regime_switching: true
+  regime_threshold: 0.15
+regime_drift:
+  drift_threshold: 0.1
+  monitor_window: 100
+reinduction:
+  enabled: false
+  hard_window_multiplier: 1.0
+  hard_window_ratio_threshold: 0.2
+  mase_improvement_threshold: 0.03
+  max_new_policies_per_round: 1
+  min_hard_windows: 3
+  patch_enabled: true
+  patch_improvement_threshold: 0.05
+  patch_max_retries: 3
+  patch_min_windows: 2
+  patch_retry_delay: 2
+  patch_top_k: 3
+  use_reference_rules: true
+retirement:
+  archive_periods: 1
+  deprecated_periods: 2
+  minimum_marginal_threshold: 0.0
+  retire_score_weights:
+    coverage: 0.25
+    marginal_value: 0.15
+    rare_score: 0.15
+    uniqueness: 0.1
+    utility: 0.35
+reward:
+  consistency_bonus_weight: 0.05
+  ema_decay: 0.9
+  mase_weight: 1.0
+  stability_penalty_weight: 0.1
+rl:
+  advantage:
+    min_confidence: 0.3
+    use_llm_judge: false
+  baseline_decay: 0.9
+  enabled: true
+  evolution_effect_strength: 0.3
+  exploration: 0.08
+  grad_clip_value: 1.0
+  learning_rate: 0.002
+  replay_memory:
+    batch_size: 32
+    max_size: 1000
+  reward:
+    mase_weight: 1.0
+    stability_weight: 0.02
+  temperature: 1.5
+  theta_bias_alpha: 0.15
+  theta_decay: 0.005
+  top_k_sampling: 3
+skill_filter:
+  blacklist:
+  - progressive_adaptive_combiner
+  enable_blacklist: true
+skip_collection: true
+skip_incremental_cache_for_recovery: true
+soft_mixture:
+  dominance:
+    consecutive_threshold: 3
+    enabled: true
+    penalty_factor: 0.7
+  enabled: true
+  entropy_collapse_threshold: 0.05
+  entropy_min: 0.1
+  temperature: 1.0
+  top_k: 4
+stop_ratio: 0.01
+system:
+  name: SPLS
+  paradigm: Policy Gradient + Online Learning
+  version: '6.0'
+temperature:
+  default: 1.0
+  max: 1.5
+  min: 0.5
+temperature_optimization:
+  seasonal_periods:
+  - 7
+  - 30
+  - 90
+  seasonality_aware: true
+training:
+  auto_optimize: true
+  rounds: 1000
+  save_all_rounds: true
+trouble_patch:
+  enabled: true
+  improvement_threshold: 0.01
+  mase_threshold: 1.0
+  max_new_policies: 2
+  min_trouble_windows: 2
+use_cache: true
+visualization:
+  enabled: true
+  save_plots: true
+  show_plots: false

@@ -1,155 +1,160 @@
-import os
-import json
-import numpy as np
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-from collections import defaultdict
+import argparse
+import os
 
-# 设置中文字体（如果系统支持）或使用英文
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial']
-plt.rcParams['axes.unicode_minus'] = False
 
-class Visualizer:
-    def __init__(self, dataset_name, storage_dir='storage'):
-        self.dataset = dataset_name
-        self.storage = storage_dir
-        self.eval_csv = os.path.join(storage_dir, f'eval_{dataset_name}.csv')
-        # 寻找最新的日志文件（按名称匹配）
-        self.log_file = self._find_latest_log(dataset_name)
+def plot_prediction_vs_actual(csv_path, dataset_name=None):
+    """
+    绘制预测值与真实值的误差对比图
+    包含：预测曲线、真实曲线、误差柱状图
+    """
+    if not os.path.exists(csv_path):
+        print(f"❌ 文件未找到: {csv_path}")
+        return
 
-    def _find_latest_log(self, dataset_name):
-        log_dir = os.path.join(self.storage, 'logs')
-        if not os.path.exists(log_dir):
-            return None
-        candidates = []
-        for f in os.listdir(log_dir):
-            if f.startswith(f'agent_{dataset_name}') and f.endswith('.log'):
-                candidates.append(os.path.join(log_dir, f))
-        if not candidates:
-            return None
-        # 按修改时间最新
-        latest = max(candidates, key=os.path.getmtime)
-        return latest
+    df = pd.read_csv(csv_path)
 
-    def load_predictions(self):
-        if not os.path.exists(self.eval_csv):
-            raise FileNotFoundError(f'未找到评估结果文件: {self.eval_csv}')
-        df = pd.read_csv(self.eval_csv)
-        return df['actual'].values, df['prediction'].values
+    if 'prediction' not in df.columns or 'actual' not in df.columns:
+        print("❌ CSV 必须包含 'prediction' 和 'actual' 列")
+        return
 
-    def load_weights_from_log(self):
-        """
-        从日志中提取每一步的技能权重。
-        日志格式：每行一个 JSON，含 event 字段。
-        我们关心 'llm_plan_new' 和 'llm_plan_reused' 事件中的 'plan' 的 'skill_weights'。
-        """
-        if not self.log_file or not os.path.exists(self.log_file):
-            return None
-        weights_by_step = {}
-        with open(self.log_file, 'r', encoding='utf-8') as f:
-            for line in f:
-                try:
-                    data = json.loads(line)
-                except:
-                    continue
-                if data.get('event') in ('llm_plan_new', 'llm_plan_reused'):
-                    step = data.get('step') or data.get('task_id', '')
-                    plan = data.get('plan', {})
-                    skill_weights = plan.get('skill_weights', {})
-                    if skill_weights:
-                        weights_by_step[step] = skill_weights
-        return weights_by_step
+    preds = df['prediction'].values
+    actuals = df['actual'].values
+    errors = preds - actuals
+    abs_errors = np.abs(errors)
 
-    def plot_predictions_vs_actuals(self, save_path=None):
-        actuals, preds = self.load_predictions()
-        plt.figure(figsize=(12, 6))
-        x = range(len(actuals))
-        plt.plot(x, actuals, 'b-o', label='Actual', markersize=4, linewidth=1)
-        plt.plot(x, preds, 'r--s', label='Predicted', markersize=4, linewidth=1)
-        plt.title(f'{self.dataset} - Actual vs Predicted')
-        plt.xlabel('Step')
-        plt.ylabel('Value')
-        plt.legend()
-        plt.grid(True, alpha=0.3)
-        if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        else:
-            plt.show()
-        plt.close()
+    # 计算误差指标
+    mae = np.mean(abs_errors)
+    rmse = np.sqrt(np.mean(errors ** 2))
+    mape = np.mean(np.abs((errors) / (actuals + 1e-6))) * 100
+    bias = np.mean(errors)
+    max_error = np.max(abs_errors)
+    min_error = np.min(abs_errors)
 
-    def plot_error_distribution(self, save_path=None):
-        actuals, preds = self.load_predictions()
-        errors = preds - actuals
-        plt.figure(figsize=(10, 5))
-        plt.hist(errors, bins=20, edgecolor='k', alpha=0.7, density=True)
-        # 拟合正态分布曲线
-        from scipy import stats
-        mu, std = stats.norm.fit(errors)
-        xmin, xmax = plt.xlim()
-        x = np.linspace(xmin, xmax, 100)
-        p = stats.norm.pdf(x, mu, std)
-        plt.plot(x, p, 'r', linewidth=2, label=f'Normal fit (μ={mu:.2f}, σ={std:.2f})')
-        plt.axvline(0, color='grey', linestyle='--', alpha=0.5)
-        plt.title(f'{self.dataset} - Error Distribution')
-        plt.xlabel('Prediction Error')
-        plt.ylabel('Density')
-        plt.legend()
-        plt.grid(axis='y', alpha=0.3)
-        if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        else:
-            plt.show()
-        plt.close()
+    # 创建画布
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10),
+                                   gridspec_kw={'height_ratios': [2, 1]})
 
-    def plot_skill_weights_heatmap(self, top_n=5, save_path=None):
-        """
-        绘制技能权重热力图：x轴为步骤，y轴为技能，颜色为权重。
-        """
-        step_weights = self.load_weights_from_log()
-        if not step_weights:
-            print('⚠️ 没有找到技能权重日志，跳过热力图')
-            return
-        # 转换为 DataFrame
-        rows = []
-        for step, weights in step_weights.items():
-            for skill, w in weights.items():
-                rows.append([step, skill, w])
-        df = pd.DataFrame(rows, columns=['step', 'skill', 'weight'])
-        # 转换为宽表
-        wide = df.pivot(index='skill', columns='step', values='weight').fillna(0)
-        # 按总权重排序，显示使用频率最高的技能
-        wide['total'] = wide.sum(axis=1)
-        wide = wide.sort_values('total', ascending=False).drop(columns='total')
-        top_skills = wide.head(top_n).index
-        wide = wide.loc[top_skills]
-        # 绘制热力图
-        plt.figure(figsize=(14, max(4, len(top_skills))))
-        sns.heatmap(wide, cmap='YlOrRd', annot=True, fmt='.2f', linewidths=0.5,
-                    cbar_kws={'label': 'Weight'})
-        plt.title(f'{self.dataset} - Skill Weights Over Steps (Top {top_n})')
-        plt.xlabel('Step')
-        plt.ylabel('Skill')
-        if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        else:
-            plt.show()
-        plt.close()
+    time_steps = range(1, len(preds) + 1)
 
-    def generate_all(self, output_dir=None):
-        if output_dir is None:
-            output_dir = os.path.join(self.storage, 'plots')
-        os.makedirs(output_dir, exist_ok=True)
-        self.plot_predictions_vs_actuals(os.path.join(output_dir, f'{self.dataset}_predictions.png'))
-        self.plot_error_distribution(os.path.join(output_dir, f'{self.dataset}_error_dist.png'))
-        self.plot_skill_weights_heatmap(save_path=os.path.join(output_dir, f'{self.dataset}_weights_heatmap.png'))
-        print(f'✅ 图表已保存到 {output_dir}/')
+    # ==================== 上图：预测 vs 真实（带误差区间） ====================
+    ax1.plot(time_steps, actuals, 'o-', label='真实值 (Actual)',
+             color='#2E86C1', linewidth=2.5, markersize=8)
+    ax1.plot(time_steps, preds, 's--', label='预测值 (Prediction)',
+             color='#E74C3C', linewidth=2, markersize=8)
 
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser(description='生成评估可视化图表')
-    parser.add_argument('--dataset', type=str, required=True, help='数据集名称，如 airline_passengers')
-    parser.add_argument('--output_dir', type=str, default=None, help='输出目录，默认为 storage/plots')
+    # 填充误差区间（预测与真实之间的区域）
+    ax1.fill_between(time_steps, preds, actuals,
+                     where=(preds >= actuals),
+                     color='#2ECC71', alpha=0.3, label='高估区域 (预测 > 真实)')
+    ax1.fill_between(time_steps, preds, actuals,
+                     where=(preds < actuals),
+                     color='#E74C3C', alpha=0.3, label='低估区域 (预测 < 真实)')
+
+    # 标注每个点的误差值
+    for i, (t, p, a, e) in enumerate(zip(time_steps, preds, actuals, errors)):
+        offset = 5 if e >= 0 else -5
+        color = '#2ECC71' if e >= 0 else '#E74C3C'
+        ax1.annotate(f'{e:+.2f}',
+                     xy=(t, p),
+                     xytext=(t, p + offset if p + offset > a else p - offset),
+                     fontsize=8, color=color, ha='center', alpha=0.7,
+                     bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.6))
+
+    ax1.axhline(y=0, color='black', linestyle='-', linewidth=0.5, alpha=0.3)
+    ax1.set_xlabel('预测步数 (Horizon)')
+    ax1.set_ylabel('数值')
+    ax1.set_title(f'📊 预测值与真实值对比 - {dataset_name or "预测结果"}', fontsize=14)
+    ax1.legend(loc='best')
+    ax1.grid(True, alpha=0.3)
+
+    # 在右上角添加统计信息
+    stats_text = (
+        f'MAE  = {mae:.4f}\n'
+        f'RMSE = {rmse:.4f}\n'
+        f'MAPE = {mape:.2f}%\n'
+        f'Bias = {bias:+.4f}\n'
+        f'最大误差 = {max_error:.4f}\n'
+        f'最小误差 = {min_error:.4f}'
+    )
+    ax1.text(0.98, 0.98, stats_text, transform=ax1.transAxes,
+             fontsize=10, verticalalignment='top', horizontalalignment='right',
+             bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+
+    # ==================== 下图：误差柱状图 ====================
+    colors = ['#2ECC71' if e >= 0 else '#E74C3C' for e in errors]
+    bars = ax2.bar(time_steps, errors, color=colors, alpha=0.8, edgecolor='black', linewidth=0.5)
+    ax2.axhline(y=0, color='black', linestyle='--', linewidth=1.5)
+    ax2.axhline(y=np.mean(errors), color='red', linestyle='-.',
+                linewidth=1.5, label=f'平均偏差 = {bias:+.4f}')
+
+    # 在柱子上方标注误差值
+    for bar, e in zip(bars, errors):
+        height = bar.get_height()
+        ax2.annotate(f'{e:+.2f}',
+                     xy=(bar.get_x() + bar.get_width() / 2, height),
+                     xytext=(0, 3 if height >= 0 else -3),
+                     textcoords='offset points',
+                     ha='center', va='bottom' if height >= 0 else 'top',
+                     fontsize=9, color='black', alpha=0.7)
+
+    ax2.set_xlabel('预测步数 (Horizon)')
+    ax2.set_ylabel('误差 (预测 - 真实)')
+    ax2.set_title(f'📉 逐步误差分布 (正:高估 / 负:低估)', fontsize=12)
+    ax2.legend(loc='best')
+    ax2.grid(True, alpha=0.3, axis='y')
+
+    plt.tight_layout()
+
+    # 保存图片
+    os.makedirs('storage/plots', exist_ok=True)
+    save_path = f'storage/plots/error_compare_{dataset_name or "result"}.png'
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    print(f"✅ 误差对比图已保存至: {save_path}")
+
+    # 打印误差统计摘要
+    print("\n" + "=" * 60)
+    print(f"📊 误差统计摘要 - {dataset_name or '预测结果'}")
+    print("=" * 60)
+    print(f"  MAE  (平均绝对误差): {mae:.4f}")
+    print(f"  RMSE (均方根误差):   {rmse:.4f}")
+    print(f"  MAPE (平均绝对百分比误差): {mape:.2f}%")
+    print(f"  Bias (平均偏差):      {bias:+.4f} ({'高估' if bias > 0 else '低估'})")
+    print(f"  最大绝对误差:        {max_error:.4f} (步 {np.argmax(abs_errors) + 1})")
+    print(f"  最小绝对误差:        {min_error:.4f} (步 {np.argmin(abs_errors) + 1})")
+
+    # 分析偏差模式
+    high_count = np.sum(errors > 0)
+    low_count = np.sum(errors < 0)
+    print(f"  高估次数: {high_count} / 低估次数: {low_count}")
+    if high_count > low_count * 1.5:
+        print("  ⚠️ 模型存在系统性高估倾向")
+    elif low_count > high_count * 1.5:
+        print("  ⚠️ 模型存在系统性低估倾向")
+    else:
+        print("  ✅ 误差正负平衡，无明显系统性偏差")
+
+    print("=" * 60)
+
+    plt.show()
+    return fig
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dataset', type=str, default='melbourne_temp',
+                        help='数据集名称（自动读取 storage/eval_{dataset}.csv）')
+    parser.add_argument('--csv', type=str, default=None,
+                        help='手动指定CSV路径（优先级高于 --dataset）')
     args = parser.parse_args()
-    viz = Visualizer(args.dataset)
-    viz.generate_all(args.output_dir)
+
+    if args.csv:
+        csv_path = args.csv
+        name = os.path.splitext(os.path.basename(csv_path))[0]
+    else:
+        csv_path = f'storage/eval_{args.dataset}.csv'
+        name = args.dataset
+
+    plot_prediction_vs_actual(csv_path, dataset_name=name)

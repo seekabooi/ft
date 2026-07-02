@@ -1,0 +1,62 @@
+{
+  "window_id": 17,
+  "origin": 160,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_17.pkl",
+  "best_strategy": {
+    "name": "Seasonal-Trend Hybrid Strategy",
+    "stages": [
+      {
+        "steps": 2,
+        "weights": {
+          "naive": 0.6,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "stl_decompose": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "multi_seasonal_naive": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.5,
+          "ets": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      }
+    ],
+    "description": "Hybrid strategy focusing on seasonal patterns in mid-term and trend stabilization in long-term prediction."
+  },
+  "best_mase": 0.873929,
+  "features": {
+    "trend_strength": 0.086461,
+    "seasonal_strength": 0.092978,
+    "adf_pvalue": 0.194988,
+    "data_length": 600.0,
+    "skewness": 0.260927,
+    "cv": 0.405306,
+    "local_slope_30": -0.011746,
+    "local_std_ratio_30": 0.502209,
+    "local_change_rate_30": -0.222826,
+    "local_mean_ratio_30": 1.244736,
+    "local_slope_120": 0.039594,
+    "local_std_ratio_120": 0.672357,
+    "local_change_rate_120": 0.083333,
+    "local_mean_ratio_120": 1.164614
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 13:53:33"
+}

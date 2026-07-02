@@ -1,0 +1,1419 @@
+D:\my_venvs\ftt\Scripts\activate.bat  
+python run_experiment.py --min_train_size 3000 --horizon 30
+
+记住要用bush|上传github|！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+cd /d/aaaaa/agent_search
+
+# 修改远程地址为正确的用户名
+git remote set-url origin https://github.com/seekabooi/search.git
+
+# 确认修改成功
+git remote -v
+
+# 推送
+git push -u origin master
+
+
+创建虚拟环境
+创建虚拟环境！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+# 1. 创建虚拟环境（在 D 盘）
+D:\Python312\python.exe -m venv D:\my_venvs\虚拟环境名称
+
+# 2. 激活虚拟环境（CMD）
+D:\my_venvs\ftime\Scripts\activate.bat
+
+python run_benchmark.py --dataset airline_passengers --data_ratio 1 --model glm-4 --auto_window
+
+python visualization.py --dataset airline_passengers
+
+python run_benchmark.py --dataset melbourne_temp --model glm-4 --min_train_size 3000 --horizon 30
+
+
+python run_benchmark.py --dataset airline_passengers --data_ratio 1 --model glm-4
+python run_benchmark.py --dataset melbourne_temp --min_train_size 600 --horizon 7
+✅ 图表已保存到 storage\plots/
+
+
+python run_benchmark.py --data_ratio 0.5 --model glm-4
+
+# 6. 退出虚拟环境
+deactivate
+
+C盘清理！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+cleanmgr
+powercfg /h off
+del /q /f /s %temp%\* 2>nul
+rd /s /q %temp% 2>nul
+del /q /f /s C:\Windows\Prefetch\* 2>nul
+
+2.1我有一个很大胆的方法 能否提取有效特征也写入skill这样 先大体根据一些数据特征判断需要详细计算的一波特征 然后这样就不用一次性计算很多特征了
+
+
+今天 下载五个数据集
+数据集	
+melbourne_temp	 
+airline_passengers 
+champagne_sales	 
+gold_price	 
+sunspots	 
+
+创建 convert_local_data.py 转换为 Parquet 格式
+用本地数据集测试 LLM 直接预测
+先确认 dataset_registry.yaml 已包含这 5 个本地数据集
+
+升级后的评估方案：滚动起源验证 (Rolling Origin)
+这是时间序列预测中最严谨的评估方式之一，能最大化利用数据，同时保证无未来信息泄露。
+
+核心思想：
+设置一个最小训练窗口（如 50 个数据点），然后从该窗口末尾开始，反复进行“训练→预测→评估→窗口前移”的循环，直到用完所有数据。
+数据总长 N = 144 (airline)
+min_train_len = 80   (至少用80个点训练)
+horizon = 1
+
+Step 0: 训练窗口 [0:80]，预测第81个点，记录误差
+Step 1: 训练窗口 [1:81]，预测第82个点，记录误差
+...
+Step 64: 训练窗口 [63:143]，预测第144个点，记录误差
+
+共得到 N - min_train_len = 64 次预测，计算平均 RMSE/MAE
+优点：数据利用率 100%，结果更稳定，且能看出模型在不同时期的性能变化。
+
+python run_benchmark.py \
+    --min_train_size 50 \    # 最小训练窗口大小
+    --horizon 1 \            # 预测步长
+    --data_ratio 0.5         # 使用多少数据
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5
+
+以下是当前项目支持的**全部可运行指令种类**，按实验模式分类。
+
+---
+
+## 一、纯 LLM 基线（无技能）
+
+```bash
+# 单个数据集
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4 --no_skills
+
+# 全部 5 个数据集
+python run_benchmark.py --data_ratio 0.5 --model glm-4 --no_skills
+
+# 指定最小训练窗口和预测步长
+python run_benchmark.py --dataset melbourne_temp --min_train_size 365 --horizon 3 --data_ratio 1.0 --no_skills
+```
+
+---
+
+## 二、分支加载模式（LLM 自主选择技能或动态组合）
+
+```bash
+# 默认分支加载（LLM 可自主选择单技能或动态组合）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4
+
+# 全部数据集
+python run_benchmark.py --data_ratio 0.5 --model glm-4
+
+# 调整最小训练窗口和预测步长
+python run_benchmark.py --dataset melbourne_temp --min_train_size 730 --horizon 3 --data_ratio 1.0
+
+# 使用不同模型
+python run_benchmark.py --dataset gold_price --data_ratio 0.5 --model glm-4-flash
+
+# 调整技能匹配最低置信度
+python run_benchmark.py --dataset sunspots --data_ratio 0.5 --min_confidence 0.5
+```
+
+---
+
+## 三、单技能模式（消融实验）
+
+```bash
+# 仅使用 ARIMA
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name arima
+
+# 仅使用 Prophet
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name prophet
+
+# 仅使用季节性朴素
+python run_benchmark.py --dataset sunspots --data_ratio 0.5 --skill_mode single --skill_name seasonal_naive
+
+# 仅使用指数平滑
+python run_benchmark.py --dataset gold_price --data_ratio 0.5 --skill_mode single --skill_name ets
+
+# 仅使用线性趋势
+python run_benchmark.py --dataset melbourne_temp --data_ratio 0.5 --skill_mode single --skill_name linear_trend
+
+# 仅使用 STL 分解预测
+python run_benchmark.py --dataset champagne_sales --data_ratio 0.5 --skill_mode single --skill_name stl_forecast
+
+# 仅使用 NaiveDrift
+python run_benchmark.py --dataset gold_price --data_ratio 0.5 --skill_mode single --skill_name naive_drift
+```
+
+---
+
+## 四、固定组合模式（所有技能均值）
+
+```bash
+# 对所有已注册技能取均值预测
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode ensemble
+```
+
+---
+
+## 五、技能生成模式
+
+```bash
+# 从日志中自动归纳新技能（需先运行过评估产生日志）
+python run_benchmark.py --generate_skills
+```
+
+---
+
+## 六、查看可用技能列表
+
+```bash
+python -c "from src.skills.registry import SkillRegistry; from src.skills.naive import NaiveSkill; from src.skills.arima_skill import ARIMASkill; from src.skills.prophet_skill import ProphetSkill; from src.skills.linear_trend import LinearTrendSkill; from src.skills.stl_forecast import STLForecastSkill; from src.skills.naive_drift import NaiveDriftSkill; r = SkillRegistry(); r.register(NaiveSkill()); r.register(SeasonalNaiveSkill(period=12)); r.register(ProphetSkill()); r.register(ARIMASkill()); r.register(LinearTrendSkill()); r.register(STLForecastSkill()); r.register(NaiveDriftSkill()); print(list(r._skills.keys()))"
+```
+
+---
+
+## 七、典型实验矩阵
+
+| 实验目的 | 命令 |
+|---------|------|
+| LLM 基线 | `python run_benchmark.py --dataset X --data_ratio 0.5 --model glm-4 --no_skills` |
+| LLM + 技能自主选择 | `python run_benchmark.py --dataset X --data_ratio 0.5 --model glm-4` |
+| 仅 ARIMA | `python run_benchmark.py --dataset X --skill_mode single --skill_name arima` |
+| 仅 Prophet | `python run_benchmark.py --dataset X --skill_mode single --skill_name prophet` |
+| 所有技能均值 | `python run_benchmark.py --dataset X --skill_mode ensemble` |
+| 长周期数据集（太阳黑子） | `python run_benchmark.py --dataset sunspots --min_train_size 132` |
+| 日数据（墨尔本温度） | `python run_benchmark.py --dataset melbourne_temp --min_train_size 365 --horizon 3` |
+| 月数据（航空乘客） | `python run_benchmark.py --dataset airline_passengers --min_train_size 36` |
+| 短数据（黄金） | `python run_benchmark.py --dataset gold_price --min_train_size 30` |
+
+---
+
+这些指令覆盖了论文所需的全部实验场景：**纯 LLM 基线、技能分支加载（含动态组合）、单一技能消融、固定组合对比、不同数据集与参数调节、技能生成**。可直接复制运行。
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+以下是当前项目支持的**全部可运行指令种类**，按实验模式分类。
+
+---
+
+## 一、纯 LLM 基线（无技能）
+
+```bash
+# 单个数据集
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4 --no_skills
+
+# 全部 5 个数据集
+python run_benchmark.py --data_ratio 0.5 --model glm-4 --no_skills
+
+# 指定最小训练窗口和预测步长
+python run_benchmark.py --dataset melbourne_temp --min_train_size 365 --horizon 3 --data_ratio 1.0 --no_skills
+```
+
+---
+
+## 二、分支加载模式（LLM 自主选择技能或动态组合）
+
+```bash
+# 默认分支加载（LLM 可自主选择单技能或动态组合）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4
+
+# 全部数据集
+python run_benchmark.py --data_ratio 0.5 --model glm-4
+
+# 调整最小训练窗口和预测步长
+python run_benchmark.py --dataset melbourne_temp --min_train_size 730 --horizon 3 --data_ratio 1.0
+
+# 使用不同模型
+python run_benchmark.py --dataset gold_price --data_ratio 0.5 --model glm-4-flash
+
+# 调整技能匹配最低置信度
+python run_benchmark.py --dataset sunspots --data_ratio 0.5 --min_confidence 0.5
+```
+
+---
+
+## 三、单技能模式（消融实验）
+
+```bash
+# 仅使用 ARIMA
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name arima
+
+# 仅使用 Prophet
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name prophet
+
+# 仅使用季节性朴素
+python run_benchmark.py --dataset sunspots --data_ratio 0.5 --skill_mode single --skill_name seasonal_naive
+
+# 仅使用指数平滑
+python run_benchmark.py --dataset gold_price --data_ratio 0.5 --skill_mode single --skill_name ets
+
+# 仅使用线性趋势
+python run_benchmark.py --dataset melbourne_temp --data_ratio 0.5 --skill_mode single --skill_name linear_trend
+
+# 仅使用 STL 分解预测
+python run_benchmark.py --dataset champagne_sales --data_ratio 0.5 --skill_mode single --skill_name stl_forecast
+
+# 仅使用 NaiveDrift
+python run_benchmark.py --dataset gold_price --data_ratio 0.5 --skill_mode single --skill_name naive_drift
+```
+
+---
+
+## 四、固定组合模式（所有技能均值）
+
+```bash
+# 对所有已注册技能取均值预测
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode ensemble
+```
+
+---
+
+## 五、技能生成模式
+
+```bash
+# 从日志中自动归纳新技能（需先运行过评估产生日志）
+python run_benchmark.py --generate_skills
+```
+
+---
+
+## 六、查看可用技能列表
+
+```bash
+python -c "from src.skills.registry import SkillRegistry; from src.skills.naive import NaiveSkill; from src.skills.arima_skill import ARIMASkill; from src.skills.prophet_skill import ProphetSkill; from src.skills.linear_trend import LinearTrendSkill; from src.skills.stl_forecast import STLForecastSkill; from src.skills.naive_drift import NaiveDriftSkill; r = SkillRegistry(); r.register(NaiveSkill()); r.register(SeasonalNaiveSkill(period=12)); r.register(ProphetSkill()); r.register(ARIMASkill()); r.register(LinearTrendSkill()); r.register(STLForecastSkill()); r.register(NaiveDriftSkill()); print(list(r._skills.keys()))"
+```
+
+---
+
+## 七、典型实验矩阵
+
+| 实验目的 | 命令 |
+|---------|------|
+| LLM 基线 | `python run_benchmark.py --dataset X --data_ratio 0.5 --model glm-4 --no_skills` |
+| LLM + 技能自主选择 | `python run_benchmark.py --dataset X --data_ratio 0.5 --model glm-4` |
+| 仅 ARIMA | `python run_benchmark.py --dataset X --skill_mode single --skill_name arima` |
+| 仅 Prophet | `python run_benchmark.py --dataset X --skill_mode single --skill_name prophet` |
+| 所有技能均值 | `python run_benchmark.py --dataset X --skill_mode ensemble` |
+| 长周期数据集（太阳黑子） | `python run_benchmark.py --dataset sunspots --min_train_size 132` |
+| 日数据（墨尔本温度） | `python run_benchmark.py --dataset melbourne_temp --min_train_size 365 --horizon 3` |
+| 月数据（航空乘客） | `python run_benchmark.py --dataset airline_passengers --min_train_size 36` |
+| 短数据（黄金） | `python run_benchmark.py --dataset gold_price --min_train_size 30` |
+
+---
+
+这些指令覆盖了论文所需的全部实验场景：**纯 LLM 基线、技能分支加载（含动态组合）、单一技能消融、固定组合对比、不同数据集与参数调节、技能生成**。可直接复制运行。
+
+
+pip install pmdarima
+
+# 验证黄金价格不再被季节性技能锁定
+python run_benchmark.py --dataset gold_price --data_ratio 1.0 --model glm-4
+
+# 完整对比实验
+python run_benchmark.py --data_ratio 0.5 --model glm-4                    # 分支加载
+python run_benchmark.py --data_ratio 0.5 --model glm-4 --no_skills        # 纯LLM
+python run_benchmark.py --data_ratio 0.5 --skill_mode ensemble            # 固定组合
+python run_benchmark.py --data_ratio 0.5 --skill_mode single --skill_name arima  # 单技能
+601224
+
+以下是 **TSSkills 时序预测技能系统** 的最终总结，涵盖判断处理流程、目录结构、技能使用逻辑和 LLM 的角色。
+
+---
+
+### 一、详细的判断处理流程图
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      开始：滚动起源评估                            │
+│   for each test window (min_train_size 后滑动)                   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤1：多尺度特征提取 (DataProfiler)                              │
+│  - 自动周期检测 (ACF)                                            │
+│  - 统计特征：ADF p值、季节性强度、趋势强度、数据长度、波动率         │
+│  - 自适应窗口栈：长(3*period)、中(1*period)、短(max(2,period/4))、 │
+│    差分(20) → 归一化 → 拼接 snapshot_vector                       │
+│  - 对极度非平稳(ADF>0.9)强制季节性强度归零                          │
+│  - 输出 profile                                                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤2：技能匹配 (SkillMatcher)                                    │
+│   阶段1（硬过滤）：遍历所有已注册技能                               │
+│     - skill.check_state_card(profile)                             │
+│     - 必须满足 when_to_use 且不触发 when_not_to_use                │
+│     - 未通过直接淘汰                                              │
+│   阶段2（软排序）：对通过技能                                       │
+│     - 计算当前 snapshot_vector 与技能原型向量的 DTW 相似度 (若存在)  │
+│     - 按相似度降序，取 top_k (默认3)                               │
+│   输出：候选技能列表                                               │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤3：LLM 分支决策 (_llm_branch_decision)                        │
+│  - 将 profile 和候选技能的 state_card 发送给 LLM                   │
+│  - 可选：加入候选技能在最近局部窗口的回测误差(MAE)                   │
+│  - LLM 返回 JSON 格式的指导：                                      │
+│    {                                                              │
+│      "best_skill": "arima",          ← 单个技能                   │
+│      或 "ensemble_skills": ["arima","prophet"] ← 动态组合         │
+│    }                                                              │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤4：执行预测 (Agent.predict)                                    │
+│  - 若 guidance 中有 ensemble_skills：                             │
+│     动态创建 EnsembleSkill → 执行各技能 → 返回均值                  │
+│  - 若 guidance 中有 best_skill：                                  │
+│     调用 skill.execute(history, horizon, period=period)            │
+│  - 使用 skill.verify_prediction() 验证                            │
+│  - 若验证失败，使用候选中的 fallback_skill                         │
+│  - 所有技能失败时，回退到 naive 或 ensemble(all)                    │
+│  - 最终保底：历史均值（极少触发）                                    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤5：滚动窗口前进 (步长 = horizon)                               │
+│  - 将当前测试点的真实值加入历史                                    │
+│  - 重复步骤1-4，直到测试集结束                                      │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤6：指标计算 (RollingOriginEvaluator)                           │
+│  - 计算 RMSE, MAE, sMAPE (标准公式), MASE (基于全局训练尺度)        │
+│  - 进度条显示，日志记录所有决策                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 二、目录结构及文件作用
+
+```
+futureTime/
+├── run_benchmark.py                  # 主评估入口，支持多种技能模式
+├── convert_local_data.py             # 本地数据集 CSV → Parquet 转换
+├── test_data_sources.py              # 数据源连通性测试（可选）
+│
+├── data/
+│   ├── dataset_registry.yaml         # 所有数据集（API+本地）配置
+│   ├── weather/                      # 墨尔本温度数据
+│   ├── transport/                    # 航空乘客数据
+│   ├── sales/                        # 香槟销量数据
+│   ├── finance/                      # 黄金价格数据
+│   └── nature/                       # 太阳黑子数据
+│
+├── src/
+│   ├── config.py                     # 全局配置（API Key、路径）
+│   │
+│   ├── dataset/
+│   │   ├── registry.py               # 加载 dataset_registry.yaml
+│   │   ├── loader.py                 # 加载数据（Parquet/CSV）
+│   │   └── splitter.py               # 历史/未来切分
+│   │
+│   ├── tasks/
+│   │   ├── instance.py               # TaskInstance 数据模型
+│   │   ├── generator.py              # 任务生成器（回测模式）
+│   │   └── storage.py                # 任务持久化
+│   │
+│   ├── skills/                       # ⭐ 技能系统核心
+│   │   ├── base.py                   # 技能基类（状态卡、验证、原型）
+│   │   ├── registry.py               # 技能注册表
+│   │   ├── data_profiler.py          # 多尺度特征提取、ACF周期检测、DTW
+│   │   ├── skill_matcher.py          # 顺序决策匹配器（硬过滤+软排序）
+│   │   ├── skill_generator.py        # 技能状态卡生成工具（非自动进化）
+│   │   ├── naive.py                  # 移动平均技能
+│   │   ├── seasonal_naive.py         # 季节性朴素技能
+│   │   ├── prophet_skill.py          # Prophet 技能
+│   │   ├── arima_skill.py            # ARIMA 技能
+│   │   ├── exp_smoothing.py          # 指数平滑技能
+│   │   ├── theta.py                  # Theta 技能
+│   │   ├── linear_trend.py           # 线性趋势外推技能
+│   │   ├── stl_forecast.py           # STL 分解预测技能
+│   │   ├── naive_drift.py            # 带漂移的朴素技能
+│   │   ├── ensemble.py               # 组合技能（动态/静态）
+│   │   ├── auto_arima.py             # 自动ARIMA技能 (pmdarima)
+│   │   ├── auto_ets.py               # 自动指数平滑技能
+│   │   ├── decompose_ensemble.py     # STL分解重组组合技
+│   │   ├── gated_ensemble.py         # 状态门控组合技能
+│   │   ├── boxcox_transform.py       # Box-Cox变换包装技能
+│   │   ├── outlier_repair.py         # 异常检测修复技能
+│   │   └── validation_weighted_ensemble.py  # 验证加权组合技能
+│   │
+│   ├── agents/                       # ⭐ Agent 执行层
+│   │   ├── base.py                   # Agent 抽象基类
+│   │   └── llm_planner.py            # LLM Agent（分支加载+多级回退）
+│   │
+│   ├── evaluation/                   # ⭐ 评估模块
+│   │   ├── metrics.py                # 早期评分公式（备用）
+│   │   ├── collector.py              # 答案收集（延迟评分）
+│   │   ├── scorer.py                 # 评分器
+│   │   ├── leaderboard.py            # 排行榜
+│   │   └── rolling_origin_evaluator.py # 滚动起源评估器（进度条）
+│   │
+│   ├── data_fetcher/
+│   │   ├── base.py                   # DataSource 基类
+│   │   └── api_source.py             # 通用API数据源
+│   │
+│   └── scheduler/
+│       └── daily_runner.py           # 原有回测入口（兼容）
+│
+├── storage/                          # 运行时生成
+│   ├── logs/                         # 详细决策日志（每次运行独立文件）
+│   ├── eval_*.csv                    # 评估详细结果
+│   └── benchmark_results.csv         # 综合对比表
+│
+└── experiments/
+    └── ...
+```
+
+---
+
+### 三、Skill 的使用逻辑
+
+1. **技能注册**  
+   所有技能通过 `SkillRegistry` 注册，每个技能包含可执行的 `execute()` 方法和描述适用条件的 `state_card`。
+
+2. **状态感知**  
+   `DataProfiler` 提取当前时间窗口的统计特征（平稳性、季节性强度、趋势强度、周期等）和多尺度窗口快照。
+
+3. **硬过滤**  
+   `SkillMatcher` 检查每个技能的 `state_card`，仅保留满足 `when_to_use` 且不触发 `when_not_to_use` 的技能。
+
+4. **软排序**  
+   对通过过滤的技能，计算其原型向量（历史成功案例的快照）与当前窗口的 DTW 相似度，按相似度排序。
+
+5. **LLM 决策**  
+   候选技能及其状态卡、局部回测误差（如果可用）被发送给 LLM，LLM 返回 JSON，指定使用单个技能或动态组合多个技能。
+
+6. **执行预测**  
+   Agent 根据 LLM 返回的指导调用对应技能的 `execute()` 方法，获取数值预测。若验证失败，回退到下一候选或兜底技能（naive/ensemble）。
+
+7. **记录与进化**  
+   预测成功后，当前窗口快照可被存入对应技能的原型库（`prototypes`），供后续相似度匹配使用。失败案例可被 `SkillGenerator` 收集，用于归纳新的状态卡草案（需人工确认后方可转为可执行代码）。
+
+---
+
+### 四、LLM 在本项目中的作用
+
+LLM（当前使用智谱 `glm-4`）在整个框架中**仅扮演决策者角色，不参与数值计算**。
+
+| 作用 | 说明 |
+|------|------|
+| **技能选择** | 接收 `DataProfiler` 提取的统计特征和候选技能的 `state_card` 文本，决策使用哪一个（或哪些）技能。 |
+| **动态组合** | 可以在返回的 JSON 中指定 `ensemble_skills` 列表，让 Agent 临时组合多个技能取均值。 |
+| **兜底预测**（仅无技能模式） | 在 `--no_skills` 纯 LLM 模式下，LLM 根据极简 Prompt 直接输出数值。 |
+| **状态卡归纳**（可选） | 在 `SkillGenerator` 中，LLM 根据失败案例特征生成新技能的状态卡草案（需人工审核）。 |
+| **局部误差参考**（增强） | 可接收候选技能在局部验证窗口上的回测误差，帮助做出更明智的选择。 |
+
+**LLM 不参与**：
+- 特征提取（纯 Python 计算）
+- 状态卡条件匹配（纯规则判断）
+- 技能执行（调用本地算法/模型）
+- 预测验证（Z-score 等统计检验）
+- 指标计算（RMSE/MAE/sMAPE/MASE）
+
+---
+
+### 五、可运行指令总结
+
+```bash
+# 分支加载（LLM 自主选择技能或动态组合，默认推荐）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4
+
+# 纯 LLM 基线（不使用技能）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4 --no_skills
+
+# 单技能消融实验
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name arima
+
+# 固定组合（所有技能均值）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode ensemble
+
+# 全部数据集 + 技能分支加载
+python run_benchmark.py --data_ratio 0.5 --model glm-4
+
+# 生成技能草案（从失败日志）
+python run_benchmark.py --generate_skills
+```
+
+---
+
+以上即为 TSSkills 项目的最终完整总结。
+
+
+还没做！！！！236236236
+您列出的建议中，**大部分已经实现**，目前还欠缺的主要是**更复杂的技能模型**、**第二/三层的自适应机制**以及**预测区间等扩展能力**。
+
+以下是实现状态对照：
+
+✅ **已实现**
+- 基础统计增强类：`AutoARIMA`、`AutoETS`、`BoxCox`、`OutlierRepair`
+- 分解重组组合技：`DecomposeEnsemble`
+- 状态门控组合：`GatedEnsemble`
+- 误差自适应组合：`ValidationWeightedEnsemble`
+- 状态卡增强、period 动态传入、局部验证误差加入 LLM 决策
+- 原型向量记录
+
+❌ **尚未实现**
+
+**1. 特定技能**
+- `SARIMAXSkill`：季节 ARIMA（含外生变量）
+- `MSTLSkill`：多季节分解（日频同时处理周、年周期）
+- `IntermittentDemandSkill`：间歇性需求预测
+- `ChangePointSkill`：结构突变检测与分段建模
+- `FeatureGBMSkill`：LightGBM/XGBoost 构造特征回归
+- `ResidualCorrectionSkill`：机器学习拟合残差
+- `NBEATS`、`NHITS`、`TransformerForecast` 等深度学习模型
+- `ConformalIntervalSkill`：预测区间输出
+
+**2. 组合技**
+- **残差修正组合**：先用 ARIMA/ETS 预测，再用 LightGBM 拟合残差，最后相加
+- **预测区间组合**：多技能输出点预测 + 残差分布，用 conformal prediction 给出区间
+
+**3. 第二/三层自适应机制**
+- **Skill Memory 自动化**：目前只记录了原型向量，尚未自动统计各技能在不同数据状态下的历史误差，并据此动态调整组合权重或优先级
+- **Skill 自动演化**：`SkillGenerator` 仅生成 JSON 草案，无法自动生成可执行 Python skill 并注册到系统中
+
+---
+
+### 建议后续优先完善的方向
+
+**短期（可快速增强实验）**
+- 实现 `SARIMAXSkill`（基于 `statsmodels` 的 SARIMAX）并加入状态卡
+- 实现 `FeatureGBMSkill` 或 `ResidualCorrectionSkill`，展示机器学习与传统方法的结合
+
+**论文展望部分**
+- 提出 Skill Memory 的完整设计：记录历史表现 → 动态调整权重 → 提升组合技能效果
+- 提出技能自动演化流程：失败案例聚类 → LLM 生成 proposal → 自动验证 → 人工审核入库
+- 提出预测区间输出和不确定性估计作为未来方向
+
+---
+
+### 修改后的 run_benchmark.py（已有）
+
+您之前已经拿到了包含新技能注册的完整 `run_benchmark.py`，可以直接使用。如果需要增加上述未实现的技能，可以后续再扩展。
+
+251251简介
+## TSSkills 最终系统总结
+
+### 一、详细判断处理流程
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      开始：滚动起源评估                            │
+│   for each test window (min_train_size 后滑动)                   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤1：多尺度特征提取 (DataProfiler)                              │
+│  - ACF 自动检测周期 period                                       │
+│  - 统计特征：ADF p值、季节性强度、趋势强度、数据长度、波动率        │
+│  - 自适应窗口栈：长(3*period)、中(1*period)、短(max(2,period/4))、  │
+│    差分(20) → 归一化 → 拼接 snapshot_vector                       │
+│  - 对极度非平稳 (ADF>0.9) 强制季节性强度归零                       │
+│  - 输出 profile                                                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤2：技能匹配 (SkillMatcher)                                    │
+│   阶段1（硬过滤）：遍历所有已注册技能                               │
+│     - skill.check_state_card(profile)                             │
+│     - 必须满足 when_to_use 且不触发 when_not_to_use                │
+│     - 未通过直接淘汰                                              │
+│   阶段2（软排序）：对通过技能                                       │
+│     - 计算当前 snapshot_vector 与技能原型向量的 DTW 相似度 (若存在)  │
+│     - 按相似度降序，取 top_k (默认3)                               │
+│   输出：候选技能列表                                               │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤3：LLM 分支决策 (_llm_branch_decision)                        │
+│  - 将 profile 和候选技能的 state_card 发送给 LLM                   │
+│  - 可选：加入候选技能在最近局部窗口的回测误差(MAE)                   │
+│  - LLM 返回 JSON 格式的指导：                                      │
+│    {                                                              │
+│      "best_skill": "arima",          ← 单个技能                   │
+│      或 "ensemble_skills": ["arima","prophet"] ← 动态组合         │
+│    }                                                              │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤4：执行预测 (Agent.predict)                                    │
+│  - 若 guidance 中有 ensemble_skills：                             │
+│     动态创建 EnsembleSkill → 执行各技能 → 返回均值                  │
+│  - 若 guidance 中有 best_skill：                                  │
+│     调用 skill.execute(history, horizon, period=period)            │
+│  - 使用 skill.verify_prediction() 验证                             │
+│  - 若验证失败，使用候选中的 fallback_skill                         │
+│  - 所有技能失败时，回退到 naive 或 ensemble(all)                    │
+│  - 最终保底：历史均值（极少触发）                                    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤5：滚动窗口前进 (步长 = horizon)                               │
+│  - 将当前测试点的真实值加入历史                                    │
+│  - 重复步骤1-4，直到测试集结束                                      │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤6：指标计算 (RollingOriginEvaluator)                           │
+│  - 计算 RMSE, MAE, sMAPE (标准公式), MASE (基于全局训练尺度)        │
+│  - 进度条显示，日志记录所有决策                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 二、目录结构及文件作用
+
+```
+futureTime/
+├── run_benchmark.py                  # 主评估入口，支持多种技能模式
+├── convert_local_data.py             # 本地数据集 CSV → Parquet 转换
+├── test_data_sources.py              # 数据源连通性测试（可选）
+│
+├── data/
+│   ├── dataset_registry.yaml         # 所有数据集（API+本地）配置
+│   ├── weather/                      # 墨尔本温度数据
+│   ├── transport/                    # 航空乘客数据
+│   ├── sales/                        # 香槟销量数据
+│   ├── finance/                      # 黄金价格数据
+│   └── nature/                       # 太阳黑子数据
+│
+├── src/
+│   ├── config.py                     # 全局配置（API Key、路径）
+│   │
+│   ├── dataset/
+│   │   ├── registry.py               # 加载 dataset_registry.yaml
+│   │   ├── loader.py                 # 加载数据（Parquet/CSV）
+│   │   └── splitter.py               # 历史/未来切分
+│   │
+│   ├── tasks/
+│   │   ├── instance.py               # TaskInstance 数据模型
+│   │   ├── generator.py              # 任务生成器（回测模式）
+│   │   └── storage.py                # 任务持久化
+│   │
+│   ├── skills/                       # ⭐ 技能系统核心
+│   │   ├── base.py                   # 技能基类（状态卡、验证、原型）
+│   │   ├── registry.py               # 技能注册表
+│   │   ├── data_profiler.py          # 多尺度特征提取、ACF周期检测、DTW
+│   │   ├── skill_matcher.py          # 顺序决策匹配器（硬过滤+软排序）
+│   │   ├── skill_generator.py        # 技能状态卡生成工具（非自动进化）
+│   │   ├── naive.py                  # 移动平均技能
+│   │   ├── seasonal_naive.py         # 季节性朴素技能
+│   │   ├── prophet_skill.py          # Prophet 技能
+│   │   ├── arima_skill.py            # ARIMA 技能
+│   │   ├── exp_smoothing.py          # 指数平滑技能
+│   │   ├── theta.py                  # Theta 技能
+│   │   ├── linear_trend.py           # 线性趋势外推技能
+│   │   ├── stl_forecast.py           # STL 分解预测技能
+│   │   ├── naive_drift.py            # 带漂移的朴素技能
+│   │   ├── ensemble.py               # 组合技能（动态/静态）
+│   │   ├── auto_arima.py             # 自动ARIMA (pmdarima)
+│   │   ├── auto_ets.py               # 自动指数平滑
+│   │   ├── decompose_ensemble.py     # STL分解重组组合技
+│   │   ├── gated_ensemble.py         # 状态门控组合技能
+│   │   ├── boxcox_transform.py       # Box-Cox变换包装技能
+│   │   ├── outlier_repair.py         # 异常检测修复技能
+│   │   ├── residual_correction.py    # 残差修正组合技能
+│   │   ├── conformal_interval.py     # 预测区间组合技能
+│   │   ├── validation_weighted_ensemble.py  # 验证加权组合技能
+│   │   ├── sarimax_skill.py          # 季节性ARIMA (SARIMA)
+│   │   ├── mstl_skill.py             # 多季节分解 (MSTL)
+│   │   ├── change_point.py           # 结构突变检测+分段建模
+│   │   └── feature_gbm.py            # LightGBM 特征构造回归
+│   │
+│   ├── agents/                       # ⭐ Agent 执行层
+│   │   ├── base.py                   # Agent 抽象基类
+│   │   └── llm_planner.py            # LLM Agent（分支加载+多级回退）
+│   │
+│   ├── evaluation/                   # ⭐ 评估模块
+│   │   ├── metrics.py                # 早期评分公式（备用）
+│   │   ├── collector.py              # 答案收集（延迟评分）
+│   │   ├── scorer.py                 # 评分器
+│   │   ├── leaderboard.py            # 排行榜
+│   │   └── rolling_origin_evaluator.py # 滚动起源评估器（进度条）
+│   │
+│   ├── data_fetcher/
+│   │   ├── base.py                   # DataSource 基类
+│   │   └── api_source.py             # 通用API数据源
+│   │
+│   └── scheduler/
+│       └── daily_runner.py           # 原有回测入口（兼容）
+│
+├── storage/                          # 运行时生成
+│   ├── logs/                         # 详细决策日志（每次运行独立文件）
+│   ├── eval_*.csv                    # 评估详细结果
+│   └── benchmark_results.csv         # 综合对比表
+│
+└── experiments/
+    └── ...
+```
+
+### 三、Skill 的使用逻辑
+
+1. **技能注册**  
+   所有技能通过 `SkillRegistry` 注册，每个技能包含可执行的 `execute()` 方法和描述适用条件的 `state_card`。
+
+2. **状态感知**  
+   `DataProfiler` 提取当前时间窗口的统计特征（平稳性、季节性强度、趋势强度、周期等）和多尺度窗口快照。
+
+3. **硬过滤**  
+   `SkillMatcher` 检查每个技能的 `state_card`，仅保留满足 `when_to_use` 且不触发 `when_not_to_use` 的技能。
+
+4. **软排序**  
+   对通过过滤的技能，计算其原型向量（历史成功案例的快照）与当前窗口的 DTW 相似度（若存在），按相似度排序。
+
+5. **LLM 决策**  
+   候选技能及其状态卡、局部回测误差（如果可用）被发送给 LLM，LLM 返回 JSON，指定使用单个技能或动态组合多个技能。
+
+6. **执行预测**  
+   Agent 根据 LLM 返回的指导调用对应技能的 `execute()` 方法，获取数值预测。若验证失败，回退到下一候选或兜底技能（naive/ensemble）。
+
+7. **记录与进化**  
+   预测成功后，当前窗口快照可被存入对应技能的原型库（`prototypes`），供后续相似度匹配使用。失败案例可被 `SkillGenerator` 收集，用于归纳新的状态卡草案（需人工确认后方可转为可执行代码）。
+
+### 四、LLM 在本项目中的作用
+
+LLM（当前使用智谱 `glm-4`）在整个框架中**仅扮演决策者角色，不参与数值计算**。
+
+| 作用 | 说明 |
+|------|------|
+| **技能选择** | 接收 `DataProfiler` 提取的统计特征和候选技能的 `state_card` 文本，决策使用哪一个（或哪些）技能。 |
+| **动态组合** | 可以在返回的 JSON 中指定 `ensemble_skills` 列表，让 Agent 临时组合多个技能取均值。 |
+| **兜底预测**（仅无技能模式） | 在 `--no_skills` 纯 LLM 模式下，LLM 根据极简 Prompt 直接输出数值。 |
+| **状态卡归纳**（可选） | 在 `SkillGenerator` 中，LLM 根据失败案例特征生成新技能的状态卡草案（需人工审核）。 |
+| **局部误差参考**（增强） | 可接收候选技能在局部验证窗口上的回测误差，帮助做出更明智的选择。 |
+
+**LLM 不参与**：
+- 特征提取（纯 Python 计算）
+- 状态卡条件匹配（纯规则判断）
+- 技能执行（调用本地算法/模型）
+- 预测验证（Z-score 等统计检验）
+- 指标计算（RMSE/MAE/sMAPE/MASE）
+
+### 五、可运行指令
+
+```bash
+# 分支加载（LLM 自主选择技能或动态组合，默认推荐）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --model glm-4
+
+# 全部数据集 + 分支加载
+python run_benchmark.py --data_ratio 0.5 --model glm-4
+
+# 纯 LLM 基线（不使用技能）
+python run_benchmark.py --data_ratio 0.5 --model glm-4 --no_skills
+
+# 单技能消融实验
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name arima
+
+# 固定组合（所有技能均值）
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode ensemble
+```
+
+现在项目已具备完善的技能系统，可直接用于实验和论文。
+
+305305根据什么判断调用skill
+判断调用哪个技能的决策链路分为四个关键步骤，完全由系统自动完成：
+
+---
+
+### 1. 状态感知：`DataProfiler` 提取特征
+
+首先，`DataProfiler.profile(history)` 会从当前时间窗口计算出一组**统计特征**，包括：
+
+- `adf_pvalue`（平稳性）
+- `seasonal_strength`（季节性强度，0~1）
+- `trend_strength`（趋势强度，0~1）
+- `data_length`（数据长度）
+- `recent_volatility`（近期波动率）
+- `period`（自动检测的周期）
+- 多尺度窗口快照（`snapshot_vector`，用于原型匹配）
+
+---
+
+### 2. 硬过滤：`SkillMatcher` 根据状态卡筛选
+
+所有已注册的技能都有一个 **`state_card`**（状态卡），里面定义了：
+
+- `when_to_use`：必须同时满足的条件（如 `seasonal_strength > 0.5` 且 `data_length ≥ 2*period`）
+- `when_not_to_use`：任一触发则排除该技能（如 `trend_strength > 0.6` 则不用）
+
+`SkillMatcher` 遍历每个技能，调用 `skill.check_state_card(profile)`，**不满足条件的直接淘汰**，只保留**硬性合格**的候选技能。
+
+---
+
+### 3. 软排序：基于原型向量（可选）
+
+对于通过硬过滤的技能，如果它们拥有**历史成功案例的原型向量**（存储在 `prototypes` 中），系统会计算当前窗口的 `snapshot_vector` 与这些原型向量的 DTW 相似度，按相似度从高到低排序。原型库越丰富，排序越有意义。
+
+---
+
+### 4. LLM 决策：最终拍板
+
+候选技能（通常 2~3 个）及其状态卡、局部回测误差（如果可用）会被**发送给 LLM（如 `glm-4`）**，LLM 返回一个 JSON，例如：
+
+```json
+{ "best_skill": "arima" }
+```
+
+或选择动态组合：
+
+```json
+{ "ensemble_skills": ["arima", "prophet"] }
+```
+
+LLM 在此**仅做决策**，不参与任何数值计算。
+
+---
+
+### 5. 执行与兜底
+
+- 若 LLM 选定了 `best_skill`，系统调用该技能的 `execute()` 进行预测。
+- 预测后会通过 `verify_prediction()`（Z-score 检查）验证合理性。若验证失败，自动回退到候选列表中的下一个技能。
+- 若所有候选技能均失败，最终回退到移动平均（`NaiveSkill`）或均值。
+
+---
+
+### 总结：决策链路
+
+```
+DataProfiler (特征提取)
+    ↓
+SkillMatcher (硬过滤 + 软排序)
+    ↓
+LLM (阅读状态卡和误差，决定 best_skill 或 ensemble)
+    ↓
+Agent 执行技能，验证，必要时回退
+```
+
+**LLM 是“选择者”，技能是“执行者”**。整个逻辑确保预测方法始终与当前数据状态相匹配。
+
+307307 何时用于不用
+技能“何时使用 / 何时不用”的逻辑通过三处协同实现：
+
+状态卡定义
+每个技能文件（如 src/skills/seasonal_naive.py）的 __init__ 里定义了 self.state_card，包含 when_to_use 和 when_not_to_use 的条件列表。
+
+状态感知
+src/skills/data_profiler.py 中的 DataProfiler.profile() 实时提取当前窗口的统计特征（ADF p值、季节性强度、趋势强度等），形成 profile。
+
+匹配决策
+src/skills/skill_matcher.py 中的 SkillMatcher.match() 调用 skill.check_state_card(profile)（该方法在 src/skills/base.py 中实现），逐一评估每个技能的 when_to_use 和 when_not_to_use，只让完全满足条件的技能通过，实现“何时用”与“何时不用”。
+
+309309多尺度与历史记录
+多尺度窗口和历史记录（原型向量）是 TSSkills 进行**精准状态感知**和**技能选择**的两大关键机制。
+
+---
+
+## 一、多尺度窗口
+
+**实现文件**：`src/skills/data_profiler.py` 中的 `DataProfiler.profile()`。
+
+### 1. 为什么需要多尺度窗口？
+
+单一长度的窗口无法全面捕捉序列特征，因此系统自动构建四个互补窗口：
+
+- **长窗口**（长度 = 3 × 周期）：捕捉长期趋势、低频季节性。
+- **中窗口**（长度 = 1 × 周期）：捕捉完整周期模式。
+- **短窗口**（长度 = max(2, 周期/4)）：捕捉近期波动和局部突变。
+- **差分窗口**（固定 20 个点的一阶差分）：捕捉变化率。
+
+### 2. 如何处理？
+
+每个窗口内的数值被归一化到 [0,1] 区间，然后拼接成一个统一的 `snapshot_vector`。这个向量既作为当前状态的“数值指纹”，也用于后续原型匹配。
+
+---
+
+## 二、历史记录（原型向量）
+
+**记录位置**：`src/evaluation/rolling_origin_evaluator.py` 中的 `_record_prototype()`。  
+**使用位置**：`src/skills/skill_matcher.py` 中的 `SkillMatcher.match()`。
+
+### 1. 怎么记录？
+
+每次预测成功后，系统会将当前窗口的 `snapshot_vector` 连同误差、日期等信息，存入该技能对象的 `prototypes` 列表。默认保留最近 50 个成功案例，旧案例自动淘汰。
+
+### 2. 怎么用？
+
+当新窗口需要匹配技能时，对于每个通过硬过滤的技能，系统计算当前 `snapshot_vector` 与该技能所有原型向量的 DTW 距离，取最近距离转换为相似度（相似度 = 1/(1+距离)）。
+
+- 原型相似度**高**：说明当前数据状态与该技能历史成功案例相似，更适合调用。
+- 原型相似度**低**：即使状态卡允许，也可能不是最佳选择。
+
+### 3. 作用
+
+原型匹配实现了“基于经验的软排序”，弥补了硬阈值状态卡的不足。它让系统能够从过去的成功/失败中学习，逐渐形成“在什么情况下用什么技能最有效”的偏好。
+
+---
+
+**简单总结**：  
+- 多尺度窗口 = 用多个“镜头”看清当前数据。  
+- 历史原型 = 记住类似情况下什么技能靠谱，下次优先选用。
+
+333333
+根据你的优化意见，我将自适应窗口推荐整合到了 **`DataProfiler`** 中（避免引入元技能），并在 **`run_benchmark.py`** 里增加了 `--auto_window` 参数。同时更新了流程图，新增可选步骤0。
+
+---
+
+## 更新后的流程图（新增步骤0）
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤0（可选）：自适应窗口推荐                                      │
+│  - 若启用 --auto_window，调用 DataProfiler.recommend_window()     │
+│  - 根据整个序列的特征自动确定 min_train_size                       │
+│  - 规则：强季节用2周期，中季节用1.5周期，趋势/高波动用较长窗口，    │
+│    平稳序列用较短窗口（含短序列保护）                              │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      开始：滚动起源评估                            │
+│   for each test window (min_train_size 后滑动)                   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 步骤1：多尺度特征提取 (DataProfiler)                              │
+│  （同原流程，略）                                                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                          （后续步骤不变）
+```
+
+---
+
+## 可替换文件
+
+### 1. `src/skills/data_profiler.py`（完整版）
+
+```python
+import numpy as np
+from statsmodels.tsa.stattools import adfuller, acf
+
+class DataProfiler:
+    @staticmethod
+    def profile(history: np.ndarray, window_sizes: list = None, auto_period: bool = True) -> dict:
+        if window_sizes is None:
+            window_sizes = [len(history)]
+        base = DataProfiler._statistical_profile(history, auto_period)
+        snapshots = {}
+        for w in window_sizes:
+            if w <= len(history):
+                seg = history[-w:]
+                seg_min, seg_max = np.min(seg), np.max(seg)
+                seg_norm = (seg - seg_min) / (seg_max - seg_min + 1e-8)
+                snapshots[f'w{w}'] = seg_norm.tolist()
+        if len(history) >= 2:
+            diff = np.diff(history[-20:])
+            d_min, d_max = np.min(diff), np.max(diff)
+            if d_max > d_min:
+                diff_norm = (diff - d_min) / (d_max - d_min)
+            else:
+                diff_norm = np.zeros_like(diff)
+            snapshots['diff20'] = diff_norm.tolist()
+        base['snapshots'] = snapshots
+        base['snapshot_vector'] = np.concatenate([np.array(v) for v in snapshots.values()]).tolist() if snapshots else []
+        return base
+
+    @staticmethod
+    def _statistical_profile(history, auto_period=True):
+        n = len(history)
+        if n < 10:
+            return {'adf_pvalue':0.5, 'seasonal_strength':0.0, 'trend_strength':0.0,
+                    'missing_rate':0.0, 'data_length':n, 'recent_volatility':0.0, 'period':7}
+        try:
+            adf_p = adfuller(history, maxlag=min(12, n//2))[1]
+        except:
+            adf_p = 0.5
+        period = DataProfiler._auto_period(history) if auto_period else 7
+        if n >= 2*period:
+            seasonal_diff = history[period:] - history[:-period]
+            seas = max(0.0, 1 - np.std(seasonal_diff) / (np.std(history)+1e-8))
+        else:
+            seas = 0.0
+        if adf_p > 0.9:
+            seas = 0.0
+        diffs = np.diff(history)
+        trend = abs(np.mean(diffs>0)-0.5)*2 if len(diffs)>0 else 0.0
+        recent_vol = np.std(history[-5:])/np.std(history) if n>=5 and np.std(history)>0 else 1.0
+        return {
+            'adf_pvalue': adf_p,
+            'seasonal_strength': seas,
+            'trend_strength': trend,
+            'missing_rate': np.mean(np.isnan(history)),
+            'data_length': n,
+            'recent_volatility': recent_vol,
+            'period': period
+        }
+
+    @staticmethod
+    def _auto_period(history):
+        n = len(history)
+        if n < 20: return 7
+        try:
+            acf_vals = acf(history, nlags=min(n//2,50))
+            peaks = [i for i in range(2,len(acf_vals)-1) if acf_vals[i] > acf_vals[i-1] and acf_vals[i] > acf_vals[i+1] and acf_vals[i]>0.2]
+            return peaks[0] if peaks else 7
+        except:
+            return 7
+
+    @staticmethod
+    def compute_dtw_distance(vec1, vec2):
+        if len(vec1)==0 or len(vec2)==0: return float('inf')
+        n1, n2 = len(vec1), len(vec2)
+        idx1 = np.linspace(0, n1-1, min(n1,n2))
+        idx2 = np.linspace(0, n2-1, min(n1,n2))
+        v1 = np.interp(idx1, np.arange(n1), vec1)
+        v2 = np.interp(idx2, np.arange(n2), vec2)
+        return np.sqrt(np.mean((v1-v2)**2))
+
+    @staticmethod
+    def recommend_window(history: np.ndarray) -> dict:
+        n = len(history)
+        if n < 10:
+            return {
+                'min_train_size': max(3, n // 2),
+                'reason': '数据极短，使用一半数据作为训练窗口',
+                'period': 7,
+                'data_length': n
+            }
+        profile = DataProfiler.profile(history)
+        period = profile.get('period', 7)
+        seasonal = profile.get('seasonal_strength', 0.0)
+        trend = profile.get('trend_strength', 0.0)
+        adf_p = profile.get('adf_pvalue', 0.5)
+
+        if seasonal > 0.5 and period > 1:
+            recommended = 2 * period
+            reason = f"强季节性(强度={seasonal:.2f})，推荐至少2个完整周期({2*period}个点)"
+        elif seasonal > 0.3 and period > 1:
+            recommended = int(1.5 * period)
+            reason = f"中等季节性(强度={seasonal:.2f})，推荐至少1.5个周期({int(1.5*period)}个点)"
+        elif trend > 0.5:
+            recommended = min(n, max(50, n // 3))
+            reason = f"强趋势(强度={trend:.2f})，推荐较长窗口({recommended}个点)以捕捉趋势"
+        elif adf_p < 0.05 and seasonal < 0.3 and trend < 0.3:
+            recommended = max(30, int(n * 0.3))
+            recommended = min(n, recommended)
+            reason = f"平稳序列(ADF p={adf_p:.4f})，较短窗口({recommended}个点)即可"
+        else:
+            recommended = min(n, max(50, n // 3))
+            reason = f"高波动或随机游走，推荐较长窗口({recommended}个点)以稳定估计"
+
+        recommended = min(recommended, n - 1)
+        recommended = max(recommended, 10)
+        return {
+            'min_train_size': recommended,
+            'reason': reason,
+            'period': period,
+            'data_length': n
+        }
+```
+
+### 2. `run_benchmark.py`（已集成 `--auto_window`，完整版）
+
+（文件内容与之前提供的最终版一致，此处省略以节省篇幅，请直接使用上次给出的完整 `run_benchmark.py`）
+
+---
+
+## 可运行指令
+
+```bash
+# 自动窗口 + 分支加载（推荐）
+python run_benchmark.py --data_ratio 0.5 --model glm-4 --auto_window
+
+# 手动指定窗口（用于对比实验）
+python run_benchmark.py --dataset melbourne_temp --min_train_size 730 --data_ratio 0.5 --model glm-4
+
+# 纯LLM基线 + 自动窗口
+python run_benchmark.py --data_ratio 0.5 --model glm-4 --no_skills --auto_window
+
+# 单技能消融 + 自动窗口
+python run_benchmark.py --dataset airline_passengers --data_ratio 0.5 --skill_mode single --skill_name auto_arima --auto_window
+
+# 查看各数据集的推荐窗口（不运行评估）
+python -c "
+from src.skills.data_profiler import DataProfiler
+from src.dataset.registry import DatasetRegistry
+from src.dataset.loader import load_dataset
+for ds in ['melbourne_temp','airline_passengers','champagne_sales','gold_price','sunspots']:
+    ds_config = DatasetRegistry().get(ds)
+    df = load_dataset(ds_config)
+    series = df[ds_config['target_column']].values
+    rec = DataProfiler.recommend_window(series)
+    print(f'{ds}: min_train_size={rec[\"min_train_size\"]}, 理由: {rec[\"reason\"]}')
+"
+```
+
+---
+
+## 总结
+
+- 自适应窗口推荐已集成到 `DataProfiler.recommend_window()`，不再使用独立技能。  
+- 通过 `--auto_window` 参数自动为每个数据集确定合理的 `min_train_size`。  
+- 推荐逻辑包含短序列保护，防止训练窗口过短。  
+- 整个评估流程在步骤0（可选）中应用推荐窗口，其余核心流程不变。
+
+602602602602
+Time Series
+      │
+      ▼
+ DataProfiler
+      │
+      ▼
+ Profile Feature Vector
+      │
+      ▼
+ SkillMatcher
+(硬过滤+DTW排序)
+      │
+      ▼
+ Top-K Candidate Skills
+      │
+      ▼
+ LLM Planner
+      │
+      ▼
+ Best Skill
+      │
+      ▼
+ Execute Forecast
+      │
+      ▼
+ Validation
+      │
+      ├── Pass → Output
+      │
+      └── Fail
+             │
+             ▼
+      Next Candidate
+             │
+             ▼
+         Naive Fallback
+
+1.可补的技能
+ETS
+Theta
+Holt-Winters
+Croston
+TBATS
+
+2.DataProfiler
+这个角度  怎么改？？思考一下 修改这个之后还需要修改改其他文件吗
+学术角度
+
+我会给：
+
+5.5/10
+
+因为：
+
+特征维度偏少
+变点检测弱
+DTW并非真正DTW
+缺少频域信息
+
+3.SkillMatcher
+潜在问题 / 改进空间
+问题	说明	可能改进
+原型匹配依赖 compute_dtw_distance	现在只是插值 RMSE，不是严格 DTW	可替换为真正 DTW，或加上 soft-DTW
+snapshot_vector 维度随 window_sizes 变化	不同序列长度或 window_sizes 会导致维度差异	固定长度向量，或者用 padding/interpolation
+所有原型 similarity 默认0	无原型技能总排后面	可以加一个 baseline similarity 或基于统计特征加权
+top_k 固定 5	对 LLM 来说可能候选不足或过多	可动态调整 top_k，例如根据 profile 中趋势/季节强度
+没有考虑技能历史表现	只有原型和状态卡，没有过去成功率信息	可增加历史成功率权重
+
+
+4,LLMPlannerAgent
+6️⃣ 潜在改进 / 注意点
+问题	说明	改进建议
+LLM 决策失败 fallback	默认使用 candidates[0]	可以增加 logging 或使用多候选投票机制
+最近10点的描述	prompt 固定10点，短序列可能不够	可以动态调整，或加入滑动窗口统计
+verify_prediction	仅对 best_skill	可以对 top_k 全部技能做预验证，提升稳定性
+min_confidence	目前未使用	可以结合 LLM 返回的信心值控制是否执行预测或回退
+period使用固定值	对非整数周期或缺失数据可能不准	可结合 auto_period 动态调整
+
+
+
+
+## 当前项目目录结构（含本次新增文件）
+
+```
+futureTime/
+├── run_benchmark.py                  # 主评估入口，支持多种技能模式
+│
+├── data/
+│   └── dataset_registry.yaml         # 数据集配置（本地文件路径、频率、目标列）
+│
+├── src/
+│   ├── config.py                     # 全局配置（API Key、路径常量）
+│   │
+│   ├── dataset/                      # 数据加载与处理
+│   │   ├── registry.py               # 加载 dataset_registry.yaml
+│   │   └── loader.py                 # 读取 Parquet/CSV 转为 DataFrame（索引为日期）
+│   │
+│   ├── tasks/                        # 任务实例
+│   │   └── instance.py               # TaskInstance 模型（Pydantic，含 frequency 字段）
+│   │
+│   ├── skills/                       # 技能库（核心）
+│   │   ├── base.py                   # 技能基类（状态卡、硬过滤、验证）
+│   │   ├── registry.py               # 技能注册表
+│   │   ├── data_profiler.py          # 数据特征提取器（统计特征、频域、DTW）
+│   │   ├── skill_matcher.py          # 技能匹配器（硬过滤 + 动态 top_k + 原型 DTW）
+│   │   ├── skill_generator.py        # 技能草案生成工具（从失败日志归纳）
+│   │   ├── naive.py                  # 简单移动平均（最后5点）
+│   │   ├── seasonal_naive.py         # 季节性朴素预测（门槛 0.15）
+│   │   ├── prophet_skill.py          # Facebook Prophet
+│   │   ├── arima_skill.py            # ARIMA(1,1,1)
+│   │   ├── auto_arima.py             # 自动 ARIMA（pmdarima）
+│   │   ├── naive_drift.py            # 带漂移朴素预测
+│   │   ├── residual_correction.py    # 残差均值修正组合
+│   │   ├── local_drift.py            # 局部斜率外推（最近5点线性回归）
+│   │   ├── ensemble.py               # 简单平均组合
+│   │   ├── ets.py                    # 指数平滑 ETS（新增）
+│   │   ├── theta.py                  # Theta 方法（新增）
+│   │   ├── holt_winters.py           # Holt-Winters 三指数平滑（新增）
+│   │   ├── croston.py                # Croston 间歇性需求预测（新增）
+│   │   └── tbats.py                  # TBATS 模型（新增）
+│   │
+│   ├── agents/                       # Agent 执行层
+│   │   └── llm_planner.py            # LLM Agent：特征→匹配→LLM决策→执行→回退
+│   │
+│   ├── evaluation/                   # 评估模块
+│   │   └── rolling_origin_evaluator.py  # 滚动起源评估器（7项指标、原型记录、进度条）
+│   │
+│   ├── data_fetcher/                 # 外部数据获取（可选）
+│   │   └── ...
+│   └── scheduler/                    # 调度模块（可选）
+│
+├── storage/                          # 运行时生成
+│   ├── logs/                         # 每次运行的详细决策日志
+│   ├── eval_*.csv                    # 评估详细预测结果
+│   └── benchmark_results.csv         # 汇总对比表
+│
+└── experiments/                      # 实验脚本（可选）
+```
+
+---
+
+## 当前执行逻辑
+
+### 1. 参数解析与技能注册
+- `run_benchmark.py` 接收命令行参数（数据集、模型、训练窗口、技能模式等）。
+- 根据技能模式构建注册表：
+  - **分支模式（branch）**：注册全部 13 个技能（新增 ETS、Theta、Holt‑Winters、Croston、TBATS）。
+  - **单技能模式（single）**：仅注册指定技能。
+  - **组合模式（ensemble）**：注册一个封装所有技能的 `EnsembleSkill`。
+  - **纯 LLM 模式（--no_skills）**：注册表为空，LLM 直接预测。
+
+### 2. 滚动起源评估
+- `RollingOriginEvaluator` 从 `min_train_size` 开始滑动窗口，每次预测下一个点（`horizon=1` 时）或未来第 N 个点（`horizon>1` 时）。
+- 每一步构建 `TaskInstance`，调用 `agent.predict(task)` 获取预测值。
+
+### 3. Agent 预测内部流程
+a. **特征提取**  
+   `DataProfiler.profile(history)` 提取丰富的统计特征：  
+   ADF、季节性强度、趋势强度、局部斜率、变点检测（CUSUM-like）、周期（月频强制12）、频域特征（主导频率、频谱熵）、多尺度窗口快照等。
+
+b. **技能匹配**  
+   `SkillMatcher` 遍历所有技能，根据 `state_card` 进行硬过滤（`when_to_use` / `when_not_to_use`），保留符合条件的技能。  
+   - 动态调整 `top_k`：根据季节性和趋势强度决定候选数量。  
+   - 原型 DTW 排序：若有成功案例原型则计算相似度，否则给无原型技能一个基础相似度。  
+   - 返回前 `top_k` 个候选。
+
+c. **LLM 决策**  
+   `LLMPlannerAgent._llm_branch_decision` 将特征报告（含滑动窗口统计、频域信息）和候选技能的状态卡发送给智谱 GLM-4，LLM 返回 JSON 指定 `best_skill`。  
+   - 当某个技能连续使用超过 3 次时，Prompt 中会增加警告，鼓励尝试其他技能。
+
+d. **技能执行**  
+   调用选定技能的 `execute(history, horizon)` 进行数值预测。
+
+e. **验证与回退**  
+   - 计算 Z‑score 检查预测是否合理（3σ 内）。  
+   - 若验证失败，使用候选列表中的下一个技能重试。  
+   - 若所有候选均失败，回退到 `naive` 或历史均值。
+
+### 4. 指标计算
+- 收集所有预测值与真实值，计算：  
+  RMSE、MAE、sMAPE、MASE、RMSSE、OWA、MdAPE（7项指标）。  
+- 打印报告并保存详细结果到 CSV。
+
+### 5. 日志记录
+- 每次决策的 `profile`、`candidates`、`guidance`、`skill_predict` / `fallback` 等信息均写入独立的日志文件，便于调试和分析。
+
+**核心设计原则**：LLM 仅负责“选择技能”，数值预测完全由本地技能算法完成；通过状态卡和分支决策实现数据驱动的自适应预测；新增频域特征和动态 top_k 增强了系统对复杂时序的感知能力。
+
+
+上面是大改之后逻辑
+之前的 大改之前的
+==================================================
+数据集: gold_price
+最小训练窗口: 96
+有效预测次数: 1237
+指标         数值
+RMSE       25.062
+MAE        19.139
+sMAPE      1.4999%
+MASE       2.1478
+RMSSE      2.1873
+OWA        2.1676
+MdAPE      1.1812%
+耗时         2228.0 秒
+==================================================
+
+src/skills/seasonal_naive.py （已提供完整示例）
+
+src/skills/naive_drift.py
+
+src/skills/local_drift.py
+
+src/skills/prophet_skill.py
+
+src/skills/arima_skill.py
+
+src/skills/auto_arima.py
+
+src/skills/ets.py
+
+src/skills/theta.py
+
+src/skills/holt_winters.py
+
+src/skills/tbats.py
+
+src/skills/croston.py
+
+src/skills/residual_correction.py
+
+src/skills/ensemble.py
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+[2026-06-28 14:18:53] [INFO] 
+[2026-06-28 14:18:53] [INFO] [PID:35844] 🔹 窗口 276/24 (origin=2750, size=600)
+[2026-06-28 14:18:53] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 14:18:53] [INFO]    📋 可用技能数: 28
+[2026-06-28 14:18:53] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 14:18:53] [INFO]    📋 可用技能: 28 个
+[2026-06-28 14:18:53] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 276)
+[2026-06-28 14:18:53] [INFO]   📌 模型: glm-4
+[2026-06-28 14:18:53] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 14:18:53] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 14:18:53] [INFO]   📏 Prompt长度: 2176 字符
+[2026-06-28 14:18:53] [INFO]   📤 尝试 1/2...
+[2026-06-28 14:18:53] [INFO]   📌 模型: glm-4
+[2026-06-28 14:18:53] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 14:18:55] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 14:18:55] [INFO]   📏 Prompt长度: 2176 字符
+[2026-06-28 14:18:55] [INFO]   📤 尝试 1/2...
+[2026-06-28 14:19:08] [INFO]   📥 响应完成 (耗时 12.6s)
+[2026-06-28 14:19:08] [INFO]   📊 Token: prompt=1017, completion=477, total=1494
+[2026-06-28 14:19:08] [INFO]   📥 响应完成 (耗时 12.6s)
+[2026-06-28 14:19:08] [INFO]   📊 Token: prompt=1017, completion=477, total=1494
+[2026-06-28 14:19:08] [INFO]    🔍 策略 1 阶段 2 发现无效技能: ['progressive_adaptive_combiner(黑名单)']
+[2026-06-28 14:19:08] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 14:19:08] [INFO]       策略 1: Adaptive Multi-Stage Ensemble → 3步{prophet:0.45, holt_winters:0.35, local_drift:0.2} → 4步{ets:0.625, naive_drift:0.375} → 5步{multi_seasonal_naive:0.4, seasonal_forecaster:0.35, adaptive_weighted_ensemble:0.25}
+[2026-06-28 14:19:08] [INFO]       策略 2: Resolution-Based Progressive Strategy → 2步{theta:0.5, naive:0.3, residual_correction:0.2} → 5步{stl_decompose:0.4, fourier:0.35, calendar:0.25} → 3步{incremental_gbm:0.55, adaptive_weighted_ensemble:0.3, chunk_ensemble:0.15} → 2步{multi_resolution:0.6, tbats:0.4}
+[2026-06-28 14:19:08] [INFO]        开始评估策略 1...
+[2026-06-28 14:19:20] [INFO]        策略 1 预测耗时: 12.18s
+[2026-06-28 14:19:20] [INFO]        策略 1: MASE=1.407331
+[2026-06-28 14:19:20] [INFO]        开始评估策略 2...
+[2026-06-28 14:22:28] [INFO]        策略 2 预测耗时: 187.49s
+[2026-06-28 14:22:28] [INFO]        策略 2: MASE=1.179746
+[2026-06-28 14:22:28] [INFO]    🏆 窗口 276 最优策略: Resolution-Based Progressive Strategy, MASE=1.179746
+[2026-06-28 14:22:28] [INFO]    📌 困难窗口 276 (MASE=1.1797 > 1.0)

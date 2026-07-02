@@ -1,0 +1,25 @@
+[2026-06-28 03:04:49] [INFO] 
+[2026-06-28 03:04:49] [INFO] [PID:32944] 🔹 窗口 194/22 (origin=1930, size=600)
+[2026-06-28 03:04:49] [INFO]    📋 黑名单已启用，过滤技能: progressive_adaptive_combiner
+[2026-06-28 03:04:49] [INFO]    📋 可用技能数: 28
+[2026-06-28 03:04:49] [INFO]       示例: ['naive', 'seasonal_naive', 'prophet', 'auto_arima', 'naive_drift']
+[2026-06-28 03:04:49] [INFO]    📋 可用技能: 28 个
+[2026-06-28 03:04:49] [INFO]    ⏳ 正在向 LLM 发送请求... (窗口 194)
+[2026-06-28 03:04:49] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:49] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:49] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:49] [INFO]   📏 Prompt长度: 2147 字符
+[2026-06-28 03:04:49] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:04:49] [INFO]   📌 模型: glm-4
+[2026-06-28 03:04:49] [INFO]   💰 额度信息: 基础模型（可能已用完）
+[2026-06-28 03:04:51] [INFO]   📤 请求模型: glm-4 (API: glm-4)
+[2026-06-28 03:04:51] [INFO]   📏 Prompt长度: 2147 字符
+[2026-06-28 03:04:52] [INFO]   📤 尝试 1/2...
+[2026-06-28 03:05:02] [INFO]   📥 响应完成 (耗时 10.2s)
+[2026-06-28 03:05:02] [INFO]   📊 Token: prompt=1003, completion=446, total=1449
+[2026-06-28 03:05:02] [INFO]   📥 响应完成 (耗时 10.4s)
+[2026-06-28 03:05:02] [INFO]   📊 Token: prompt=1003, completion=446, total=1449
+[2026-06-28 03:05:02] [INFO]    📋 候选策略 (2 个):
+[2026-06-28 03:05:02] [INFO]       策略 1: Adaptive Trend-Seasonal Strategy → 3步{naive:0.45, local_drift:0.35, residual_correction:0.2} → 4步{holt_winters:0.5, ets:0.3, residual_correction_advanced:0.2} → 5步{prophet:0.4, multi_resolution:0.35, adaptive_weighted_ensemble:0.25}
+[2026-06-28 03:05:02] [INFO]       策略 2: Multi-Resolution Ensemble Strategy → 2步{naive_drift:0.6, local_drift:0.4} → 5步{theta:0.3, holt_winters:0.3, multi_resolution:0.4} → 3步{prophet:0.5, adaptive_weighted_ensemble:0.3, residual_correction:0.2} → 2步{multi_resolution:0.7, incremental_gbm:0.3}
+[2026-06-28 03:05:02] [INFO]        开始评估策略 1...

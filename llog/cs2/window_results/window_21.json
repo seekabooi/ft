@@ -1,0 +1,57 @@
+{
+  "window_id": 21,
+  "origin": 200,
+  "window_size": 600,
+  "window_data_path": "storage/autotune_results/window_data\\melbourne_temp_window_21.pkl",
+  "best_strategy": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "residual_correction_advanced": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.3,
+          "local_drift": 0.2,
+          "residual_correction": 0.1
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "auto_arima": 0.3,
+          "adaptive_weighted_ensemble": 0.25,
+          "theta": 0.1
+        }
+      }
+    ],
+    "description": "Dynamic strategy with initial short-term focus on naive methods, transitioning to exponential smoothing and drift, then to advanced models with ensemble weighting."
+  },
+  "best_mase": 0.584145,
+  "features": {
+    "trend_strength": 0.120701,
+    "seasonal_strength": 0.128992,
+    "adf_pvalue": 0.356025,
+    "data_length": 600.0,
+    "skewness": 0.17616,
+    "cv": 0.402521,
+    "local_slope_30": 0.126207,
+    "local_std_ratio_30": 0.648563,
+    "local_change_rate_30": -0.08805,
+    "local_mean_ratio_30": 1.549051,
+    "local_slope_120": 0.051058,
+    "local_std_ratio_120": 0.692818,
+    "local_change_rate_120": 0.611111,
+    "local_mean_ratio_120": 1.300939
+  },
+  "is_trouble": false,
+  "saved_at": "2026-06-26 13:58:30"
+}

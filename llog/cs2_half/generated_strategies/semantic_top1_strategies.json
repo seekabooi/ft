@@ -1,0 +1,1568 @@
+{
+  "2": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "theta": 0.45,
+          "seasonal_naive": 0.3,
+          "local_drift": 0.25
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "ets": 0.35,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "auto_arima": 0.5,
+          "multi_seasonal_naive": 0.3,
+          "bias_corrector": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "adaptive_weighted_ensemble": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal, and adaptive methods for 12-step prediction"
+  },
+  "1": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_extractor": 0.35,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.3,
+          "ets": 0.2,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "croston": 0.35,
+          "fft_filter": 0.3,
+          "adaptive_weighted_ensemble": 0.35
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "auto_arima": 0.5,
+          "residual_correction_advanced": 0.5
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal extraction, and adaptive ensemble methods for 12-step prediction"
+  },
+  "3": {
+    "name": "自适应多阶段融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "seasonal_extractor": 0.25,
+          "bias_corrector": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.3,
+          "fft_filter": 0.15
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性特征的动态阶段划分策略，前期依赖局部漂移修正，中期强化季节性建模，后期采用多分辨率融合提升长期预测稳定性"
+  },
+  "4": {
+    "name": "Adaptive Decomposition Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_extractor": 0.35,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.3,
+          "residual_correction": 0.2,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "croston": 0.5,
+          "fft_filter": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "auto_arima": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal extraction, and adaptive ensemble methods for short-term forecasting"
+  },
+  "5": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_extractor": 0.35,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.3,
+          "holt_winters": 0.2,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "auto_arima": 0.5,
+          "residual_correction_advanced": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "croston": 0.6,
+          "fft_filter": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal, and trend methods with adaptive weighting"
+  },
+  "6": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_extractor": 0.35,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.3,
+          "residual_correction": 0.2,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "auto_arima": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal, and trend methods with adaptive weighting"
+  },
+  "7": {
+    "name": "自适应多阶段集成策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "ets": 0.4,
+          "holt_winters": 0.3,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      }
+    ],
+    "description": "基于弱趋势和弱季节性特征，采用渐进式方法组合，初期依赖局部漂移模型，中期引入季节性处理，后期通过集成和残差修正提升精度"
+  },
+  "8": {
+    "name": "自适应多阶段集成策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "incremental_gbm": 0.25,
+          "multi_seasonal_naive": 0.15
+        }
+      }
+    ],
+    "description": "基于弱趋势和中等季节性特征，采用三阶段动态划分：初期使用局部漂移方法捕捉短期变化，中期结合STL分解和季节性预测器处理周期性模式，后期通过残差校正和集成方法提升长期预测稳定性"
+  },
+  "9": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "seasonal_naive": 0.25,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.3,
+          "residual_correction": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining trend and seasonal components with adaptive weighting"
+  },
+  "10": {
+    "name": "自适应多阶段集成策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性特征，分三阶段逐步集成高级预测方法，适应数据动态变化"
+  },
+  "11": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term prediction"
+  },
+  "12": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting"
+  },
+  "13": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting"
+  },
+  "14": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting."
+  },
+  "15": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.5,
+          "ets": 0.3,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.4,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.25
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining trend and seasonal components with adaptive weighting for short, medium, and long-term forecasts."
+  },
+  "16": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting."
+  },
+  "17": {
+    "name": "自适应多阶段集成策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "incremental_gbm": 0.4
+        }
+      }
+    ],
+    "description": "基于弱趋势和弱季节性特征，采用多阶段自适应集成策略，初期以局部漂移和theta方法为主，中期结合STL分解和季节性预测，后期通过残差校正和梯度提升优化预测精度"
+  },
+  "18": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "local_drift": 0.35,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.3,
+          "holt_winters": 0.25,
+          "seasonal_extractor": 0.2,
+          "calendar": 0.15,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "fourier": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "incremental_gbm": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining short-term stability with seasonal adaptation, featuring progressive method specialization"
+  },
+  "19": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "local_drift": 0.35,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.3,
+          "holt_winters": 0.25,
+          "seasonal_extractor": 0.2,
+          "calendar": 0.15,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "fourier": 0.25,
+          "adaptive_weighted_ensemble": 0.35
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "incremental_gbm": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining multiple methods to capture seasonal patterns and trend stability, with increasing complexity in later stages."
+  },
+  "20": {
+    "name": "自适应多阶段融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "seasonal_extractor": 0.25,
+          "bias_corrector": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.3,
+          "fft_filter": 0.15
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性特征的动态阶段划分策略，前期侧重局部漂移修正，中期强化季节性建模，后期采用多分辨率融合提升预测精度"
+  },
+  "21": {
+    "name": "自适应多阶段融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "seasonal_extractor": 0.25,
+          "bias_corrector": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.3,
+          "fft_filter": 0.15
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性动态调整的三阶段策略，前期侧重局部漂移修正，中期强化季节性建模，后期采用多分辨率融合提升长期预测稳定性"
+  },
+  "22": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting"
+  },
+  "23": {
+    "name": "自适应周期分解与残差修正策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "residual_correction": 0.35,
+          "naive_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.1
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.35,
+          "fourier": 0.1
+        }
+      }
+    ],
+    "description": "基于弱周期性（period=5）和局部波动特征，采用三阶段动态权重分配：初期侧重周期提取与残差修正，中期强化季节性预测，后期结合多分辨率分析提升长期预测稳定性"
+  },
+  "24": {
+    "name": "自适应周期分解与残差修正策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "stl_decompose": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.15
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势的动态阶段划分，前期侧重季节性提取，中期强化季节性预测，后期结合多分辨率分析提升长期预测稳定性"
+  },
+  "25": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "auto_arima": 0.4,
+          "prophet": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "chunk_ensemble": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "multi_resolution": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal methods with adaptive ensembles for multi-step forecasting"
+  },
+  "26": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "ets": 0.3,
+          "holt_winters": 0.4,
+          "theta": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining simple baselines, exponential smoothing, and an adaptive ensemble to handle moderate trend and seasonality with varying local stability."
+  },
+  "27": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "seasonal_naive": 0.35,
+          "local_drift": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "ets": 0.3,
+          "holt_winters": 0.4,
+          "theta": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining short-term baselines, mid-term exponential smoothing, and late-stage adaptive ensemble for balanced performance"
+  },
+  "28": {
+    "name": "自适应多阶段集成策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "incremental_gbm": 0.25,
+          "multi_seasonal_naive": 0.15
+        }
+      }
+    ],
+    "description": "基于弱趋势和中等季节性特征，采用三阶段动态划分：初期使用局部漂移方法捕捉短期变化，中期结合STL分解和季节性预测器处理周期模式，后期通过残差校正和集成方法提升长期预测稳定性"
+  },
+  "29": {
+    "name": "自适应季节性分解策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "local_drift": 0.35,
+          "naive_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.5,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "incremental_gbm": 0.25,
+          "theta": 0.15
+        }
+      }
+    ],
+    "description": "基于中等季节性强度和局部负斜率特征，采用三阶段动态预测：初期结合季节性基准和局部趋势，中期通过STL分解增强季节性捕捉，后期利用残差校正和集成方法提升长期预测稳定性"
+  },
+  "30": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.45,
+          "holt_winters": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining exponential smoothing, Prophet, and adaptive ensemble for multi-stage forecasting"
+  },
+  "31": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "auto_arima": 0.4,
+          "prophet": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "chunk_ensemble": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "multi_resolution": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal methods with ensemble techniques for multi-step forecasting"
+  },
+  "32": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.35,
+          "local_drift": 0.45,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.35,
+          "ets": 0.25
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.5,
+          "multi_resolution": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting"
+  },
+  "33": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "ets": 0.3,
+          "holt_winters": 0.4,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "stl_decompose": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "residual_correction_advanced": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining drift-based methods for short-term, seasonal models for mid-term, and decomposition-based approaches for long-term forecasting"
+  },
+  "34": {
+    "name": "Adaptive Multi-Stage Forecasting",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting."
+  },
+  "35": {
+    "name": "自适应周期分解与残差修正策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "stl_decompose": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.15
+        }
+      }
+    ],
+    "description": "基于弱周期性(0.157)和局部波动性(0.424 CV)设计的三阶段策略，初期捕捉季节性，中期强化趋势，后期多分辨率融合"
+  },
+  "36": {
+    "name": "自适应周期分解与残差修正策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "stl_decompose": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.15
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部波动性的动态阶段划分策略，前期捕捉季节性，中期结合趋势与残差，后期采用多分辨率方法提升预测精度"
+  },
+  "37": {
+    "name": "自适应周期分解与局部趋势融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "adaptive_weighted_ensemble": 0.25,
+          "fft_filter": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "trend_forecaster": 0.3,
+          "seasonal_forecaster": 0.15
+        }
+      }
+    ],
+    "description": "基于弱周期性（period=9）和中等趋势强度（0.125）设计，初期捕捉局部特征，中期强化季节性，后期多分辨率融合"
+  },
+  "38": {
+    "name": "自适应周期分解与残差修正策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "residual_correction": 0.35,
+          "naive": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "stl_decompose": 0.25,
+          "adaptive_weighted_ensemble": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.15
+        }
+      }
+    ],
+    "description": "基于周期性特征和局部趋势的动态阶段划分，前期侧重季节性提取，中期强化季节性预测，后期结合多分辨率分析提升长期预测稳定性"
+  },
+  "39": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_extractor": 0.35,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.3,
+          "ets": 0.2,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.5,
+          "residual_correction": 0.3,
+          "adaptive_weighted_ensemble": 0.2
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "auto_arima": 0.6,
+          "residual_correction_advanced": 0.4
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal modeling, and adaptive ensembles for moderate trend and seasonal patterns"
+  },
+  "40": {
+    "name": "自适应周期分解与残差修正策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_extractor": 0.45,
+          "residual_correction": 0.35,
+          "naive_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "residual_correction_advanced": 0.3,
+          "local_drift": 0.1
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.35,
+          "fourier": 0.1
+        }
+      }
+    ],
+    "description": "基于季节性强度和局部波动性的动态阶段划分，前期侧重季节性提取与残差修正，中期强化季节性预测与局部趋势，后期采用多分辨率集成提升长期预测稳定性"
+  },
+  "41": {
+    "name": "Adaptive Multi-Stage Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "stl_decompose": 0.45,
+          "seasonal_extractor": 0.35,
+          "trend_forecaster": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "theta": 0.4,
+          "multi_seasonal_naive": 0.3,
+          "ets": 0.2,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "croston": 0.35,
+          "fft_filter": 0.3,
+          "adaptive_weighted_ensemble": 0.25,
+          "residual_correction": 0.1
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "auto_arima": 0.5,
+          "residual_correction_advanced": 0.5
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining decomposition, seasonal extraction, and adaptive ensembles for multi-step forecasting"
+  },
+  "42": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining exponential smoothing, Prophet, and adaptive ensemble for seasonal data with moderate trend"
+  },
+  "43": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "holt_winters": 0.45,
+          "ets": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining exponential smoothing, Prophet, and adaptive ensemble for seasonal data with moderate trend"
+  },
+  "44": {
+    "name": "自适应多阶段集成策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "theta": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "stl_decompose": 0.4,
+          "seasonal_forecaster": 0.3,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "residual_correction_advanced": 0.6,
+          "incremental_gbm": 0.25,
+          "multi_seasonal_naive": 0.15
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性特征，分三阶段处理：短期依赖局部漂移，中期结合季节分解，长期采用残差校正和集成方法"
+  },
+  "45": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "ets": 0.45,
+          "holt_winters": 0.35,
+          "local_drift": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "prophet": 0.4,
+          "theta": 0.3,
+          "seasonal_forecaster": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "adaptive_weighted_ensemble": 1.0
+        }
+      }
+    ],
+    "description": "A dynamic strategy combining exponential smoothing, Prophet, and adaptive ensemble methods to handle varying trend and seasonal patterns."
+  },
+  "47": {
+    "name": "Adaptive Multi-Stage Forecasting Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.4,
+          "seasonal_naive": 0.3,
+          "ets": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "prophet": 0.35,
+          "multi_resolution": 0.35,
+          "adaptive_weighted_ensemble": 0.3
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining simple methods for short-term, seasonal methods for mid-term, and advanced ensemble for long-term forecasting."
+  },
+  "46": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "seasonal_naive": 0.45,
+          "holt_winters": 0.35,
+          "ets": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "auto_arima": 0.4,
+          "prophet": 0.3,
+          "residual_correction": 0.3
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "chunk_ensemble": 0.5,
+          "adaptive_weighted_ensemble": 0.3,
+          "multi_resolution": 0.2
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining seasonal methods with adaptive ensembles for multi-step forecasting"
+  },
+  "48": {
+    "name": "Adaptive Seasonal-Trend Strategy",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive": 0.25,
+          "local_drift": 0.35,
+          "residual_correction": 0.4
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "multi_seasonal_naive": 0.3,
+          "holt_winters": 0.25,
+          "seasonal_extractor": 0.2,
+          "calendar": 0.15,
+          "bias_corrector": 0.1
+        }
+      },
+      {
+        "steps": 3,
+        "weights": {
+          "prophet": 0.4,
+          "fourier": 0.25,
+          "adaptive_weighted_ensemble": 0.35
+        }
+      },
+      {
+        "steps": 2,
+        "weights": {
+          "incremental_gbm": 1.0
+        }
+      }
+    ],
+    "description": "Dynamic strategy combining multiple methods to capture weak seasonal patterns and moderate trend, with increasing complexity in later stages."
+  },
+  "49": {
+    "name": "自适应多阶段融合策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "seasonal_extractor": 0.25,
+          "bias_corrector": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.3,
+          "residual_correction_advanced": 0.15
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性特征的动态阶段划分策略，前期依赖局部漂移修正，中期强化季节性建模，后期通过多分辨率融合提升预测精度"
+  },
+  "50": {
+    "name": "自适应多阶段集成预测策略",
+    "stages": [
+      {
+        "steps": 3,
+        "weights": {
+          "naive_drift": 0.45,
+          "local_drift": 0.35,
+          "residual_correction": 0.2
+        }
+      },
+      {
+        "steps": 4,
+        "weights": {
+          "holt_winters": 0.6,
+          "seasonal_extractor": 0.25,
+          "bias_corrector": 0.15
+        }
+      },
+      {
+        "steps": 5,
+        "weights": {
+          "multi_resolution": 0.55,
+          "adaptive_weighted_ensemble": 0.3,
+          "fft_filter": 0.15
+        }
+      }
+    ],
+    "description": "基于局部趋势和季节性特征的动态阶段划分策略，前期侧重局部漂移修正，中期强化季节性建模，后期采用多分辨率集成提升预测精度"
+  }
+}
